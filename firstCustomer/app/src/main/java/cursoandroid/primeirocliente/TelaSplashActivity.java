@@ -23,8 +23,8 @@ public class TelaSplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent trocaDetela = new Intent(TelaSplashActivity.this, MainActivity.class);
-                startActivity(trocaDetela);
+                Intent trocarDeTela = new Intent(TelaSplashActivity.this, MainActivity.class);
+                startActivity(trocarDeTela);
                 finish();
             }
         }, microseconds);

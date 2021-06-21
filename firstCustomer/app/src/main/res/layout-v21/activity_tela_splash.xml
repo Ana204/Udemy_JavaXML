@@ -28,31 +28,26 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
+        android:elevation="2dp"
         android:text="Cliente Empreendedor"
-        android:shadowColor="@color/black"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="3"
         android:textColor="#03A3A2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageLogo"
-        app:layout_constraintVertical_bias="0.307"
+        app:layout_constraintTop_toTopOf="@+id/imageLogo"
+        app:layout_constraintVertical_bias="0.592"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/txtVersion"
+        android:text="Versão 1.0"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Versão 1.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtFrase"
+        app:layout_constraintTop_toTopOf="@+id/txtFrase"
         app:layout_constraintVertical_bias="0.833"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

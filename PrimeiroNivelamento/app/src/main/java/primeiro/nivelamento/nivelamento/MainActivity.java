@@ -15,6 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
         cliente = new Cliente("Ana Lucia", "ana@hotmail.com", "99999999", 20, true);
 
-        System.out.println(cliente);
+        System.out.println("NOME: " + cliente.getNome() + " email: " + cliente.getEmail());
     }
 }

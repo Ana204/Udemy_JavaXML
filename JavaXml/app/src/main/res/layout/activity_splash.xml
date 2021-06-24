@@ -35,6 +35,5 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="180dp"
-        android:text="@string/version"
         android:textColor="@color/black" />
 </LinearLayout>

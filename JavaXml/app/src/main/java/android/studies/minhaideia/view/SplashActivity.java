@@ -6,18 +6,29 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.studies.minhaideia.R;
+import android.studies.minhaideia.controller.ClienteController;
+import android.studies.minhaideia.core.AppUtil;
 import android.studies.minhaideia.model.Cliente;
+import android.widget.TextView;
 
 public class SplashActivity extends AppCompatActivity {
 
     int microseconds = 5000;
 
     Cliente client;
+    ClienteController clienteController;
+    TextView txtAppVersion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        //pegando o id do textViw para exibir a versão do APP
+        txtAppVersion = findViewById(R.id.txtVersionApp);
+        txtAppVersion.setText(AppUtil.versaoDoAplicativo());
+
+        clienteController = new ClienteController();
 
         //method call to switch screens
         changeScreen();

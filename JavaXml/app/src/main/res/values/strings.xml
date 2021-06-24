@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MinhaIdeia</string>
+    <string name="frase">Aqui vai uma frase qualquer</string>
+    <string name="version">Versão 1.0</string>
+</resources>

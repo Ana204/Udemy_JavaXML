@@ -10,6 +10,12 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String PREF_NOME = "App_sharedPref";
     SharedPreferences sharedPreferences;
+    SharedPreferences.Editor dados;
+
+    String nomeProduto;
+    int codigoProduto;
+    float precoProduto;
+    boolean estoque;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +26,21 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(PREF_NOME, Context.MODE_PRIVATE);
 
-        System.out.println("Pasta Criada !!");
+        dados = sharedPreferences.edit();
+        nomeProduto = "Notebook";
+        codigoProduto = 8787654;
+        precoProduto = 997.97f;
+        estoque = true;
+
+        dados.putString("nomeProduto", nomeProduto);
+        dados.putInt("codigoProduto", codigoProduto);
+        dados.putFloat("precoProduto", precoProduto);
+        dados.putBoolean("estoqueProduto", estoque);
+
+        System.out.println("Dados para serem salvos: " + nomeProduto + "-" + codigoProduto + "-" + precoProduto + "-" + estoque);
+
+
+
 
     }
 }

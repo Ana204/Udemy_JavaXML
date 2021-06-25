@@ -37,7 +37,24 @@ public class MainActivity extends AppCompatActivity {
         dados.putFloat("precoProduto", precoProduto);
         dados.putBoolean("estoqueProduto", estoque);
 
+        //criando os dados
+        dados.apply();
+
+        //para limpar os dados
+        //dados.clear();
+        //dados.apply();
+
+        //deletar os dados
+        //dados.remove("estoqueProduto");
+        //dados.apply();
+
+
         System.out.println("Dados para serem salvos: " + nomeProduto + "-" + codigoProduto + "-" + precoProduto + "-" + estoque);
+
+        System.out.println("Pegando os dados: " + sharedPreferences.getString("nomeProduto", "Fora de estoque")
+        + sharedPreferences.getInt("codigoProduto", -1)
+        + sharedPreferences.getFloat("precoProduto", -1.0f)
+        + sharedPreferences.getBoolean("estoqueProduto", false));
 
 
 

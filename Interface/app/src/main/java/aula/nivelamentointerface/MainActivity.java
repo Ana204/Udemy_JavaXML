@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         //cliente.deletar();
         //cliente.listar();
 
-
+ 
         produto.setNome("Notbook");
         produto.setFornecedor("ACER");
         produto.setCodigoProduto("89897766");

@@ -1,0 +1,2 @@
+rootProject.name = "nivelamentointerface"
+include ':app'

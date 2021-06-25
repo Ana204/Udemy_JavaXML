@@ -32,21 +32,24 @@ public class Cliente implements ICrud{
 
     @Override
     public void incluir() {
-        
+        System.out.println("Cliente Salvo com sucesso !!");
     }
 
     @Override
     public void alterar() {
 
+        System.out.println("Cliente alterado com sucesso !!");
     }
 
     @Override
     public void deletar() {
 
+        System.out.println("Cliente deletado com sucesso !!");
     }
 
     @Override
     public void listar() {
 
+        System.out.println("Lista de clientes: ");
     }
 }

@@ -32,21 +32,21 @@ public class Produto implements ICrud {
 
     @Override
     public void incluir() {
-
+        System.out.println("Produto criado com sucesso !!" + getNome() + " - " + getFornecedor() + " - " + getCodigoProduto());
     }
 
     @Override
     public void alterar() {
-
+        System.out.println("Produto alterado com sucesso !!");
     }
 
     @Override
     public void deletar() {
-
+        System.out.println("Produto deletado com sucesso !!");
     }
 
     @Override
     public void listar() {
-
+        System.out.println("Lista de produtos: ");
     }
 }

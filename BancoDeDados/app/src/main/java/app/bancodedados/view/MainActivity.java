@@ -1,8 +1,10 @@
-package app.bancodedados;
+package app.bancodedados.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import app.bancodedados.R;
 
 public class MainActivity extends AppCompatActivity {
 

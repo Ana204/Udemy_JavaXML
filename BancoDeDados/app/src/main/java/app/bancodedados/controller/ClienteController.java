@@ -31,6 +31,12 @@ public class ClienteController extends DataBase implements ICrud<Cliente> {
     @Override
     public void alterar(Cliente obj) {
 
+        dadoObjeto = new ContentValues();
+
+        dadoObjeto.put(ClienteDataModel.ID, obj.getId());
+        dadoObjeto.put(ClienteDataModel.NOME, obj.getNome());
+        dadoObjeto.put(ClienteDataModel.EMAIL, obj.getEmail());
+        dadoObjeto.put(ClienteDataModel.SENHA, obj.getSenha());
     }
 
     @Override

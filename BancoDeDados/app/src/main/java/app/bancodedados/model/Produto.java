@@ -2,7 +2,7 @@ package app.bancodedados.model;
 
 import app.bancodedados.controller.ICrud;
 
-public class Produto implements ICrud {
+public class Produto {
 
     private String nome;
     private String codigoProduto;
@@ -32,23 +32,6 @@ public class Produto implements ICrud {
         this.fornecedor = fornecedor;
     }
 
-    @Override
-    public void incluir() {
-        System.out.println("Produto criado com sucesso !!" + getNome() + " - " + getFornecedor() + " - " + getCodigoProduto());
-    }
 
-    @Override
-    public void alterar() {
-        System.out.println("Produto alterado com sucesso !!");
-    }
 
-    @Override
-    public void deletar() {
-        System.out.println("Produto deletado com sucesso !!");
-    }
-
-    @Override
-    public void listar() {
-        System.out.println("Lista de produtos: ");
-    }
 }

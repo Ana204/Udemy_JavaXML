@@ -1,12 +1,12 @@
 package app.bancodedados.controller;
 
-public interface ICrud {
+public interface ICrud<T> {
 
-    public void incluir();
+    public void incluir(T obj);
 
-    public void alterar();
+    public void alterar(T obj);
 
-    public void deletar();
+    public void deletar(T obj);
 
-    public void listar();
+    public void listar(T obj);
 }

@@ -2,7 +2,7 @@ package app.bancodedados.model;
 
 import app.bancodedados.controller.ICrud;
 
-public class Cliente implements ICrud {
+public class Cliente {
 
     private int id;
     private String nome;
@@ -41,29 +41,6 @@ public class Cliente implements ICrud {
         this.senha = senha;
     }
 
-
-    @Override
-    public void incluir() {
-        System.out.println("Cliente Salvo com sucesso !!");
-    }
-
-    @Override
-    public void alterar() {
-
-        System.out.println("Cliente alterado com sucesso !!");
-    }
-
-    @Override
-    public void deletar() {
-
-        System.out.println("Cliente deletado com sucesso !!");
-    }
-
-    @Override
-    public void listar() {
-
-        System.out.println("Lista de clientes: ");
-    }
 
 
 }

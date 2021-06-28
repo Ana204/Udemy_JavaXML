@@ -42,6 +42,10 @@ public class ClienteController extends DataBase implements ICrud<Cliente> {
     @Override
     public void deletar(Cliente obj) {
 
+        dadoObjeto = new ContentValues();
+
+        dadoObjeto.put(ClienteDataModel.ID, obj.getId());
+
     }
 
     @Override

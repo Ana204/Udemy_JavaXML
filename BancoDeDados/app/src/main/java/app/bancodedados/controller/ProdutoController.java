@@ -1,25 +1,32 @@
 package app.bancodedados.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import app.bancodedados.model.Produto;
 
 public class ProdutoController  implements ICrud<Produto>  {
     @Override
-    public void incluir(Produto obj) {
+    public boolean incluir(Produto obj) {
 
+        return true;
     }
 
     @Override
-    public void alterar(Produto obj) {
-
+    public boolean alterar(Produto obj) {
+        return true;
     }
 
     @Override
-    public void deletar(Produto obj) {
-
+    public boolean deletar(Produto obj) {
+        return true;
     }
 
     @Override
-    public void listar(Produto obj) {
+    public List<Produto> listar() {
 
+        List<Produto> listar = new ArrayList<>();
+
+        return listar;
     }
 }

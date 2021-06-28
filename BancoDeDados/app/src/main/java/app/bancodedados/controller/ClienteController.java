@@ -3,6 +3,9 @@ package app.bancodedados.controller;
 import android.content.ContentValues;
 import android.content.Context;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import app.bancodedados.datamodel.ClienteDataModel;
 import app.bancodedados.datasource.DataBase;
 import app.bancodedados.model.Cliente;
@@ -18,7 +21,7 @@ public class ClienteController extends DataBase implements ICrud<Cliente> {
     }
 
     @Override
-    public void incluir(Cliente obj) {
+    public boolean incluir(Cliente obj) {
 
         dadoObjeto = new ContentValues();
 
@@ -26,10 +29,12 @@ public class ClienteController extends DataBase implements ICrud<Cliente> {
         dadoObjeto.put(ClienteDataModel.EMAIL, obj.getEmail());
         dadoObjeto.put(ClienteDataModel.SENHA, obj.getSenha());
 
+        return true;
+
     }
 
     @Override
-    public void alterar(Cliente obj) {
+    public boolean alterar(Cliente obj) {
 
         dadoObjeto = new ContentValues();
 
@@ -37,19 +42,25 @@ public class ClienteController extends DataBase implements ICrud<Cliente> {
         dadoObjeto.put(ClienteDataModel.NOME, obj.getNome());
         dadoObjeto.put(ClienteDataModel.EMAIL, obj.getEmail());
         dadoObjeto.put(ClienteDataModel.SENHA, obj.getSenha());
+
+        return true;
     }
 
     @Override
-    public void deletar(Cliente obj) {
+    public boolean deletar(Cliente obj) {
 
         dadoObjeto = new ContentValues();
 
         dadoObjeto.put(ClienteDataModel.ID, obj.getId());
 
+        return true;
     }
 
     @Override
-    public void listar(Cliente obj) {
+    public List<Cliente> listar() {
 
+        List<Cliente> lista = new ArrayList<>();
+
+        return lista;
     }
 }

@@ -1,12 +1,21 @@
 package app.bancodedados.model;
 
-import app.bancodedados.controller.ICrud;
 
 public class Produto {
 
+    private int id;
     private String nome;
     private String codigoProduto;
     private String fornecedor;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;

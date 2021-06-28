@@ -17,7 +17,7 @@ public class ClienteController extends DataBase implements ICrud<Cliente> {
     public ClienteController(Context context) {
         super(context);
 
-        System.out.println("Banco conectado com sucesso !");
+        System.out.println("Controller Cliente !");
     }
 
     @Override

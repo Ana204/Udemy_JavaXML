@@ -5,10 +5,12 @@ import android.os.Bundle;
 
 import app.bancodedados.R;
 import app.bancodedados.controller.ClienteController;
+import app.bancodedados.controller.ProdutoController;
 
 public class MainActivity extends AppCompatActivity {
 
     ClienteController clienteController;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         clienteController = new ClienteController(getApplicationContext());
 
-        System.out.println("Main");
+        System.out.println("AQUII MAIN !!");
 
     }
 }

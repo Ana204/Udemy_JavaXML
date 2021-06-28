@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import app.bancodedados.datamodel.ClienteDataModel;
+import app.bancodedados.datamodel.ProdutoDataModel;
+import app.bancodedados.model.Produto;
 
 public class DataBase extends SQLiteOpenHelper {
 
@@ -24,8 +26,11 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ClienteDataModel.criarTabela());
-
         System.out.println("Tabela Cliente criada: " + ClienteDataModel.criarTabela());
+
+
+        db.execSQL(ProdutoDataModel.criarTabela());
+        System.out.println("Tabela Produto criada: " + ProdutoDataModel.criarTabela());
     }
 
     @Override

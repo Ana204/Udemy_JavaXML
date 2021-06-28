@@ -4,9 +4,18 @@ import app.bancodedados.controller.ICrud;
 
 public class Cliente implements ICrud {
 
+    private int id;
     private String nome;
     private String email;
     private String senha;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -32,6 +41,7 @@ public class Cliente implements ICrud {
         this.senha = senha;
     }
 
+
     @Override
     public void incluir() {
         System.out.println("Cliente Salvo com sucesso !!");
@@ -54,4 +64,6 @@ public class Cliente implements ICrud {
 
         System.out.println("Lista de clientes: ");
     }
+
+
 }

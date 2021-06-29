@@ -31,7 +31,6 @@ public class DataBase extends SQLiteOpenHelper {
 
         db.execSQL(ProdutoDataModel.criarTabela());
         System.out.println("Produto criada: " + ProdutoDataModel.criarTabela());
-;
     }
 
     @Override
@@ -47,7 +46,15 @@ public class DataBase extends SQLiteOpenHelper {
      */
     public boolean insert(String tabela, ContentValues dados)
     {
+        db = getWritableDatabase();
         boolean retorno = false;
+
+        try {
+            retorno = db.insert(tabela, null, dados) > 0;
+        }catch (Exception e){
+
+            System.out.println("INSERT: " + e.getMessage());
+        }
 
         return retorno;
     }

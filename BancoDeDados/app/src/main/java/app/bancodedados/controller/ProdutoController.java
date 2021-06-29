@@ -10,48 +10,47 @@ import app.bancodedados.datamodel.ProdutoDataModel;
 import app.bancodedados.datasource.DataBase;
 import app.bancodedados.model.Produto;
 
-public class ProdutoController extends DataBase implements ICrud<Produto>  {
+public class ProdutoController extends DataBase implements ICrud<Produto>{
 
-    ContentValues dadoDoObjeto;
+    ContentValues dadoObjeto;
 
     public ProdutoController(Context context) {
         super(context);
 
-        System.out.println("Controller Produto !!");
+        System.out.println("Controller Produto");
     }
 
-    @Override
+     @Override
     public boolean incluir(Produto obj) {
+        dadoObjeto = new ContentValues();
 
-        dadoDoObjeto = new ContentValues();
+        dadoObjeto.put(ProdutoDataModel.NOME, obj.getNome());
+        dadoObjeto.put(ProdutoDataModel.FORNECEDOR, obj.getFornecedor());
+        dadoObjeto.put(ProdutoDataModel.CODIGOPRODUTO, obj.getCodigoProduto());
 
-        dadoDoObjeto.put(ProdutoDataModel.NOME, obj.getNome());
-        dadoDoObjeto.put(ProdutoDataModel.CODIGOPRODUTO, obj.getCodigoProduto());
-        dadoDoObjeto.put(ProdutoDataModel.FORNECEDOR, obj.getFornecedor());
-
-        return false;
+        return insert(ProdutoDataModel.TABELA, dadoObjeto);
     }
 
     @Override
     public boolean alterar(Produto obj) {
 
-        dadoDoObjeto = new ContentValues();
+        dadoObjeto = new ContentValues();
 
-        dadoDoObjeto.put(ProdutoDataModel.ID, obj.getId());
-        dadoDoObjeto.put(ProdutoDataModel.NOME, obj.getNome());
-        dadoDoObjeto.put(ProdutoDataModel.CODIGOPRODUTO, obj.getCodigoProduto());
-        dadoDoObjeto.put(ProdutoDataModel.FORNECEDOR, obj.getFornecedor());
+        dadoObjeto.put(ProdutoDataModel.ID, obj.getId());
+        dadoObjeto.put(ProdutoDataModel.NOME, obj.getNome());
+        dadoObjeto.put(ProdutoDataModel.FORNECEDOR, obj.getFornecedor());
+        dadoObjeto.put(ProdutoDataModel.CODIGOPRODUTO, obj.getCodigoProduto());
 
-        return false;
+        return true;
     }
 
     @Override
     public boolean deletar(Produto obj) {
+        dadoObjeto = new ContentValues();
 
-        dadoDoObjeto = new ContentValues();
+        dadoObjeto.put(ProdutoDataModel.ID, obj.getId());
 
-        dadoDoObjeto.put(ProdutoDataModel.ID, obj.getId());
-        return false;
+        return true;
     }
 
     @Override

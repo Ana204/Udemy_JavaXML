@@ -1,12 +1,12 @@
 package app.bancodedados.datasource;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import app.bancodedados.datamodel.ClienteDataModel;
 import app.bancodedados.datamodel.ProdutoDataModel;
-import app.bancodedados.model.Produto;
 
 public class DataBase extends SQLiteOpenHelper {
 
@@ -26,15 +26,29 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ClienteDataModel.criarTabela());
-        System.out.println("Tabela Cliente criada: " + ClienteDataModel.criarTabela());
+        System.out.println("Cliente criada: " + ClienteDataModel.criarTabela());
 
 
         db.execSQL(ProdutoDataModel.criarTabela());
-        System.out.println("Tabela Produto criada: " + ProdutoDataModel.criarTabela());
+        System.out.println("Produto criada: " + ProdutoDataModel.criarTabela());
+;
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+
+
+    }
+
+    /**
+     * Método para incluir dados no banco de dados
+     * @return
+     */
+    public boolean insert(String tabela, ContentValues dados)
+    {
+        boolean retorno = false;
+
+        return retorno;
     }
 }

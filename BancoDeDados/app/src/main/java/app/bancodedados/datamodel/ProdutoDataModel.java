@@ -17,11 +17,11 @@ public class ProdutoDataModel {
     //4 - Método para gerar Script para criar a tabela
     public static String criarTabela()
     {
-        queryCriarTabela += "CREATE TABLE " + TABELA+ " (";
+        queryCriarTabela += "CREATE TABLE " +TABELA+ " (";
         queryCriarTabela += ID+" integer primary key autoincrement, ";
         queryCriarTabela += NOME+" text, ";
-        queryCriarTabela += CODIGOPRODUTO+ " text, ";
-        queryCriarTabela += FORNECEDOR+ " text, ";
+        queryCriarTabela += CODIGOPRODUTO+" text, ";
+        queryCriarTabela += FORNECEDOR+" text ";
         queryCriarTabela += ")";
 
         return queryCriarTabela;

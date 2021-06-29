@@ -43,7 +43,7 @@ public class ClienteController extends DataBase implements ICrud<Cliente> {
         dadoObjeto.put(ClienteDataModel.EMAIL, obj.getEmail());
         dadoObjeto.put(ClienteDataModel.SENHA, obj.getSenha());
 
-        return true;
+        return insert(ClienteDataModel.TABELA, dadoObjeto);
     }
 
     @Override

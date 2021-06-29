@@ -10,6 +10,7 @@ import app.bancodedados.controller.ProdutoController;
 public class MainActivity extends AppCompatActivity {
 
     ClienteController clienteController;
+    ProdutoController produtoController;
 
 
     @Override
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         clienteController = new ClienteController(getApplicationContext());
+        produtoController = new ProdutoController(getApplicationContext());
 
         System.out.println("AQUII MAIN !!");
 

@@ -22,14 +22,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        obj = new Cliente();
-        obj.setNome("Ferreira");
-        obj.setEmail("Ferreira.com");
-        obj.setSenha("123456");
-
         clienteController = new ClienteController(getApplicationContext());
 
-        if ( clienteController.incluir(obj))
+        obj = new Cliente();
+        obj.setId(2);
+
+ /*     obj.setNome("Ferreira");
+        obj.setEmail("Ferreira.com");
+        obj.setSenha("123456");*/
+
+/*        if ( clienteController.incluir(obj))
         {
             Toast.makeText(MainActivity.this, "Cliente " +obj.getNome()+ " incluído com sucesso", Toast.LENGTH_SHORT).show();
 
@@ -39,6 +41,18 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Cliente " +obj.getNome()+ " Falha ao incluir", Toast.LENGTH_SHORT).show();
 
             System.out.println("Cliente " +obj.getNome() + "Falha ao incluir");
+        }*/
+
+        if (clienteController.deletar(obj.getId()))
+        {
+            Toast.makeText(MainActivity.this, "Cliente " +obj.getId()+ " excluido com sucesso", Toast.LENGTH_SHORT).show();
+
+            System.out.println("Cliente " +obj.getId() + "excluido com sucesso");
+        }
+        else {
+            Toast.makeText(MainActivity.this, "Cliente " +obj.getNome()+ " Falha ao excluir", Toast.LENGTH_SHORT).show();
+
+            System.out.println("Cliente " +obj.getNome() + "Falha ao excluir");
         }
 
     }

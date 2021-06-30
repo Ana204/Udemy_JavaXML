@@ -34,6 +34,11 @@ public class ClienteController extends DataBase implements ICrud<Cliente> {
     }
 
     @Override
+    public boolean deletar(int id) {
+        return deleteById(ClienteDataModel.TABELA, id);
+    }
+
+    @Override
     public boolean alterar(Cliente obj) {
 
         dadoObjeto = new ContentValues();
@@ -43,11 +48,6 @@ public class ClienteController extends DataBase implements ICrud<Cliente> {
         dadoObjeto.put(ClienteDataModel.EMAIL, obj.getEmail());
         dadoObjeto.put(ClienteDataModel.SENHA, obj.getSenha());
 
-        return true;
-    }
-
-    @Override
-    public boolean deletar(int id) {
         return true;
     }
 

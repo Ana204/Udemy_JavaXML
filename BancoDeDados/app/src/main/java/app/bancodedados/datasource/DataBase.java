@@ -51,6 +51,7 @@ public class DataBase extends SQLiteOpenHelper {
 
         try {
             retorno = db.insert(tabela, null, dados) > 0;
+
         }catch (Exception e){
 
             System.out.println("INSERT: " + e.getMessage());

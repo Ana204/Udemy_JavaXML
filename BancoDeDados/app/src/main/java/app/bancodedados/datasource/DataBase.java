@@ -59,4 +59,19 @@ public class DataBase extends SQLiteOpenHelper {
 
         return retorno;
     }
+
+    public boolean deleteById(String tabela, int id)
+    {
+        db = getWritableDatabase();
+        boolean retorno = false;
+
+        try{
+            retorno = db.delete(tabela, "id = ?", new String[]{String.valueOf((id))}) > 0;
+        }catch (Exception e)
+        {
+            System.out.println("DELETE: " +e.getMessage());
+        }
+
+        return retorno;
+    }
 }

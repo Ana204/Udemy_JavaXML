@@ -34,11 +34,7 @@ public class DataBase extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-
-
-    }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 
     /**
      * Método para incluir dados no banco de dados
@@ -76,6 +72,28 @@ public class DataBase extends SQLiteOpenHelper {
         }catch (Exception e)
         {
             System.out.println("DELETE: " +e.getMessage());
+        }
+
+        return retorno;
+    }
+
+
+    /**
+     * Método para atualizar Cliente
+     * @param tabela
+     * @param dados
+     * @return
+     */
+    public boolean update(String tabela, ContentValues dados)
+    {
+        db = getWritableDatabase();
+        boolean retorno = false;
+
+        try {
+            retorno = db.update(tabela, dados, "id = ?" , new String[]{String.valueOf(dados.get("id"))}) > 0;
+        }catch (Exception e)
+        {
+            System.out.println("UPDATE: "+ e.getMessage());
         }
 
         return retorno;

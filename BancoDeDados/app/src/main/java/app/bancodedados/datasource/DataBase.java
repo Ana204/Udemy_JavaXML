@@ -2,11 +2,17 @@ package app.bancodedados.datasource;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.media.AudioRouting;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import app.bancodedados.datamodel.ClienteDataModel;
 import app.bancodedados.datamodel.ProdutoDataModel;
+import app.bancodedados.model.Cliente;
 
 public class DataBase extends SQLiteOpenHelper {
 
@@ -97,5 +103,36 @@ public class DataBase extends SQLiteOpenHelper {
         }
 
         return retorno;
+    }
+
+    public List<Cliente> getAllClientes(String tabela)
+    {
+        db = getWritableDatabase();
+
+        List<Cliente> clientes = new ArrayList<>();
+        Cliente obj;
+
+        String sql = "SELECT * FROM " + tabela;
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql, null);
+
+        if(cursor.moveToFirst()){
+
+            do {
+                obj = new Cliente();
+
+                obj.setId(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.ID)));
+                obj.setNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.NOME)));
+                obj.setEmail(cursor.getString(cursor.getColumnIndex(ClienteDataModel.EMAIL)));
+                obj.setSenha(cursor.getString(cursor.getColumnIndex(ClienteDataModel.SENHA)));
+
+                clientes.add(obj);
+
+
+            }while (cursor.moveToNext());
+        }
+
+        return clientes;
     }
 }

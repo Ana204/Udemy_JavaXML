@@ -16,8 +16,6 @@ public class ClienteController extends DataBase implements ICrud<Cliente> {
 
     public ClienteController(Context context) {
         super(context);
-
-        System.out.println("Controller Cliente !");
     }
 
     @Override
@@ -54,16 +52,6 @@ public class ClienteController extends DataBase implements ICrud<Cliente> {
     @Override
     public List<Cliente> listar() {
 
-        List<Cliente> lista = new ArrayList<>();
-
-        Cliente cliente = new Cliente();
-        cliente.setId(1);
-        cliente.setNome("Ana Gomes");
-        cliente.setEmail("anaGomes.@hotm.com");
-        cliente.setSenha("0000000");
-
-        lista.add(cliente);
-
-        return lista;
+        return getAllClientes(ClienteDataModel.TABELA);
     }
 }

@@ -12,7 +12,6 @@ import app.bancodedados.model.Cliente;
 public class MainActivity extends AppCompatActivity {
 
     ClienteController clienteController;
-   // ProdutoController produtoController;
 
     Cliente obj;
 
@@ -24,11 +23,18 @@ public class MainActivity extends AppCompatActivity {
 
         clienteController = new ClienteController(getApplicationContext());
 
-        obj = new Cliente();
-        obj.setId(3);
-        obj.setNome("Ana");
-        obj.setEmail("anagomes@.com");
-        obj.setSenha("654321");
+/*        for (int i = 0; i < 10; i++)
+        {
+            obj = new Cliente();
+
+            obj.setNome("Ana" + i);
+            obj.setEmail(i+ "_anagomes@.com");
+            obj.setSenha("654321");
+
+            clienteController.incluir(obj);
+
+            System.out.println("Cliente " + obj.getNome() + " - " + "Inserido com sucesso");
+        }*/
 
 /*        if ( clienteController.incluir(obj))
         {
@@ -67,10 +73,9 @@ public class MainActivity extends AppCompatActivity {
         }*/
 
 
-        for ( Cliente obj : clienteController.listar() ) {
-
-            System.out.println("CLIENTES: " + obj.getNome() + "-" + obj.getEmail() + "-" + obj.getSenha() + "-" + obj.getId());
+        for (Cliente obj: clienteController.listar())
+        {
+            System.out.println("RETORNO: "  + obj.getId() + " - " + obj.getNome() + " - " + obj.getEmail());
         }
-
     }
 }

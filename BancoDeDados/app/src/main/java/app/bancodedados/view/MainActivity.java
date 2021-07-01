@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 //            System.out.println("Cliente " +obj.getNome() + "Falha ao excluir");
 //        }
 
-        if (clienteController.alterar(obj))
+    /*    if (clienteController.alterar(obj))
         {
             Toast.makeText(MainActivity.this, "Cliente " +obj.getNome() + "Atualizado com sucesso", Toast.LENGTH_SHORT).show();
 
@@ -64,6 +64,12 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(MainActivity.this, "Cliente " +obj.getNome() + "Falha ao Atualizar", Toast.LENGTH_SHORT).show();
             System.out.println("Cliente " + obj.getNome() + "Falha ao atualizar");
+        }*/
+
+
+        for ( Cliente obj : clienteController.listar() ) {
+
+            System.out.println("CLIENTES: " + obj.getNome() + "-" + obj.getEmail() + "-" + obj.getSenha() + "-" + obj.getId());
         }
 
     }

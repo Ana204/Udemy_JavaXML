@@ -56,6 +56,14 @@ public class ClienteController extends DataBase implements ICrud<Cliente> {
 
         List<Cliente> lista = new ArrayList<>();
 
+        Cliente cliente = new Cliente();
+        cliente.setId(1);
+        cliente.setNome("Ana Gomes");
+        cliente.setEmail("anaGomes.@hotm.com");
+        cliente.setSenha("0000000");
+
+        lista.add(cliente);
+
         return lista;
     }
 }

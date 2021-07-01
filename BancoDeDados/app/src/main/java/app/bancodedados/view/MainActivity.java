@@ -25,11 +25,10 @@ public class MainActivity extends AppCompatActivity {
         clienteController = new ClienteController(getApplicationContext());
 
         obj = new Cliente();
-        obj.setId(2);
-
- /*     obj.setNome("Ferreira");
-        obj.setEmail("Ferreira.com");
-        obj.setSenha("123456");*/
+        obj.setId(3);
+        obj.setNome("Ana");
+        obj.setEmail("anagomes@.com");
+        obj.setSenha("654321");
 
 /*        if ( clienteController.incluir(obj))
         {
@@ -43,19 +42,29 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("Cliente " +obj.getNome() + "Falha ao incluir");
         }*/
 
-        if (clienteController.deletar(obj.getId()))
-        {
-            Toast.makeText(MainActivity.this, "Cliente " +obj.getId()+ " excluido com sucesso", Toast.LENGTH_SHORT).show();
+//        if (clienteController.deletar(obj.getId()))
+//        {
+//            Toast.makeText(MainActivity.this, "Cliente " +obj.getId()+ " excluido com sucesso", Toast.LENGTH_SHORT).show();
+//
+//            System.out.println("Cliente " +obj.getId() + "excluido com sucesso");
+//        }
+//        else {
+//            Toast.makeText(MainActivity.this, "Cliente " +obj.getNome()+ " Falha ao excluir", Toast.LENGTH_SHORT).show();
+//
+//            System.out.println("Cliente " +obj.getNome() + "Falha ao excluir");
+//        }
 
-            System.out.println("Cliente " +obj.getId() + "excluido com sucesso");
+        if (clienteController.alterar(obj))
+        {
+            Toast.makeText(MainActivity.this, "Cliente " +obj.getNome() + "Atualizado com sucesso", Toast.LENGTH_SHORT).show();
+
+            System.out.println("Cliente " + obj.getNome() + "Atualizado com sucesso");
         }
         else {
-            Toast.makeText(MainActivity.this, "Cliente " +obj.getNome()+ " Falha ao excluir", Toast.LENGTH_SHORT).show();
 
-            System.out.println("Cliente " +obj.getNome() + "Falha ao excluir");
+            Toast.makeText(MainActivity.this, "Cliente " +obj.getNome() + "Falha ao Atualizar", Toast.LENGTH_SHORT).show();
+            System.out.println("Cliente " + obj.getNome() + "Falha ao atualizar");
         }
-
-        
 
     }
 }

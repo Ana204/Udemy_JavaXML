@@ -37,20 +37,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                boolean camposPreenchidos = true;
+                if (TextUtils.isEmpty(primeiroNome.getText().toString())){
 
+                    primeiroNome.setError("Digite seu primeiro nome");
+                }
+                else if (TextUtils.isEmpty(segundoNome.getText().toString())){
 
-                if (TextUtils.isEmpty(primeiroNome.getText().toString()) && TextUtils.isEmpty(segundoNome.getText().toString()) && TextUtils.isEmpty(email.getText().toString()) &&
-                TextUtils.isEmpty(senha.getText().toString()) && TextUtils.isEmpty(telefone.getText().toString())){
+                    segundoNome.setError("Digite seu segundo nome");
+                }
+                else if (TextUtils.isEmpty(email.getText().toString())) {
 
-                     primeiroNome.setError("Digite seu primeiro nome");
-                     segundoNome.setError("Digite seu segundo nome");
-                     email.setError("Digite seu email");
-                     telefone.setError("Digite seu telefone");
-                     senha.setError("Digite sua senha");
+                    email.setError("Digite seu email");
+                }
+                else if(TextUtils.isEmpty(senha.getText().toString())){
 
-                     camposPreenchidos = false;
+                    senha.setError("Digite sua senha");
+                }
+                else if (TextUtils.isEmpty(telefone.getText().toString())) {
 
+                    telefone.setError("Digite seu telefone");
                 }
                 else {
                     Toast.makeText(getBaseContext(), "PARABÉNS " + primeiroNome.getText(), Toast.LENGTH_LONG).show();

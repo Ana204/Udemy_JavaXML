@@ -1,4 +1,4 @@
-package app.modelo.clientes;
+package app.modelo.clientes.view;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import app.modelo.clientes.R;
 
 
 public class ModeloAzulFragment extends Fragment {

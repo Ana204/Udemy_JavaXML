@@ -30,7 +30,7 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ClienteDataModel.criarTabela());
-        System.out.println("Cliente criada: " + ClienteDataModel.criarTabela());
+        System.out.println("TABELA Cliente criada: " + ClienteDataModel.criarTabela());
     }
 
     @Override

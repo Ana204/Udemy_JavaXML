@@ -31,12 +31,10 @@ public class MainActivity extends AppCompatActivity
     MenuItem nav_vermelho;
     MenuItem nav_azul;
 
-    TextView txtTitulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar =  findViewById(R.id.toolbar);
@@ -60,8 +58,6 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        txtTitulo = findViewById(R.id.txtTitulo);
 
         fragmentManager = getSupportFragmentManager();
 
@@ -129,7 +125,6 @@ public class MainActivity extends AppCompatActivity
             menu = navigationView.getMenu();
 
             nav_preto = menu.findItem(R.id.nav_preto);
-
             nav_preto.setTitle("Preto");
 
             nav_vermelho = menu.findItem(R.id.nav_vermelho);

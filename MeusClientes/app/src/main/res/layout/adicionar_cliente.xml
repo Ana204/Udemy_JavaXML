@@ -95,6 +95,14 @@
             android:hint="Estado"
             android:background="@color/Red_50" />
 
+        <EditText
+            android:id="@+id/editSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Senha"
+            android:background="@color/Red_50" />
+
         <CheckBox
             android:id="@+id/termos_de_uso"
             android:layout_width="match_parent"

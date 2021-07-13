@@ -28,54 +28,71 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:hint="Nome Completo"
             android:background="@color/Red_50" />
 
         <EditText
+            android:id="@+id/editTelefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:hint="Telefone"
             android:background="@color/Red_50" />
 
         <EditText
+            android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:hint="Email"
             android:background="@color/Red_50" />
 
         <EditText
+            android:id="@+id/editCep"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:hint="Cep"
             android:background="@color/Red_50" />
 
         <EditText
+            android:id="@+id/editLogradouro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:hint="Logradouro"
             android:background="@color/Red_50" />
 
         <EditText
+            android:id="@+id/editNumero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:hint="Número"
             android:background="@color/Red_50" />
 
         <EditText
+            android:id="@+id/editBairro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:hint="Bairro"
             android:background="@color/Red_50" />
 
         <EditText
+            android:id="@+id/editCidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:hint="Cidade"
             android:background="@color/Red_50" />
 
         <EditText
+            android:id="@+id/editEstado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:hint="Estado"
             android:background="@color/Red_50" />
 
         <CheckBox
@@ -83,6 +100,27 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:text="Termos de uso" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnSalvar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SALVAR"
+               />
+
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CANCELAR"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -9,4 +9,5 @@
     <color name="colorPrimaryDark">#859F67</color>
     <color name="colorAccent">#FFC107</color>
     <color name="Blue">#07487C</color>
+    <color name="Gray_50">#BDBDBD</color>
 </resources>

@@ -1,7 +1,5 @@
 package app.modelo.clientes.view;
 
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +14,7 @@ import app.modelo.clientes.R;
 public class AdicionarClientes extends Fragment {
 
     View view;
+    TextView txtTitulo;
 
     public AdicionarClientes() {
     }
@@ -33,12 +32,20 @@ public class AdicionarClientes extends Fragment {
 
         view =  inflater.inflate(R.layout.adicionar_cliente, container, false);
 
-//        TextView txtTitulo = view.findViewById(R.id.txtTitulo);
-//        txtTitulo.setText(R.string.modelo_fragment);
 
-        //txtTitulo.setTextColor(ColorStateList.valueOf(Color.WHITE));
+        iniciarLayout();
 
         return view;
+    }
+
+    /**
+     * Inicializar os componentes da tela
+     * para adicionar clientes
+     */
+    private void iniciarLayout() {
+
+        txtTitulo = view.findViewById(R.id.txtTitulo);
+//        txtTitulo.setText(R.string.novo_cliente);
     }
 
 

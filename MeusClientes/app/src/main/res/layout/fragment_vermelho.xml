@@ -6,7 +6,6 @@
     tools:context=".view.ModeloVermelhoFragment">
 
 
-    <!-- Terceiro Passo -->
 
     <TextView
         android:id="@+id/txtTitulo"

@@ -5,7 +5,6 @@
     android:background="@color/Blue"
     tools:context=".view.ModeloAzulFragment">
 
-    <!-- Terceiro Passo -->
 
     <TextView
         android:id="@+id/txtTitulo"

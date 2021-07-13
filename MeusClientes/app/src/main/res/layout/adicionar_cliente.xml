@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="Telefone"
+            android:inputType="phone"
             android:background="@color/Red_50" />
 
         <EditText
@@ -44,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:inputType="textEmailAddress"
             android:hint="Email"
             android:background="@color/Red_50" />
 
@@ -52,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:inputType="number"
             android:hint="Cep"
             android:background="@color/Red_50" />
 
@@ -68,6 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:inputType="number"
             android:hint="Número"
             android:background="@color/Red_50" />
 
@@ -100,6 +104,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:inputType="textWebPassword"
             android:hint="Senha"
             android:background="@color/Red_50" />
 

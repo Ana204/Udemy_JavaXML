@@ -1,6 +1,7 @@
 package app.modelo.clientes.view;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -104,7 +106,79 @@ public class AdicionarClientes extends Fragment {
             @Override
             public void onClick(View view) {
 
-                clienteController.incluir(novoCliente);
+                //considerando que todos os campos estejam preenchidos
+                boolean isDadosOk = true;
+
+                //verificando de o campo Nome está vazio, se estiver então isDdadosOk passa a ser falso
+                if(TextUtils.isEmpty(editNome.getText())){
+                    isDadosOk = false;
+
+                    editNome.setError("Digite o nome completo");
+                    editNome.requestFocus();
+                }
+                else if(TextUtils.isEmpty(editTelefone.getText())){
+                    isDadosOk = false;
+
+                    editTelefone.setError("Digite o telefone");
+                    editTelefone.requestFocus();
+                }
+                else if(TextUtils.isEmpty(editEmail.getText())){
+                    isDadosOk = false;
+
+                    editEmail.setError("Digite o email");
+                    editEmail.requestFocus();
+                }
+                else if(TextUtils.isEmpty(editCep.getText())){
+                    isDadosOk = false;
+
+                    editCep.setError("Digite o cep");
+                    editCep.requestFocus();
+                }
+                else if(TextUtils.isEmpty(editLogradouro.getText())){
+                    isDadosOk = false;
+
+                    editLogradouro.setError("Digite o logradouro");
+                    editLogradouro.requestFocus();
+                }
+                else if(TextUtils.isEmpty(editNumero.getText())){
+                    isDadosOk = false;
+
+                    editNumero.setError("Digite o Número");
+                    editNumero.requestFocus();
+                }
+                else if(TextUtils.isEmpty(editBairro.getText())){
+                    isDadosOk = false;
+
+                    editBairro.setError("Digite o Bairro");
+                    editBairro.requestFocus();
+                }
+                else if(TextUtils.isEmpty(editCidade.getText())){
+                    isDadosOk = false;
+
+                    editCidade.setError("Digite a cidade");
+                    editCidade.requestFocus();
+                }
+                else if(TextUtils.isEmpty(editEstado.getText())){
+                    isDadosOk = false;
+
+                    editEstado.setError("Digite o estado");
+                    editEstado.requestFocus();
+                }
+                else if(TextUtils.isEmpty(editSenha.getText())){
+                    isDadosOk = false;
+
+                    editSenha.setError("Digite a senha");
+                    editSenha.requestFocus();
+                }
+
+                //Se isDaddos for true então ele grava os dados no banco
+                else if(isDadosOk){
+                   // clienteController.incluir(novoCliente);
+                    System.out.println("DADOS CORRETOS");
+                }else {
+                    System.out.println("OOPPSSS: PREENCHA TODOS OS CAMPOS");
+                }
+
             }
         });
     }

@@ -173,7 +173,22 @@ public class AdicionarClientes extends Fragment {
 
                 //Se isDaddos for true então ele grava os dados no banco
                 else if(isDadosOk){
-                   // clienteController.incluir(novoCliente);
+
+                    novoCliente.setNome(editNome.getText().toString());
+                    novoCliente.setTelefone(Integer.parseInt(editTelefone.getText().toString()));
+                    novoCliente.setEmail(editEmail.getText().toString());
+                    novoCliente.setCep(Integer.parseInt(editCep.getText().toString()));
+                    novoCliente.setLogradouro(editLogradouro.getText().toString());
+                    novoCliente.setNumero(editNumero.getText().toString());
+                    novoCliente.setBairro(editBairro.getText().toString());
+                    novoCliente.setCidade(editCidade.getText().toString());
+                    novoCliente.setEstado(editEstado.getText().toString());
+                    novoCliente.setSenha(editSenha.getText().toString());
+
+                    novoCliente.setTermosDeUso(termos_de_uso.isChecked());
+
+
+                    clienteController.incluir(novoCliente);
                     System.out.println("DADOS CORRETOS");
                 }else {
                     System.out.println("OOPPSSS: PREENCHA TODOS OS CAMPOS");

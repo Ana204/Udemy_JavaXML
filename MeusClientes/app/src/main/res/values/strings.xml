@@ -12,4 +12,5 @@
     <string name="fragmento_azul">Azul</string>
     <string name="adicionar_cliente">Adicionar Cliente</string>
     <string name="novo_cliente">Novo Cliente</string>
+    <string name="lista_de_clientes">Lista de Clientes</string>
 </resources>

@@ -159,10 +159,14 @@ public class MainActivity extends AppCompatActivity
 
             fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloAzulFragment()).commit();
 
-        } else if (id == R.id.nav_adicionar_cliente){
-
+        }
+        else if (id == R.id.nav_adicionar_cliente){
 
             fragmentManager.beginTransaction().replace(R.id.content_fragment, new AdicionarClientes()).commit();
+        }
+        else if (id == R.id.nav_listar_clientes){
+
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new ListarClientes()).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

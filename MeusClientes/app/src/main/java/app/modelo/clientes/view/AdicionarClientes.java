@@ -171,7 +171,7 @@ public class AdicionarClientes extends Fragment {
                     editSenha.requestFocus();
                 }
 
-                //Se isDaddos for true então ele grava os dados no banco
+                //Se isDados for true então ele grava os dados no banco
                 else if(isDadosOk){
 
                     novoCliente.setNome(editNome.getText().toString());
@@ -189,7 +189,7 @@ public class AdicionarClientes extends Fragment {
 
 
                     clienteController.incluir(novoCliente);
-                    System.out.println("DADOS CORRETOS");
+
                 }else {
                     System.out.println("OOPPSSS: PREENCHA TODOS OS CAMPOS");
                 }

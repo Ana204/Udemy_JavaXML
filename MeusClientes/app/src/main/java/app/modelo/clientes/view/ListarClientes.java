@@ -1,6 +1,8 @@
 package app.modelo.clientes.view;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +25,8 @@ import app.modelo.clientes.model.Cliente;
 public class ListarClientes extends Fragment {
 
     View view;
-    EditText Pesquisar;
-    ListView ListView;
+    EditText pesquisar;
+    ListView listView;
     List<Cliente> clienteList;
     List<String> clientes;
     ArrayAdapter<String> clienteAdapter;
@@ -48,19 +50,42 @@ public class ListarClientes extends Fragment {
                              Bundle savedInstanceState) {
 
         view =  inflater.inflate(R.layout.listar_clientes, container, false);
-
-        TextView listarClientes = view.findViewById(R.id.nav_listar_clientes);
-
         clienteController = new ClienteController(getContext());
 
-        clienteList = clienteController.listar();
+        listView = (ListView) view.findViewById(R.id.ListView);
+        pesquisar = view.findViewById(R.id.Pesquisar);
 
+        clienteList = clienteController.listar();
         clientes = new ArrayList<>();
 
         for (Cliente obj: clienteList)
         {
-            clientes.add(obj.getNome()+ " " + obj.getId());
+            clientes.add(obj.getId()+ " " + obj.getNome());
         }
+
+        clienteAdapter = new ArrayAdapter<>(getContext(), R.layout.lista_item, R.id.itemLista, clientes);
+
+        listView.setAdapter(clienteAdapter);
+
+
+        //barra de pesquisa
+        pesquisar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence filtro, int start, int count, int after) {
+                ListarClientes.this.clienteAdapter.getFilter().filter(filtro);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         return view;
     }
 

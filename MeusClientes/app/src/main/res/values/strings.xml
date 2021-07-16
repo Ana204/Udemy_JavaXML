@@ -13,4 +13,15 @@
     <string name="adicionar_cliente">Adicionar Cliente</string>
     <string name="novo_cliente">Novo Cliente</string>
     <string name="lista_de_clientes">Lista de Clientes</string>
+    <string name="nome_completo">Nome Completo</string>
+    <string name="telefone">Telefone</string>
+    <string name="email">Email</string>
+    <string name="cep">Cep</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="numero">Número</string>
+    <string name="bairro">Bairro</string>
+    <string name="cidade">Cidade</string>
+    <string name="estado">Estado</string>
+    <string name="senha">Senha</string>
+    <string name="termos_de_uso">Termos de uso</string>
 </resources>

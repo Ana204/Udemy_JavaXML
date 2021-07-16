@@ -137,7 +137,6 @@ public class MainActivity extends AppCompatActivity
             nav_azul = menu.findItem(R.id.nav_azul);
             nav_azul.setTitle("Azul");
 
-            // TODO: Mudar a cor de todos os itens do menu programaticamente
             navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
 
             fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloVermelhoFragment()).commit();

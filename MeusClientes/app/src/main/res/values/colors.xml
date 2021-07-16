@@ -10,4 +10,5 @@
     <color name="colorAccent">#FFC107</color>
     <color name="Blue">#07487C</color>
     <color name="Gray_50">#BDBDBD</color>
+    <color name="whit_transparent">#17BDBDBD</color>
 </resources>

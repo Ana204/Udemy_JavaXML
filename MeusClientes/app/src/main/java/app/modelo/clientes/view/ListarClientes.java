@@ -55,16 +55,14 @@ public class ListarClientes extends Fragment {
         listView = (ListView) view.findViewById(R.id.ListView);
         pesquisar = view.findViewById(R.id.Pesquisar);
 
+        //listando dados do banco
         clienteList = clienteController.listar();
-        clientes = new ArrayList<>();
 
-        for (Cliente obj: clienteList)
-        {
-            clientes.add(obj.getId()+ " " + obj.getNome());
-        }
+        //chamando método para gerar uma lista
+        clientes = clienteController.gerarListView();
+
 
         clienteAdapter = new ArrayAdapter<>(getContext(), R.layout.lista_item, R.id.itemLista, clientes);
-
         listView.setAdapter(clienteAdapter);
 
 
@@ -72,7 +70,9 @@ public class ListarClientes extends Fragment {
         pesquisar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence filtro, int start, int count, int after) {
+
                 ListarClientes.this.clienteAdapter.getFilter().filter(filtro);
+                System.out.println("FILTRAAAAAAAAAAAAANDO: " + filtro);
             }
 
             @Override
@@ -85,7 +85,6 @@ public class ListarClientes extends Fragment {
 
             }
         });
-
         return view;
     }
 

@@ -22,4 +22,14 @@
     <style name="Theme.Clientes.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Clientes.Theme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ButtonSalvar" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">#004D40</item>
+        <item name="backgroundTint">#B2DFDB</item>
+    </style>
+
+    <style name="ButtonCancelar" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">#B80404</item>
+        <item name="backgroundTint">#D3FF8A65</item>
+    </style>
 </resources>

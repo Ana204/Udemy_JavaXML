@@ -61,7 +61,7 @@
                         android:layout_margin="10dp"
                         android:gravity="center"
                         android:text="@string/perfil_e_contato"
-                        android:textColor="#607D8B"
+                        android:textColor="@color/teal_700"
                         android:textSize="23sp"
                         android:textStyle="bold" />
 
@@ -131,7 +131,7 @@
                         android:layout_margin="10dp"
                         android:gravity="center"
                         android:text="@string/endereco"
-                        android:textColor="#607D8B"
+                        android:textColor="@color/teal_700"
                         android:textSize="23sp"
                         android:textStyle="bold" />
 
@@ -212,14 +212,16 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnSalvar"
+                    style="@style/ButtonSalvar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/salvar" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnCancelar"
+                    style="@style/ButtonCancelar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -227,7 +229,6 @@
                     android:text="@string/cancelar" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
-
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

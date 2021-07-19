@@ -24,4 +24,7 @@
     <string name="estado">Estado</string>
     <string name="senha">Senha</string>
     <string name="termos_de_uso">Termos de uso</string>
+    <string name="salvar">SALVAR</string>
+    <string name="cancelar">CANCELAR</string>
+    <string name="perfil_e_contato">Perfil e Contato</string>
 </resources>

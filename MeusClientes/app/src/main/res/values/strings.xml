@@ -27,4 +27,5 @@
     <string name="salvar">SALVAR</string>
     <string name="cancelar">CANCELAR</string>
     <string name="perfil_e_contato">Perfil e Contato</string>
+    <string name="endereco">Endereço</string>
 </resources>

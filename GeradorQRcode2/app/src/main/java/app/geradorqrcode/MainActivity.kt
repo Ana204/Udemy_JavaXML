@@ -2,6 +2,7 @@ package app.geradorqrcode
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -17,6 +18,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initComponentes()
+
+        buttonGerar!!.setOnClickListener {
+            if (TextUtils.isEmpty(digiteQrCode!!.text.toString())){
+
+                digiteQrCode!!.error = "*"
+                digiteQrCode!!.requestFocus()
+            }else{
+
+                //outro
+            }
+        }
     }
 
     fun initComponentes() {

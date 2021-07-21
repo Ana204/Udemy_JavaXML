@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CoordenadasGPS</string>
+    <string name="coordenadas_gps">Coordenadas GPS</string>
+    <string name="latitude">LATITUDE</string>
+    <string name="longitude">LONGITUDE</string>
+    <string name="_0_00">0.00</string>
 </resources>

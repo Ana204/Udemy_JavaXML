@@ -5,14 +5,17 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,16 +47,20 @@ public class MainActivity extends AppCompatActivity {
 
         gpsAtivo = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
-        if(gpsAtivo){
+        if (gpsAtivo) {
+
             obterCoordenadas();
-        }else {
+
+        } else {
+
             latitude = 0.00;
             longitude = 0.00;
 
             valorLatitude.setText(String.valueOf(latitude));
             valorLongitude.setText(String.valueOf(longitude));
 
-            Toast.makeText(this, "ATIVE O SEU GPS", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,
+                    "Coordenadas não Disponíveis", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -61,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
         boolean permissaoAtiva = permissaoParaLocalizacao();
 
-        if (permissaoAtiva){
+        if (permissaoAtiva) {
 
             ultimaLocalizacaoValida();
         }
@@ -70,19 +77,40 @@ public class MainActivity extends AppCompatActivity {
 
     private void ultimaLocalizacaoValida() {
 
-        latitude = 1.98;
-        longitude = -1.67;
+        @SuppressLint("MissingPermission")
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-        valorLatitude.setText(String.valueOf(latitude));
-        valorLongitude.setText(String.valueOf(longitude));
+        if (location != null) {
 
-        Toast.makeText(this, "GPS ATIVADO", Toast.LENGTH_LONG).show();
+            // Geopoint
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+
+        } else {
+
+            latitude = 0.00;
+            longitude = 0.00;
+
+        }
+
+        valorLatitude.setText(formatarGeopoint(latitude));
+        valorLongitude.setText(formatarGeopoint(longitude));
+
+        Toast.makeText(this,
+                "Coordenadas obtidas com sucesso", Toast.LENGTH_LONG).show();
+
+    }
+
+    private String formatarGeopoint(double valor){
+
+        DecimalFormat decimalFormat = new DecimalFormat("#.####");
+
+        return decimalFormat.format(valor);
+
     }
 
 
     private boolean permissaoParaLocalizacao() {
-
-        Toast.makeText(this, "APP SEM PERMISSÃO", Toast.LENGTH_LONG).show();
 
         List<String> permissoesNegadas = new ArrayList<>();
 
@@ -92,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
             permissaoNegada = ContextCompat.checkSelfPermission(MainActivity.this, permissao);
 
-            if(permissaoNegada != PackageManager.PERMISSION_GRANTED){
+            if (permissaoNegada != PackageManager.PERMISSION_GRANTED) {
                 permissoesNegadas.add(permissao);
             }
         }
@@ -100,14 +128,14 @@ public class MainActivity extends AppCompatActivity {
         if (!permissoesNegadas.isEmpty()) {
 
             ActivityCompat.requestPermissions(MainActivity.this,
-                    permissoesNegadas.toArray(new String[permissoesNegadas.size()]), APP_PERMISSOES_ID);
+                    permissoesNegadas.toArray(new String[permissoesNegadas.size()]),
+                    APP_PERMISSOES_ID);
 
             return false;
-        }else {
+        } else {
             return true;
         }
 
     }
-
 
 }

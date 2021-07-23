@@ -1,5 +1,6 @@
 package app.coordenadasgps;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -15,11 +16,20 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    GoogleMap mMap;
 
     String[] permissoesRequeridas = {
             Manifest.permission.ACCESS_FINE_LOCATION,
@@ -42,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
         valorLatitude = findViewById(R.id.valorLatitude);
         valorLongitude = findViewById(R.id.valorLongitude);
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
         locationManager = (LocationManager) getApplication().getSystemService(Context.LOCATION_SERVICE);
 
@@ -101,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private String formatarGeopoint(double valor){
+    private String formatarGeopoint(double valor) {
 
         DecimalFormat decimalFormat = new DecimalFormat("#.####");
 
@@ -111,6 +125,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private boolean permissaoParaLocalizacao() {
+
+        Toast.makeText(this,
+                "Verificando permissões", Toast.LENGTH_LONG).show();
 
         List<String> permissoesNegadas = new ArrayList<>();
 
@@ -138,4 +155,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+        mMap = googleMap;
+
+        LatLng localizacaoCelular = new LatLng(latitude, longitude);
+
+        mMap.addMarker(new MarkerOptions().position(localizacaoCelular).title("Celular localizado AQUI "));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(localizacaoCelular));
+    }
 }

@@ -1,5 +1,6 @@
 package app.modelo.minhaloja
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -10,9 +11,13 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        val intent = Intent(this, MainActivity::class.java)
+
+        startActivity(intent)
+        finish()
 
         Handler(Looper.myLooper()!!).postDelayed({
 
-        }, 10000)
+        }, 50000)
     }
 }

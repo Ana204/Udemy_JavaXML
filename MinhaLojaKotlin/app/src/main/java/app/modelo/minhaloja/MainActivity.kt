@@ -10,5 +10,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun sairDaLoja(view: View) {}
+    fun sairDaLoja(view: View) {
+
+        finish()
+    }
 }

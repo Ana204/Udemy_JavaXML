@@ -1,0 +1,2 @@
+rootProject.name = "CoordenadasGPDKotlin"
+include ':app'

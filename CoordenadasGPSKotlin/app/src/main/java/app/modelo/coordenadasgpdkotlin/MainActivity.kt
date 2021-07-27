@@ -1,7 +1,9 @@
 package app.modelo.coordenadasgpdkotlin
 
 import android.Manifest
+import android.location.LocationManager
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -19,6 +21,18 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         Manifest.permission.ACCESS_COARSE_LOCATION,
     )
 
+    val APP_PERMISSOES_ID = 2021
+
+    var valorLatitude: TextView? = null
+    var valorLongitude: TextView? = null
+
+    var latitude:Double = 0.00
+    var longitude:Double = 0.00
+
+    var locationManager: LocationManager? = null
+
+    var gpsAtivo:Boolean = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,6 +40,21 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+    }
+
+
+    private fun obterCoordenadas(){}
+
+    private fun permissaoParaLocalizacao(): Boolean{
+
+        return true
+    }
+
+    private fun ultimaLocalizacaoValida(){}
+
+    private fun formatarGeopoint(valor: Double): String? {
+
+        return ""
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

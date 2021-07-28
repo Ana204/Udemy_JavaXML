@@ -1,4 +1,4 @@
-package professor.marcomaddo.appbancodedadosmeusclientes;
+package professor.marcomaddo.appbancodedadosmeusclientes.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import professor.marcomaddo.appbancodedadosmeusclientes.model.Cliente;
 
 public class AppDataBase extends SQLiteOpenHelper {
 

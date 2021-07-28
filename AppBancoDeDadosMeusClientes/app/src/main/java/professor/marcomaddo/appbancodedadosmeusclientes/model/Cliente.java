@@ -1,4 +1,4 @@
-package professor.marcomaddo.appbancodedadosmeusclientes;
+package professor.marcomaddo.appbancodedadosmeusclientes.model;
 
 public class Cliente {
 

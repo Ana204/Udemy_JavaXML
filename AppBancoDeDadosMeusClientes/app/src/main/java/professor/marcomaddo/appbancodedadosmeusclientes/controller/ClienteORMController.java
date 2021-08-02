@@ -21,4 +21,30 @@ public class ClienteORMController {
         realm.close();
 
     }
+
+
+    public void update(ClienteORM obj){
+
+        Realm realm = Realm.getDefaultInstance();
+
+        ClienteORM clienteORM = realm.where(ClienteORM.class).equalTo("id", obj.getId())
+                .findFirst();
+
+
+        if (clienteORM != null) {
+
+            realm.beginTransaction();
+
+            clienteORM.setNome(obj.getNome());
+            clienteORM.setSalario(obj.getSalario());
+            clienteORM.setIdade(obj.getIdade());
+            clienteORM.setPreco(obj.getPreco());
+            clienteORM.setDataCadastro(obj.getDataCadastro());
+            clienteORM.setHoraCadastro(obj.getHoraCadastro());
+            clienteORM.setAtivo(obj.isAtivo());
+
+            realm.commitTransaction();
+        }
+        realm.close();
+    }
 }

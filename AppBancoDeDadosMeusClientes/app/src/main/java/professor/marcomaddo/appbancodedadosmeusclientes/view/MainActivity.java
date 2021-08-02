@@ -20,22 +20,19 @@ public class MainActivity extends AppCompatActivity {
 
         ClienteORM orm;
 
-        for (int i = 5; i < 10 ; i++) {
-
            orm =  new ClienteORM();
 
-            orm.setId(i);
-            orm.setNome("Ana Lucia" +i);
-            orm.setIdade(2* i);
-            orm.setPreco(100 * i);
-            orm.setSalario(25 * i);
-            orm.setDataCadastro("02/08/2021");
-            orm.setHoraCadastro("14:40");
-            orm.setAtivo(true);
+            orm.setId(1);
+//            orm.setNome("Ana Lucia" +i);
+//            orm.setIdade(2* i);
+//            orm.setPreco(100 * i);
+//            orm.setSalario(25 * i);
+//            orm.setDataCadastro("02/08/2021");
+//            orm.setHoraCadastro("14:40");
+//            orm.setAtivo(true);
 
-            clienteORMController.insert(orm);
+            clienteORMController.delete(orm);
 
-        }
 
     }
 }

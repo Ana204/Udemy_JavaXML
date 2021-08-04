@@ -6,8 +6,6 @@
     tools:context="app.br.com.listadecompras.ModeloVermelhoFragment">
 
 
-    <!-- Terceiro Passo -->
-
     <TextView
         android:id="@+id/txtTitulo"
         android:layout_width="match_parent"

@@ -5,8 +5,6 @@
     android:background="#07487C"
     tools:context="app.br.com.listadecompras.ModeloAzulFragment">
 
-    <!-- Terceiro Passo -->
-
     <TextView
         android:id="@+id/txtTitulo"
         android:layout_width="match_parent"

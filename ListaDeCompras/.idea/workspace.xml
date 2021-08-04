@@ -28,7 +28,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="022399c7-fd13-478f-902b-e2f9f7150257" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/ModeloAzulFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/ModeloAzulFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/ModeloPretoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/ModeloPretoFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/ModeloVermelhoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/ModeloVermelhoFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_azul.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_azul.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_preto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_preto.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_vermelho.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_vermelho.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

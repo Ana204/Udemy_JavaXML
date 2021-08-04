@@ -1,4 +1,4 @@
-package app.modelo.meusclientes;
+package app.br.com.listadecompras;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -18,6 +18,8 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+
+import app.modelo.meusclientes.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

@@ -2,6 +2,7 @@ package professor.marcomaddo.appbancodedadosmeusclientes.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -26,7 +27,6 @@ public class ClienteORMController {
         realm.close();
 
     }
-
 
     public void update(ClienteORM obj){
 
@@ -91,5 +91,23 @@ public class ClienteORMController {
         }
 
         return list;
+    }
+
+    public ClienteORM getByID(int id){
+
+        Realm realm = Realm.getDefaultInstance();
+
+        ClienteORM obj = null;
+
+        try{
+
+          obj = realm.copyFromRealm(Objects.requireNonNull(realm.where(ClienteORM.class)).equalTo("id", id).findFirst());
+
+        }catch (Exception e){
+
+            System.out.println("Error ao executar !!" + e.getMessage());
+        }
+
+        return obj;
     }
 }

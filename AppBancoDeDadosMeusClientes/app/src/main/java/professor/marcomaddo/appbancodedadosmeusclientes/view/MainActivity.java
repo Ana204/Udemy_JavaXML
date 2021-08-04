@@ -24,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
         clienteORMController = new ClienteORMController();
 
         ClienteORM orm;
+        ClienteORM consulta;
 
-/*        for (int i = 2; i < 10; i++) {
+/*          for (int i = 2; i < 10; i++) {
             orm =  new ClienteORM();
 
             orm.setId(i);
@@ -40,12 +41,20 @@ public class MainActivity extends AppCompatActivity {
             clienteORMController.insert(orm);
         }*/
 
-
-        listaClientes = clienteORMController.listar();
+/*        listaClientes = clienteORMController.listar();
 
         for (ClienteORM obj : listaClientes)
         {
             System.out.println("Cliente: " + obj.getId()+ "" + obj.getNome());
+        }*/
+
+        consulta = clienteORMController.getByID(4);
+
+        if (consulta != null){
+
+            System.out.println("Consulta: " + consulta.getId() + " " + consulta.getNome());
+        }else {
+            System.out.println("NÃO ENCONTRADO !!");
         }
 
     }

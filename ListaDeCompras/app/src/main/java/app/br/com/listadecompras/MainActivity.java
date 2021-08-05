@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity
     MenuItem nav_azul;
 
     TextView txtTitulo;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

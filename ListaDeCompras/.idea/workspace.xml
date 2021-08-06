@@ -28,7 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="022399c7-fd13-478f-902b-e2f9f7150257" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/model/Categoria.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/model/Produto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,6 +161,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="2131" y="204" key="#com.intellij.ide.util.MemberChooser" timestamp="1628191542545">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2131" y="204" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628191542545" />
     <state x="2106" y="275" key="FileChooserDialogImpl" timestamp="1628191023930">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>

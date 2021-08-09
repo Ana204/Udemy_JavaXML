@@ -1,4 +1,4 @@
-package app.br.com.listadecompras;
+package app.br.com.listadecompras.view;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -18,6 +18,8 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+
+import app.br.com.listadecompras.R;
 
 
 public class MainActivity extends AppCompatActivity

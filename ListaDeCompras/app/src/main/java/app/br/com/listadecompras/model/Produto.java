@@ -69,14 +69,6 @@ public class Produto extends RealmObject {
         this.unidadeDeMedida = unidadeDeMedida;
     }
 
-    public double getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(double quantidade) {
-        this.quantidade = quantidade;
-    }
-
     public double getPrecoPago() {
         return precoPago;
     }
@@ -107,5 +99,13 @@ public class Produto extends RealmObject {
 
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
+    }
+
+    public double getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(double quantidade) {
+        this.quantidade = quantidade;
     }
 }

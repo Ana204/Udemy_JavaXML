@@ -4,6 +4,7 @@ import java.util.List;
 
 import app.br.com.listadecompras.model.Categoria;
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class CategoriaController implements ICrud<Categoria>{
 
@@ -48,6 +49,17 @@ public class CategoriaController implements ICrud<Categoria>{
     @Override
     public void delete(Categoria obj) {
 
+        Realm realm = Realm.getDefaultInstance();
+
+        realm.beginTransaction();
+
+        RealmResults<Categoria> results = realm.where(Categoria.class).equalTo("id", obj.getId()).findAll();
+
+        results.deleteAllFromRealm();
+
+        realm.commitTransaction();
+
+        realm.close();
     }
 
     @Override

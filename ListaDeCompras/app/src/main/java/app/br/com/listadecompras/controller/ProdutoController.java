@@ -3,6 +3,7 @@ package app.br.com.listadecompras.controller;
 import java.util.List;
 import app.br.com.listadecompras.model.Produto;
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class ProdutoController implements ICrud<Produto>{
 
@@ -51,6 +52,18 @@ public class ProdutoController implements ICrud<Produto>{
 
     @Override
     public void delete(Produto obj) {
+
+        Realm realm = Realm.getDefaultInstance();
+
+        realm.beginTransaction();
+
+        RealmResults<Produto> results = realm.where(Produto.class).equalTo("id", obj.getId()).findAll();
+
+        results.deleteAllFromRealm();
+
+        realm.commitTransaction();
+
+        realm.close();
 
     }
 

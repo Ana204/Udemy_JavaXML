@@ -28,10 +28,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="022399c7-fd13-478f-902b-e2f9f7150257" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/CategoriaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/ProdutoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/ICrud.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/ICrud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/CategoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/CategoriaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/ProdutoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/model/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/model/Categoria.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,10 +171,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2131" y="204" key="#com.intellij.ide.util.MemberChooser" timestamp="1628520622407">
+    <state x="2131" y="204" key="#com.intellij.ide.util.MemberChooser" timestamp="1628521267798">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2131" y="204" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628520622407" />
+    <state x="2131" y="204" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628521267798" />
     <state x="1576" y="299" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1628518934457">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>

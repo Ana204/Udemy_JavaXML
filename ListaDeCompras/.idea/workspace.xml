@@ -30,6 +30,7 @@
     <list default="true" id="022399c7-fd13-478f-902b-e2f9f7150257" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/CategoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/CategoriaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/ICrud.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/ICrud.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/ProdutoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

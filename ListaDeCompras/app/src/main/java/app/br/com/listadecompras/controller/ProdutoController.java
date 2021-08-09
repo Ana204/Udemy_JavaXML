@@ -1,9 +1,11 @@
 package app.br.com.listadecompras.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import app.br.com.listadecompras.model.Produto;
 import io.realm.Realm;
 import io.realm.RealmResults;
+import io.realm.exceptions.RealmException;
 
 public class ProdutoController implements ICrud<Produto>{
 
@@ -68,12 +70,25 @@ public class ProdutoController implements ICrud<Produto>{
     }
 
     @Override
-    public void deleteByID(int id) {
-
-    }
-
-    @Override
     public List<Produto> listar(int id) {
-        return null;
+        Realm realm = null;
+
+        RealmResults<Produto> results = null;
+
+        List<Produto> list = new ArrayList<>();
+
+        try{
+            realm = Realm.getDefaultInstance();
+
+            results = realm.where(Produto.class).findAll();
+            list = realm.copyFromRealm(results);
+
+        }catch (RealmException e){
+
+        }finally {
+            realm.close();
+        }
+
+        return list;
     }
 }

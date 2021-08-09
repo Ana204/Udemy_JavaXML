@@ -66,7 +66,7 @@ public class CategoriaController implements ICrud<Categoria>{
 
 
     @Override
-    public List<Categoria> listar(int id) {
+    public List<Categoria> listar(Categoria obj) {
 
         Realm realm = null;
 

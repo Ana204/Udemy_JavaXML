@@ -70,7 +70,7 @@ public class ProdutoController implements ICrud<Produto>{
     }
 
     @Override
-    public List<Produto> listar(int id) {
+    public List<Produto> listar(Produto obj) {
         Realm realm = null;
 
         RealmResults<Produto> results = null;

@@ -5,6 +5,10 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="System.out" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
@@ -32,6 +36,8 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/CategoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/CategoriaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/ICrud.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/ICrud.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/controller/ProdutoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/model/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/model/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/view/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/view/MainActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +72,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AppBancoDeDadosMeusClientes" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents" />
     <property name="settings.editor.selected.configurable" value="ics" />
   </component>
   <component name="RecentsManager">
@@ -183,33 +189,49 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="1629" y="389" width="564" height="270" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628518936567" />
-    <state x="2106" y="275" key="FileChooserDialogImpl" timestamp="1628518603182">
+    <state x="2106" y="275" key="FileChooserDialogImpl" timestamp="1628540966360">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2106" y="275" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628518603182" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1628190432573">
+    <state x="2106" y="275" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628540966360" />
+    <state width="1877" height="268" key="GridCell.Tab.0.bottom" timestamp="1628541694773">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628190432573" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1628190432573">
+    <state width="1877" height="268" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628541694773" />
+    <state width="1877" height="268" key="GridCell.Tab.0.center" timestamp="1628541694773">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628190432573" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1628190432572">
+    <state width="1877" height="268" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628541694773" />
+    <state width="1877" height="268" key="GridCell.Tab.0.left" timestamp="1628541694773">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628190432572" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1628190432573">
+    <state width="1877" height="268" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628541694773" />
+    <state width="1877" height="268" key="GridCell.Tab.0.right" timestamp="1628541694773">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628190432573" />
+    <state width="1877" height="268" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628541694773" />
+    <state width="1877" height="401" key="GridCell.Tab.1.bottom" timestamp="1628539035794">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="401" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628539035794" />
+    <state width="1877" height="401" key="GridCell.Tab.1.center" timestamp="1628539035794">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="401" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628539035794" />
+    <state width="1877" height="401" key="GridCell.Tab.1.left" timestamp="1628539035793">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="401" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628539035793" />
+    <state width="1877" height="401" key="GridCell.Tab.1.right" timestamp="1628539035794">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="401" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628539035794" />
     <state x="2142" y="298" key="chooseDestDirectoryDialog" timestamp="1628103159450">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2142" y="298" key="chooseDestDirectoryDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628103159450" />
-    <state x="1989" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1628519269919">
+    <state x="1989" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1628538443040">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="1989" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628519269919" />
+    <state x="1989" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628538443040" />
   </component>
 </project>

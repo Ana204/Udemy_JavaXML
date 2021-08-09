@@ -22,10 +22,8 @@ public class Produto extends RealmObject {
     @Required
     private String unidadeDeMedida;
 
-    @Required
     private double quantidade;
 
-    @Required
     private double precoPago;
 
     @Required

@@ -19,7 +19,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.List;
+
 import app.br.com.listadecompras.R;
+import app.br.com.listadecompras.controller.CategoriaController;
+import app.br.com.listadecompras.model.Categoria;
 
 
 public class MainActivity extends AppCompatActivity
@@ -69,6 +73,26 @@ public class MainActivity extends AppCompatActivity
 
         fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloVermelhoFragment()).commit();
 
+        manterCategoria();
+
+    }
+
+    private void manterCategoria() {
+
+        CategoriaController categoria = new CategoriaController();
+
+        Categoria obj = new Categoria();
+
+        obj.setNomeDaCategoria("Registro");
+        obj.setId(3);
+
+        List<Categoria> listaDeCategoria = categoria.listar(obj);
+
+        for (Categoria o: listaDeCategoria) {
+
+            System.out.println("LISTA: " + o.getId() + " " + o.getNomeDaCategoria());
+
+        }
     }
 
     @Override

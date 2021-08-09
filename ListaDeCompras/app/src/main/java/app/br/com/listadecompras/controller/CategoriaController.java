@@ -28,6 +28,21 @@ public class CategoriaController implements ICrud<Categoria>{
     @Override
     public void update(Categoria obj) {
 
+        Realm realm = Realm.getDefaultInstance();
+
+        Categoria categoria = realm.where(Categoria.class).equalTo("id", obj.getId()).findFirst();
+
+        if(categoria != null){
+
+            realm.beginTransaction();
+
+            categoria.setNomeDaCategoria(obj.getNomeDaCategoria());
+            categoria.setImagemCategoria(obj.getImagemCategoria());
+
+            realm.commitTransaction();
+        }
+        realm.close();
+
     }
 
     @Override

@@ -19,11 +19,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Date;
 import java.util.List;
 
 import app.br.com.listadecompras.R;
 import app.br.com.listadecompras.controller.CategoriaController;
+import app.br.com.listadecompras.controller.ProdutoController;
 import app.br.com.listadecompras.model.Categoria;
+import app.br.com.listadecompras.model.Produto;
 
 
 public class MainActivity extends AppCompatActivity
@@ -74,6 +77,33 @@ public class MainActivity extends AppCompatActivity
         fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloVermelhoFragment()).commit();
 
         manterCategoria();
+        manterProduto();
+
+    }
+
+    private void manterProduto() {
+
+        ProdutoController produto = new ProdutoController();
+
+        Produto obj = new Produto();
+
+        obj.setNomeDoProduto("Novo Produto");
+        obj.setUnidadeDeMedida("UN");
+        obj.setQuantidade(19.5);
+        obj.setPrecoPago(15.90);
+        obj.setDataDaInclusao(new Date());
+        obj.setCodigoDeBarras("999000000");
+        obj.setId(2);
+/*
+        List<Produto> listaDeProduto = produto.listar(obj);
+
+
+        for (Produto o: listaDeProduto){
+
+            System.out.println("LISTA DE PRODUTO " + o.getId() + " - " + o.getNomeDoProduto());
+        }*/
+
+
 
     }
 
@@ -86,13 +116,13 @@ public class MainActivity extends AppCompatActivity
         obj.setNomeDaCategoria("Registro");
         obj.setId(3);
 
-        List<Categoria> listaDeCategoria = categoria.listar(obj);
+/*        List<Categoria> listaDeCategoria = categoria.listar(obj);
 
         for (Categoria o: listaDeCategoria) {
 
             System.out.println("LISTA: " + o.getId() + " " + o.getNomeDaCategoria());
 
-        }
+        }*/
     }
 
     @Override
@@ -132,7 +162,6 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        // TODO: opter ID para a opção selecionada no MENU DRAWER
         if (id == R.id.nav_preto) {
 
             menu = navigationView.getMenu();
@@ -164,7 +193,7 @@ public class MainActivity extends AppCompatActivity
             nav_azul = menu.findItem(R.id.nav_azul);
             nav_azul.setTitle("Azul");
 
-            // TODO: Mudar a cor de todos os itens do menu programaticamente
+
             navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
 
             fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloVermelhoFragment()).commit();

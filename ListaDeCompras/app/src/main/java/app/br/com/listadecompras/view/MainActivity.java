@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity
     MenuItem meusProdutos;
     MenuItem minhasCompras;
     MenuItem compartilhar;
+    MenuItem sairDoApp;
 
     TextView txtTitulo;
 
@@ -51,14 +52,8 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab =   findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Action Button Clicado", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-            }
-        });
+        fab.setOnClickListener(view -> Snackbar.make(view, "Action Button Clicado", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -149,7 +144,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_sair) {
             return true;
         }
 
@@ -166,13 +161,16 @@ public class MainActivity extends AppCompatActivity
             menu = navigationView.getMenu();
 
             meusProdutos = menu.findItem(R.id.meus_produtos);
-            meusProdutos.setTitle("Preto Ativado");
+            meusProdutos.setTitle("Meus produtos Ativado");
 
             minhasCompras = menu.findItem(R.id.minhas_compras);
-            minhasCompras.setTitle("Vermelho");
+            minhasCompras.setTitle("Minhas compras");
 
             compartilhar = menu.findItem(R.id.compartilhar);
-            compartilhar.setTitle("Azul");
+            compartilhar.setTitle("Compartilhar");
+
+            sairDoApp = menu.findItem(R.id.sair);
+            sairDoApp.setTitle("Sair");
 
             navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
 
@@ -183,14 +181,16 @@ public class MainActivity extends AppCompatActivity
             menu = navigationView.getMenu();
 
             meusProdutos = menu.findItem(R.id.meus_produtos);
-
-            meusProdutos.setTitle("Preto");
+            meusProdutos.setTitle("Meus Produtos");
 
             minhasCompras = menu.findItem(R.id.minhas_compras);
-            minhasCompras.setTitle("Vermelho Ativado");
+            minhasCompras.setTitle("Minhas Compras Ativado");
 
             compartilhar = menu.findItem(R.id.compartilhar);
-            compartilhar.setTitle("Azul");
+            compartilhar.setTitle("Compartilhar");
+
+            sairDoApp = menu.findItem(R.id.sair);
+            sairDoApp.setTitle("Sair");
 
 
             navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
@@ -202,13 +202,37 @@ public class MainActivity extends AppCompatActivity
             menu = navigationView.getMenu();
 
             meusProdutos = menu.findItem(R.id.meus_produtos);
-            meusProdutos.setTitle("Preto");
+            meusProdutos.setTitle("Meus Produtos");
 
             minhasCompras = menu.findItem(R.id.minhas_compras);
-            minhasCompras.setTitle("Vermelho");
+            minhasCompras.setTitle("Minhas Compras");
 
             compartilhar = menu.findItem(R.id.compartilhar);
-            compartilhar.setTitle("Azul Ativado");
+            compartilhar.setTitle("Compartilhar Ativado");
+
+            sairDoApp = menu.findItem(R.id.sair);
+            sairDoApp.setTitle("Sair");
+
+            navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
+
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new CompartilharFragment()).commit();
+
+        } else if (id == R.id.sair) {
+
+            menu = navigationView.getMenu();
+
+            meusProdutos = menu.findItem(R.id.meus_produtos);
+            meusProdutos.setTitle("Meus Produtos");
+
+            minhasCompras = menu.findItem(R.id.minhas_compras);
+            minhasCompras.setTitle("Minhas Compras");
+
+            compartilhar = menu.findItem(R.id.compartilhar);
+            compartilhar.setTitle("Compartilhar");
+
+            sairDoApp = menu.findItem(R.id.sair);
+            sairDoApp.setTitle("Sair Ativado");
+
 
             navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
 

@@ -12,11 +12,11 @@ import android.widget.TextView;
 import app.br.com.listadecompras.R;
 
 
-public class ModeloPretoFragment extends Fragment {
+public class MeusProdutosFragment extends Fragment {
 
     View view;
 
-    public ModeloPretoFragment() {
+    public MeusProdutosFragment() {
     }
 
 
@@ -30,7 +30,7 @@ public class ModeloPretoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view =  inflater.inflate(R.layout.fragment_preto, container, false);
+        view =  inflater.inflate(R.layout.fragment_meus_produtos, container, false);
 
         TextView txtTitulo = view.findViewById(R.id.txtTitulo);
 

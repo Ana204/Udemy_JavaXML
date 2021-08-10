@@ -12,11 +12,11 @@ import android.widget.TextView;
 import app.br.com.listadecompras.R;
 
 
-public class ModeloVermelhoFragment extends Fragment {
+public class CompartilharFragment extends Fragment {
 
     View view;
 
-    public ModeloVermelhoFragment() {
+    public CompartilharFragment() {
     }
 
 
@@ -30,7 +30,7 @@ public class ModeloVermelhoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view =  inflater.inflate(R.layout.fragment_vermelho, container, false);
+        view =  inflater.inflate(R.layout.fragment_compartilhar, container, false);
 
         TextView txtTitulo = view.findViewById(R.id.txtTitulo);
 

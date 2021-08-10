@@ -20,7 +20,6 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Date;
-import java.util.List;
 
 import app.br.com.listadecompras.R;
 import app.br.com.listadecompras.controller.CategoriaController;
@@ -37,9 +36,9 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView;
 
     Menu menu;
-    MenuItem nav_preto;
-    MenuItem nav_vermelho;
-    MenuItem nav_azul;
+    MenuItem meusProdutos;
+    MenuItem minhasCompras;
+    MenuItem compartilhar;
 
     TextView txtTitulo;
 
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity
 
         fragmentManager = getSupportFragmentManager();
 
-        fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloVermelhoFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.content_fragment, new MinhasComprasFragment()).commit();
 
         manterCategoria();
         manterProduto();
@@ -162,58 +161,58 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_preto) {
+        if (id == R.id.meus_produtos) {
 
             menu = navigationView.getMenu();
 
-            nav_preto = menu.findItem(R.id.nav_preto);
-            nav_preto.setTitle("Preto Ativado");
+            meusProdutos = menu.findItem(R.id.meus_produtos);
+            meusProdutos.setTitle("Preto Ativado");
 
-            nav_vermelho = menu.findItem(R.id.nav_vermelho);
-            nav_vermelho.setTitle("Vermelho");
+            minhasCompras = menu.findItem(R.id.minhas_compras);
+            minhasCompras.setTitle("Vermelho");
 
-            nav_azul = menu.findItem(R.id.nav_azul);
-            nav_azul.setTitle("Azul");
+            compartilhar = menu.findItem(R.id.compartilhar);
+            compartilhar.setTitle("Azul");
 
             navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
 
-            fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloPretoFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new MeusProdutosFragment()).commit();
 
-        } else if (id == R.id.nav_vermelho) {
+        } else if (id == R.id.minhas_compras) {
 
             menu = navigationView.getMenu();
 
-            nav_preto = menu.findItem(R.id.nav_preto);
+            meusProdutos = menu.findItem(R.id.meus_produtos);
 
-            nav_preto.setTitle("Preto");
+            meusProdutos.setTitle("Preto");
 
-            nav_vermelho = menu.findItem(R.id.nav_vermelho);
-            nav_vermelho.setTitle("Vermelho Ativado");
+            minhasCompras = menu.findItem(R.id.minhas_compras);
+            minhasCompras.setTitle("Vermelho Ativado");
 
-            nav_azul = menu.findItem(R.id.nav_azul);
-            nav_azul.setTitle("Azul");
+            compartilhar = menu.findItem(R.id.compartilhar);
+            compartilhar.setTitle("Azul");
 
 
             navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
 
-            fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloVermelhoFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new MinhasComprasFragment()).commit();
 
-        } else if (id == R.id.nav_azul) {
+        } else if (id == R.id.compartilhar) {
 
             menu = navigationView.getMenu();
 
-            nav_preto = menu.findItem(R.id.nav_preto);
-            nav_preto.setTitle("Preto");
+            meusProdutos = menu.findItem(R.id.meus_produtos);
+            meusProdutos.setTitle("Preto");
 
-            nav_vermelho = menu.findItem(R.id.nav_vermelho);
-            nav_vermelho.setTitle("Vermelho");
+            minhasCompras = menu.findItem(R.id.minhas_compras);
+            minhasCompras.setTitle("Vermelho");
 
-            nav_azul = menu.findItem(R.id.nav_azul);
-            nav_azul.setTitle("Azul Ativado");
+            compartilhar = menu.findItem(R.id.compartilhar);
+            compartilhar.setTitle("Azul Ativado");
 
             navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
 
-            fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloAzulFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new CompartilharFragment()).commit();
 
         }
 

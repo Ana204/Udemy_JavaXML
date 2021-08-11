@@ -33,12 +33,6 @@
   <component name="ChangeListManager">
     <list default="true" id="022399c7-fd13-478f-902b-e2f9f7150257" name="Default Changelist" comment="mudando os nomes dos fragments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/view/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/app/br/com/listadecompras/view/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_compartilhar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_compartilhar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_meus_produtos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_meus_produtos.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_minhas_compras.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_minhas_compras.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,6 +157,14 @@
       <option name="presentableId" value="Default" />
       <updated>1628102911371</updated>
     </task>
+    <task id="LOCAL-00001" summary="mudando os nomes dos fragments">
+      <created>1628621580126</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1628621580126</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -234,10 +236,10 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="401" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628539035794" />
-    <state x="1918" y="253" key="Vcs.Push.Dialog.v2" timestamp="1628610781341">
+    <state x="1918" y="253" key="Vcs.Push.Dialog.v2" timestamp="1628621598013">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="1918" y="253" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628610781341" />
+    <state x="1918" y="253" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1628621598013" />
     <state x="2142" y="298" key="chooseDestDirectoryDialog" timestamp="1628103159450">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>

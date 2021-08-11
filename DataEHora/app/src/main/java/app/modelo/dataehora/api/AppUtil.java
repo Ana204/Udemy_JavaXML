@@ -13,6 +13,7 @@ public class AppUtil {
         String dataAtual = "dd/mm/aaaa";
         String dia, mes, ano;
 
+
         try {
 
             Calendar calendar = Calendar.getInstance();
@@ -22,7 +23,7 @@ public class AppUtil {
             ano = String.valueOf(calendar.get(Calendar.YEAR));
 
 
-//            dia = (Calendar.DAY_OF_MONTH < 10) ? "0"+dia : dia;
+//           dia = (Calendar.DAY_OF_MONTH < 10) ? "0"+dia : dia;
 
             int mesAtual = (Calendar.MONTH)+1;
 
@@ -47,7 +48,33 @@ public class AppUtil {
 
     public static String getHoraAtual(){
 
-        String horaAtual = "12:04";
+        String horas, minutos, segundos;
+
+        String horaAtual = "00:00:00";
+
+
+        try{
+
+            Calendar calendar = Calendar.getInstance();
+
+            horas = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
+            minutos = String.valueOf(calendar.get(Calendar.MINUTE));
+            segundos = String.valueOf(calendar.get(Calendar.SECOND));
+
+            horas = (Calendar.HOUR_OF_DAY <= 9) ? "0"+horas : horas;
+            minutos = (Calendar.MINUTE <= 9) ? "0"+minutos : minutos;
+            segundos = (Calendar.MILLISECOND <= 9) ? "0"+segundos : segundos;
+
+            horaAtual = horas+":"+minutos+":"+segundos;
+
+
+            return horaAtual;
+
+
+
+        }catch (Exception e){
+
+        }
 
         return horaAtual;
     }

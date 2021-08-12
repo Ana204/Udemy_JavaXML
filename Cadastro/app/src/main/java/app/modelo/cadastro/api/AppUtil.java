@@ -1,4 +1,4 @@
-package app.modelo.dataehora.api;
+package app.modelo.cadastro.api;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

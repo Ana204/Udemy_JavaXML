@@ -1,11 +1,11 @@
-package app.modelo.dataehora;
+package app.modelo.cadastro;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
-import app.modelo.dataehora.api.AppUtil;
+import app.modelo.cadastro.api.AppUtil;
 
 public class MainActivity extends AppCompatActivity {
 

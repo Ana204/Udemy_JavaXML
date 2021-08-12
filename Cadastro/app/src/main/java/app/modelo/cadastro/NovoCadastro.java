@@ -41,7 +41,7 @@ public class NovoCadastro extends AppCompatActivity {
         confimarSenha = findViewById(R.id.confimarSenha);
         checkTermos = findViewById(R.id.checkTermos);
 
-        formularioTrue = false;
+
     }
 
     //Método para voltar á tela inicial
@@ -61,12 +61,29 @@ public class NovoCadastro extends AppCompatActivity {
         if (!checkTermos.isChecked()){
 
             Toast.makeText(getApplicationContext(), "É necessario aceitar os termos de uso", Toast.LENGTH_LONG).show();
+            formularioTrue = true;
         }
+    }
+
+    public boolean validarSenhas(){
+
+        boolean retorno = false;
+
+        int senha, confirmarSenha;
+
+        senha = Integer.parseInt(edtSenha.getText().toString());
+        confirmarSenha = Integer.parseInt(confimarSenha.getText().toString());
+
+        retorno = (senha == confirmarSenha);
+
+        return retorno;
+
     }
 
     private void BtnCadastrar() {
         cadastrar = findViewById(R.id.cadastrar);
 
+        formularioTrue = true;
 
         cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,22 +92,35 @@ public class NovoCadastro extends AppCompatActivity {
                 if (TextUtils.isEmpty(edtNome.getText().toString())){
                     edtNome.setError("Digite seu nome");
                     edtNome.requestFocus();
+                    formularioTrue = false;
                 }
                 else if (TextUtils.isEmpty(edtEmail.getText().toString())){
                     edtEmail.setError("Digite seu email");
                     edtEmail.requestFocus();
+                    formularioTrue = false;
                 }
                 else if (TextUtils.isEmpty(edtSenha.getText().toString())){
                     edtSenha.setError("Digite sua senha");
                     edtSenha.requestFocus();
+                    formularioTrue = false;
                 }
                 else if (TextUtils.isEmpty(confimarSenha.getText().toString())){
                     confimarSenha.setError("Confirme sua senha");
                     confimarSenha.requestFocus();
+                    formularioTrue = false;
                 }
 
                 if (formularioTrue){
-                    Toast.makeText(NovoCadastro.this, "Usuario cadastrado com sucesso !!", Toast.LENGTH_LONG).show();
+
+                    if (!validarSenhas()){
+
+                        edtSenha.setError(("Suas senhas não são correspondentes"));
+                        confimarSenha.setError(("*"));
+                        edtSenha.requestFocus();
+                    }
+                    else {
+                        Toast.makeText(NovoCadastro.this, "Usuario cadastrado com sucesso !!", Toast.LENGTH_LONG).show();
+                    }
                 }
 
             }

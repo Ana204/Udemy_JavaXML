@@ -26,7 +26,7 @@ public class NovoCadastro extends AppCompatActivity {
     private void BtnVoltar() {
         btnvoltar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
                 Intent telaInicial = new Intent(NovoCadastro.this, MainActivity.class);
                 startActivity(telaInicial);

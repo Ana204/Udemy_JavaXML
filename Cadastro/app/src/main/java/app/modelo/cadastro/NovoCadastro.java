@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -19,6 +20,8 @@ public class NovoCadastro extends AppCompatActivity {
     EditText edtSenha;
     EditText confimarSenha;
     CheckBox checkTermos;
+
+    boolean formularioTrue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class NovoCadastro extends AppCompatActivity {
         confimarSenha = findViewById(R.id.confimarSenha);
         checkTermos = findViewById(R.id.checkTermos);
 
+        formularioTrue = false;
     }
 
     //Método para voltar á tela inicial
@@ -68,7 +72,27 @@ public class NovoCadastro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(NovoCadastro.this, "Usuario cadastrado com sucesso !!", Toast.LENGTH_LONG).show();
+                if (TextUtils.isEmpty(edtNome.getText().toString())){
+                    edtNome.setError("Digite seu nome");
+                    edtNome.requestFocus();
+                }
+                else if (TextUtils.isEmpty(edtEmail.getText().toString())){
+                    edtEmail.setError("Digite seu email");
+                    edtEmail.requestFocus();
+                }
+                else if (TextUtils.isEmpty(edtSenha.getText().toString())){
+                    edtSenha.setError("Digite sua senha");
+                    edtSenha.requestFocus();
+                }
+                else if (TextUtils.isEmpty(confimarSenha.getText().toString())){
+                    confimarSenha.setError("Confirme sua senha");
+                    confimarSenha.requestFocus();
+                }
+
+                if (formularioTrue){
+                    Toast.makeText(NovoCadastro.this, "Usuario cadastrado com sucesso !!", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 

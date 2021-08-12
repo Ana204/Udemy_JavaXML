@@ -34,7 +34,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:hint="@string/digite_seu_nome" />
+            android:hint="@string/digite_seu_nome"
+            android:inputType="textPersonName"
+            tools:ignore="Autofill" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,7 +49,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:hint="@string/digite_seu_email" />
+            android:hint="@string/digite_seu_email"
+            android:inputType="textEmailAddress"
+            tools:ignore="Autofill" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -60,7 +64,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:hint="@string/informe_sua_senha" />
+            android:hint="@string/informe_sua_senha"
+            android:inputType="textWebPassword"
+            tools:ignore="Autofill" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,7 +79,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:hint="@string/confirme_sua_senha" />
+            android:hint="@string/confirme_sua_senha"
+            android:inputType="textWebPassword"
+            tools:ignore="Autofill" />
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -100,6 +108,7 @@
         android:layout_marginLeft="16dp"
         android:text="@string/voltar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

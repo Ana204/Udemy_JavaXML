@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">AppClienteVIP</string>
+    <string name="app_name">Cliente VIP</string>
+    <string name="sao_paulo_sp">São Paulo - SP</string>
+    <string name="novo_cadastro">Novo Cadastro</string>
+    <string name="_00_00_00">00:00:00</string>
+    <string name="dd_mm_aaaa">dd/mm/aaaa</string>
+    <string name="voltar">Voltar</string>
+    <string name="cadastro">Cadastro</string>
+    <string name="nome">NOME</string>
+    <string name="email">EMAIL</string>
+    <string name="digite_seu_nome">Digite seu nome</string>
+    <string name="digite_seu_email">Digite seu email</string>
+    <string name="senha">SENHA</string>
+    <string name="informe_sua_senha">Informe sua senha</string>
+    <string name="repita_sua_senha">REPITA SUA SENHA</string>
+    <string name="confirme_sua_senha">Confirme sua senha</string>
+    <string name="li_e_concordo_com_os_termos_de_uso">Li e concordo com os termos de uso</string>
+    <string name="cadastrar">Cadastrar</string>
 </resources>

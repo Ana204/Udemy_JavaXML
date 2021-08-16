@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AppUtil {
+    
+    public static final int TIME_SPLASH = 5000;
 
     /**
      *

@@ -20,16 +20,13 @@ public class SplashActivity extends AppCompatActivity {
 
     private void telaSplash() {
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        new Handler().postDelayed(() -> {
 
-                Intent intent = new Intent(SplashActivity.this, NovoCadastro.class);
-                startActivity(intent);
-                finish();
-                return;
+            Intent intent = new Intent(SplashActivity.this, NovoCadastro.class);
+            startActivity(intent);
+            finish();
+            return;
 
-            }
         }, AppUtil.TIME_SPLASH);
     }
 }

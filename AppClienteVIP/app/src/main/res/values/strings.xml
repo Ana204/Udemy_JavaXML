@@ -16,4 +16,6 @@
     <string name="confirme_sua_senha">Confirme sua senha</string>
     <string name="li_e_concordo_com_os_termos_de_uso">Li e concordo com os termos de uso</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="clientes">Clientes</string>
+    <string name="login">Login</string>
 </resources>

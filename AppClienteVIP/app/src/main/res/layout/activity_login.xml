@@ -60,7 +60,7 @@
 
 
         <EditText
-            android:id="@+id/edtEmail"
+            android:id="@+id/editEmailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"

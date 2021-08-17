@@ -29,6 +29,6 @@
     <string name="recuperar_senha">Recuperar Senha</string>
     <string name="acessar">ACESSAR</string>
     <string name="seja_vip">SEJA VIP</string>
-    <string name="ler_politica_de_privacidade_termos_de_uso"><![CDATA[Ler Política de Privacidade & Termos de Uso]]></string>
+    <string name="ler_politica_de_privacidade_termos_de_uso">Ler Política de Privacidade - Termos de Uso</string>
     <string name="versao_v1_0">Versão V1.0</string>
 </resources>

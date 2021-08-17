@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Cliente VIP</string>
     <string name="sao_paulo_sp">São Paulo - SP</string>
+
+    <!--Tela de cadastro-->
     <string name="novo_cadastro">Novo Cadastro</string>
     <string name="_00_00_00">00:00:00</string>
     <string name="dd_mm_aaaa">dd/mm/aaaa</string>
@@ -16,6 +18,17 @@
     <string name="confirme_sua_senha">Confirme sua senha</string>
     <string name="li_e_concordo_com_os_termos_de_uso">Li e concordo com os termos de uso</string>
     <string name="cadastrar">Cadastrar</string>
+
+    <!--Tela de Login-->
     <string name="clientes">Clientes</string>
     <string name="login">Login</string>
+    <string name="digite_sua_senha">Digite sua senha</string>
+    <string name="infome_o_e_mail_cadastrado">Infome o e-mail cadastrado</string>
+    <string name="informe_a_senha_cadastrada">Informe a senha cadastrada</string>
+    <string name="lembrar">Lembrar</string>
+    <string name="recuperar_senha">Recuperar Senha</string>
+    <string name="acessar">ACESSAR</string>
+    <string name="seja_vip">SEJA VIP</string>
+    <string name="ler_politica_de_privacidade_termos_de_uso"><![CDATA[Ler Política de Privacidade & Termos de Uso]]></string>
+    <string name="versao_v1_0">Versão V1.0</string>
 </resources>

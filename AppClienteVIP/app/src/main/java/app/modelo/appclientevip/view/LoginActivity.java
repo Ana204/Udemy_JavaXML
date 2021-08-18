@@ -1,6 +1,8 @@
 package app.modelo.appclientevip.view;
 
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -10,11 +12,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import app.modelo.appclientevip.R;
+import app.modelo.appclientevip.model.Cliente;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText editEmailLogin, edtSenhaLogin;
 
+    EditText editEmailLogin, edtSenhaLogin;
     CheckBox checkLembrar;
     TextView recuperarSenha, politicaDePrivacidade;
     Button btnAcessar, btnSejaVip;
@@ -27,11 +30,17 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         initLogin();
 
+        btnAcessarEvento();
         recuperarsenhaEvento();
         lerPoliticaPrivacidade();
     }
+
+
+
+
 
     private void initLogin() {
 
@@ -56,5 +65,35 @@ public class LoginActivity extends AppCompatActivity {
 
         politicaDePrivacidade.setOnClickListener(view -> Toast.makeText(LoginActivity.this, " Ler Política De Privacidade !!", Toast.LENGTH_LONG).show());
     }
+
+    private boolean validarFormulario() {
+
+        //considerar que o usuario preencheu o formulario
+        boolean retorno = true;
+
+        if (TextUtils.isEmpty(editEmailLogin.getText().toString())){
+            editEmailLogin.setError("Preencha o campo com seu email");
+            editEmailLogin.requestFocus();
+            retorno = false;
+        }
+        if (TextUtils.isEmpty(edtSenhaLogin.getText().toString())){
+            edtSenhaLogin.setError("Preencha o campo com sua senha");
+            edtSenhaLogin.requestFocus();
+            retorno = false;
+        }
+
+        return retorno;
+    }
+
+    private void btnAcessarEvento() {
+
+        btnAcessar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isFormularioLogin = validarFormulario();
+            }
+        });
+    }
+
 
 }

@@ -1,5 +1,6 @@
 package app.modelo.appclientevip.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,17 +13,18 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import app.modelo.appclientevip.R;
+import app.modelo.appclientevip.controller.ClienteController;
 import app.modelo.appclientevip.model.Cliente;
 
 public class LoginActivity extends AppCompatActivity {
-
+    Cliente cliente;
 
     EditText editEmailLogin, edtSenhaLogin;
     CheckBox checkLembrar;
     TextView recuperarSenha, politicaDePrivacidade;
     Button btnAcessar, btnSejaVip;
 
-    boolean isFormularioLogin;
+    boolean isFormularioLogin, isLembrarSenha;
 
 
     @Override
@@ -37,9 +39,6 @@ public class LoginActivity extends AppCompatActivity {
         recuperarsenhaEvento();
         lerPoliticaPrivacidade();
     }
-
-
-
 
 
     private void initLogin() {
@@ -90,10 +89,34 @@ public class LoginActivity extends AppCompatActivity {
         btnAcessar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                isFormularioLogin = validarFormulario();
+
+               if(isFormularioLogin = validarFormulario()){
+
+                   if (validarDadosDoUsuario()){
+                       Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                       startActivity(intent);
+                       finish();
+                       return;
+                   }
+                   else {
+                       Toast.makeText(LoginActivity.this, "Verifique seus dados", Toast.LENGTH_LONG).show();
+                   }
+               }
             }
+
+
         });
     }
 
+    private boolean validarDadosDoUsuario() {
 
+        return ClienteController.validarDadosDoCliente();
+    }
+
+
+    public void lembrarSenha(View view) {
+
+        isLembrarSenha = checkLembrar.isChecked();
+
+    }
 }

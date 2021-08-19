@@ -31,4 +31,17 @@
     <string name="seja_vip">SEJA VIP</string>
     <string name="ler_politica_de_privacidade_termos_de_uso">Ler Política de Privacidade - Termos de Uso</string>
     <string name="versao_v1_0">Versão V1.0</string>
+
+    <!--Tela de Clientes VIP-->
+    <string name="clientesVip">Clientes VIP</string>
+    <string name="novoVIP">NOVO VIP</string>
+    <string name="primeiroNome">PRIMEIRO NOME</string>
+    <string name="informe_seu_nome">Informe seu primeiro nome</string>
+    <string name="sobrenome">Sobrenome</string>
+    <string name="informe_seu_sobrenome">informe seu sobrenome</string>
+    <string name="PessoaFisica">Pessoa Física</string>
+    <string name="salvarEContinuar">SALVAR E CONTINUAR</string>
+    <string name="cancelar">CANCELAR</string>
+
+
 </resources>

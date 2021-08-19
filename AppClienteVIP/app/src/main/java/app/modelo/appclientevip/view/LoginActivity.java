@@ -42,7 +42,12 @@ public class LoginActivity extends AppCompatActivity {
         btnAcessarEvento();
         recuperarsenhaEvento();
         lerPoliticaPrivacidade();
+
+        btnSejaVipEvento();
+
     }
+
+
 
 
     private void initLogin() {
@@ -60,8 +65,6 @@ public class LoginActivity extends AppCompatActivity {
         cliente = ClienteController.getClienteTeste();
 
         restaurarSharedPreferences();
-
-
 
     }
 
@@ -149,4 +152,20 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
+    private void btnSejaVipEvento() {
+
+        btnSejaVip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(LoginActivity.this, ClienteVipActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
+    }
+
+
 }

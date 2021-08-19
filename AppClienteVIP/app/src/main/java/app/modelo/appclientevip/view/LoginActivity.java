@@ -14,11 +14,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import app.modelo.appclientevip.R;
+import app.modelo.appclientevip.api.AppUtil;
 import app.modelo.appclientevip.controller.ClienteController;
 import app.modelo.appclientevip.model.Cliente;
 
 public class LoginActivity extends AppCompatActivity {
-    
+
     Cliente cliente;
     private SharedPreferences preferences;
 
@@ -55,6 +56,12 @@ public class LoginActivity extends AppCompatActivity {
         checkLembrar = findViewById(R.id.checkLembrar);
 
         isFormularioLogin = false;
+
+        cliente = ClienteController.getClienteTeste();
+
+        restaurarSharedPreferences();
+
+
 
     }
 
@@ -96,6 +103,8 @@ public class LoginActivity extends AppCompatActivity {
                if(isFormularioLogin = validarFormulario()){
 
                    if (validarDadosDoUsuario()){
+
+                       salvarSharedPreferences();
                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                        startActivity(intent);
                        finish();
@@ -113,12 +122,31 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean validarDadosDoUsuario() {
 
-        return ClienteController.validarDadosDoCliente();
+        return ClienteController.validarDadosDoCliente(cliente, editEmailLogin.getText().toString(), edtSenhaLogin.getText().toString());
     }
 
     public void lembrarSenha(View view) {
 
         isLembrarSenha = checkLembrar.isChecked();
+
+    }
+
+    private void salvarSharedPreferences() {
+
+        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
+        SharedPreferences.Editor dados = preferences.edit();
+
+        dados.putBoolean("loginAutomatico", isLembrarSenha);
+        dados.putString("emailCliente", editEmailLogin.getText().toString());
+        dados.apply();
+    }
+
+    private void restaurarSharedPreferences() {
+
+        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
+
+        isLembrarSenha = preferences.getBoolean("loginAutomatico", false);
+
 
     }
 }

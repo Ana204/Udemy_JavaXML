@@ -1,6 +1,7 @@
 package app.modelo.appclientevip.view;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,7 +18,9 @@ import app.modelo.appclientevip.controller.ClienteController;
 import app.modelo.appclientevip.model.Cliente;
 
 public class LoginActivity extends AppCompatActivity {
+    
     Cliente cliente;
+    private SharedPreferences preferences;
 
     EditText editEmailLogin, edtSenhaLogin;
     CheckBox checkLembrar;
@@ -112,7 +115,6 @@ public class LoginActivity extends AppCompatActivity {
 
         return ClienteController.validarDadosDoCliente();
     }
-
 
     public void lembrarSenha(View view) {
 

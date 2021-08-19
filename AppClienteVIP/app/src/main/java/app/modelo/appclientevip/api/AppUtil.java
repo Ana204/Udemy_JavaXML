@@ -7,6 +7,7 @@ import java.util.Date;
 public class AppUtil {
     
     public static final int TIME_SPLASH = 5000;
+    public static final String APP_PREFERENCIA = "cliente_vip_pref";
 
     /**
      *

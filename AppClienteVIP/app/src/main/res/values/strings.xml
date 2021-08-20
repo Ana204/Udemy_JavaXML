@@ -51,5 +51,16 @@
     <string name="informe_nomeCompleto">Informe o nome completo</string>
     <string name="salvar_e_concluir">SALVAR E CONCLUIR</string>
 
+    <!--Tela de Pessoa Juridica-->
+    <string name="pessoaJuridica">Pessoa Jurídica</string>
+    <string name="cnpj">CNPJ</string>
+    <string name="informe_seu_cnpj">Informe seu CNPJ</string>
+    <string name="razaoSocial">Razão Social</string>
+    <string name="informe_sua_razaoSocial">Informe razão social</string>
+    <string name="aberturaData">dd/mm/aaaa</string>
+    <string name="data_de_abertura_da_empresa">Data de Abertura da Empresa</string>
+    <string name="simplesNacional">Simples Nacional</string>
+    <string name="mei">MEI</string>
+
 
 </resources>

@@ -38,10 +38,18 @@
     <string name="primeiroNome">PRIMEIRO NOME</string>
     <string name="informe_seu_nome">Informe seu primeiro nome</string>
     <string name="sobrenome">Sobrenome</string>
-    <string name="informe_seu_sobrenome">informe seu sobrenome</string>
+    <string name="informe_seu_sobrenome">Informe seu sobrenome</string>
     <string name="PessoaFisica">Pessoa Física</string>
     <string name="salvarEContinuar">SALVAR E CONTINUAR</string>
     <string name="cancelar">CANCELAR</string>
+
+    <!--Tela de Pessoa fisica-->
+    <string name="pessoaFisica">Pessoa Física</string>
+    <string name="cpf">CPF</string>
+    <string name="informe_seu_cpf">Informe seu CPF</string>
+    <string name="nomeCompleto">Nome Completo</string>
+    <string name="informe_nomeCompleto">Informe o nome completo</string>
+    <string name="salvar_e_concluir">SALVAR E CONCLUIR</string>
 
 
 </resources>

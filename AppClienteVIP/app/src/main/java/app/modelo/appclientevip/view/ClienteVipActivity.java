@@ -67,7 +67,11 @@ public class ClienteVipActivity extends AppCompatActivity {
                     salvarSharedPreferences();
 
                     if (isPessoaFisica){
-                        //Tela de Cadastro do CPF
+
+                        Intent intent = new Intent(ClienteVipActivity.this, PessoaFisicaActivity.class);
+                        startActivity(intent);
+                        finish();
+                        return;
                     }
                     else {
                         //tela de cadastro do CNPJ

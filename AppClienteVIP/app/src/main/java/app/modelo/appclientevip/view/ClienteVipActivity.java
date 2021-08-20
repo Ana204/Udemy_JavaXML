@@ -74,7 +74,11 @@ public class ClienteVipActivity extends AppCompatActivity {
                         return;
                     }
                     else {
-                        //tela de cadastro do CNPJ
+
+                        Intent intent = new Intent(ClienteVipActivity.this, PessoaJuridicaActivity.class);
+                        startActivity(intent);
+                        finish();
+                        return;
                     }
 
                 }

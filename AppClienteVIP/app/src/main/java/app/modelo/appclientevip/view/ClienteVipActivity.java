@@ -34,10 +34,22 @@ public class ClienteVipActivity extends AppCompatActivity {
 
         initNovoVip();
 
-        validarFormulario();
         btnCancelarEvento();
         btnSalvarEContinuarEvento();
 
+    }
+
+    private void initNovoVip() {
+
+        edtPrimeiroNome = findViewById(R.id.edtPrimeiroNome);
+        edtSobrenome = findViewById(R.id.edtSobrenome);
+        ckPessoaFisica = findViewById(R.id.ckPessoaFisica);
+        btnSalvarEContinuar = findViewById(R.id.btnSalvarEContinuar);
+        btnCancelar = findViewById(R.id.btnCancelar);
+
+        isFormularioNovoVip = false;
+        novoVip = new Cliente();
+        restaurarSharedPreferences();
     }
 
     private void btnSalvarEContinuarEvento() {
@@ -81,7 +93,7 @@ public class ClienteVipActivity extends AppCompatActivity {
 
     private boolean validarFormulario() {
 
-        //considerar que o usuario preencheu o formulario
+        //considerar que o usuario  preencheu o formulario
         boolean retorno = true;
 
         if (TextUtils.isEmpty(edtPrimeiroNome.getText().toString())) {
@@ -94,19 +106,6 @@ public class ClienteVipActivity extends AppCompatActivity {
         }
 
         return retorno;
-    }
-
-    private void initNovoVip() {
-
-        edtPrimeiroNome = findViewById(R.id.edtPrimeiroNome);
-        edtSobrenome = findViewById(R.id.edtSobrenome);
-        ckPessoaFisica = findViewById(R.id.ckPessoaFisica);
-        btnSalvarEContinuar = findViewById(R.id.btnSalvarEContinuar);
-        btnCancelar = findViewById(R.id.btnCancelar);
-
-        isFormularioNovoVip = false;
-        novoVip = new Cliente();
-        restaurarSharedPreferences();
     }
 
     private void restaurarSharedPreferences() {

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppClienteVIP.NoActionBar">
-        <activity android:name=".view.PessoaFisicaActivity"></activity>
+        <activity android:name=".view.PessoaJuridicaActivity"></activity>
+        <activity android:name=".view.PessoaFisicaActivity" />
         <activity android:name=".view.ClienteVipActivity" />
         <activity android:name=".view.LoginActivity" />
         <activity android:name=".view.MainActivity" />

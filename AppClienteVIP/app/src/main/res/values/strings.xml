@@ -62,5 +62,10 @@
     <string name="simplesNacional">Simples Nacional</string>
     <string name="mei">MEI</string>
 
+    <!--Tela de Recuperar Senha-->
+    <string name="recuperarSenha">RECUPERAR SENHA</string>
+    <string name="emailCadastrado">Informe o email cadastrado</string>
+    <string name="recuperar">RECUPERAR</string>
+
 
 </resources>

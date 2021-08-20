@@ -85,14 +85,11 @@ public class ClienteVipActivity extends AppCompatActivity {
         boolean retorno = true;
 
         if (TextUtils.isEmpty(edtPrimeiroNome.getText().toString())) {
-
             edtPrimeiroNome.setError("Preencha o campo com seu primeiro nome");
-            edtPrimeiroNome.requestFocus();
             retorno = false;
         }
         if (TextUtils.isEmpty(edtSobrenome.getText().toString())) {
             edtSobrenome.setError("Preencha o campo com seu sobrenome");
-            edtSobrenome.requestFocus();
             retorno = false;
         }
 

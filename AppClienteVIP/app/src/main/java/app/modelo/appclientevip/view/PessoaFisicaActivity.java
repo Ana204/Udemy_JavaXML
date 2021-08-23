@@ -105,6 +105,16 @@ public class PessoaFisicaActivity extends AppCompatActivity {
     }
 
     private void btnCancelar() {
+
+        cancelarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(PessoaFisicaActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void restaurarSharedPreferences() {

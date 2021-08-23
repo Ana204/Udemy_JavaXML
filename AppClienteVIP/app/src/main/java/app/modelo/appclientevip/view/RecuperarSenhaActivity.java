@@ -32,9 +32,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
         buttonVoltarParaLogin();
         buttonRecuperar();
     }
-
-
-
+    
 
     private void initRecuperarSenha() {
 
@@ -69,6 +67,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
                     Toast.makeText(RecuperarSenhaActivity.this, "Senha enviada para o email informado !!", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(RecuperarSenhaActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
             }
         });

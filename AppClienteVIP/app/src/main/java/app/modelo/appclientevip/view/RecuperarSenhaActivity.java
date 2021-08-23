@@ -3,31 +3,44 @@ package app.modelo.appclientevip.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import app.modelo.appclientevip.R;
 
 public class RecuperarSenhaActivity extends AppCompatActivity {
 
-    Button buttonVoltar;
+    Button buttonVoltar, btnRecuperar;
+
+    EditText edtEmailCadastrado;
+
+    Boolean isFormularioRecuperarSenha;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recuperar_senha);
 
-
         initRecuperarSenha();
 
         buttonVoltarParaLogin();
+        buttonRecuperar();
     }
+
+
 
 
     private void initRecuperarSenha() {
 
         buttonVoltar = findViewById(R.id.buttonVoltar);
+        btnRecuperar = findViewById(R.id.btnRecuperar);
+        edtEmailCadastrado = findViewById(R.id.edtEmailCadastrado);
 
     }
 
@@ -39,10 +52,39 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(RecuperarSenhaActivity.this, LoginActivity.class);
                 startActivity(intent);
-                finish();
 
             }
         });
+    }
+
+    private void buttonRecuperar() {
+
+        btnRecuperar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (isFormularioRecuperarSenha = validarFormulario()) {
+
+                    Toast.makeText(RecuperarSenhaActivity.this, "Senha enviada para o email informado !!", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(RecuperarSenhaActivity.this, LoginActivity.class);
+                }
+            }
+        });
+    }
+
+    private boolean validarFormulario() {
+
+        //considerar que o usuario  preencheu o formulario
+        boolean retorno = true;
+
+        if (TextUtils.isEmpty(edtEmailCadastrado.getText().toString())) {
+            edtEmailCadastrado.setError("Preencha o campo com seu EMAIL cadastrado");
+            retorno = false;
+        }
+
+        return retorno;
     }
 
 }

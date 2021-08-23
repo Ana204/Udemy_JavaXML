@@ -70,7 +70,15 @@ public class LoginActivity extends AppCompatActivity {
 
     private void recuperarsenhaEvento() {
 
-        recuperarSenha.setOnClickListener(view -> Toast.makeText(LoginActivity.this, "Recuperar Senha !!", Toast.LENGTH_LONG).show());
+        recuperarSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(LoginActivity.this, RecuperarSenhaActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void lerPoliticaPrivacidade() {

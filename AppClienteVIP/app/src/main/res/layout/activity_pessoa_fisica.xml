@@ -101,12 +101,12 @@
 
 
     <Button
-        android:id="@+id/btnSalvarEConcluir"
+        android:id="@+id/btnSalvarEContinuar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:text="@string/salvar_e_concluir"
+        android:text="@string/salvarEContinuar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -120,13 +120,13 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSalvarEConcluir"
+        app:layout_constraintTop_toBottomOf="@+id/btnSalvarEContinuar"
         app:layout_constraintVertical_bias="0.072"
         tools:layout_editor_absoluteX="16dp">
 
 
         <Button
-            android:id="@+id/voltarBtn"
+            android:id="@+id/btn_voltar"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

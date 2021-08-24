@@ -101,7 +101,7 @@ public class PessoaFisicaActivity extends AppCompatActivity {
 
                     salvarSharedPreferences();
 
-                    Intent intent = new Intent(PessoaFisicaActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(PessoaFisicaActivity.this, CredencialAcessoActivity.class);
                     startActivity(intent);
                 }
             }

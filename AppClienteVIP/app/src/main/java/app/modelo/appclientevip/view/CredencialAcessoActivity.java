@@ -1,6 +1,7 @@
 package app.modelo.appclientevip.view;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,8 +13,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import app.modelo.appclientevip.R;
+import app.modelo.appclientevip.api.AppUtil;
 
-public class NovoCadastro extends AppCompatActivity {
+public class CredencialAcessoActivity extends AppCompatActivity {
 
     Button btnvoltar;
     Button cadastrar;
@@ -23,12 +25,13 @@ public class NovoCadastro extends AppCompatActivity {
     EditText confimarSenha;
     CheckBox checkTermos;
 
-    boolean formularioTrue;
+    boolean formularioTrue, isPessoaFisica;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_novo_cadastro);
+        setContentView(R.layout.activity_credencial_acesso);
 
         initFormulario();
         BtnVoltar();
@@ -43,7 +46,9 @@ public class NovoCadastro extends AppCompatActivity {
         confimarSenha = findViewById(R.id.confimarSenha);
         checkTermos = findViewById(R.id.checkTermos);
 
+        formularioTrue = false;
 
+        restaurarSharedPreferences();
     }
 
     //Método para voltar á tela inicial
@@ -52,7 +57,7 @@ public class NovoCadastro extends AppCompatActivity {
 
         btnvoltar.setOnClickListener(view -> {
 
-            Intent telaInicial = new Intent(NovoCadastro.this, MainActivity.class);
+            Intent telaInicial = new Intent(CredencialAcessoActivity.this, MainActivity.class);
             startActivity(telaInicial);
         });
     }
@@ -60,14 +65,14 @@ public class NovoCadastro extends AppCompatActivity {
 
     public void validarTermos(View view) {
 
-        if (!checkTermos.isChecked()){
+        if (!checkTermos.isChecked()) {
 
             Toast.makeText(getApplicationContext(), "É necessario aceitar os termos de uso", Toast.LENGTH_LONG).show();
             formularioTrue = true;
         }
     }
 
-    public boolean validarSenhas(){
+    public boolean validarSenhas() {
 
         boolean retorno = false;
 
@@ -91,42 +96,47 @@ public class NovoCadastro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (TextUtils.isEmpty(edtNome.getText().toString())){
-                    edtNome.setError("Digite seu nome");
-                    edtNome.requestFocus();
-                    formularioTrue = false;
-                }
-                else if (TextUtils.isEmpty(edtEmail.getText().toString())){
+                 if (TextUtils.isEmpty(edtEmail.getText().toString())) {
                     edtEmail.setError("Digite seu email");
                     edtEmail.requestFocus();
                     formularioTrue = false;
-                }
-                else if (TextUtils.isEmpty(edtSenha.getText().toString())){
+                } else if (TextUtils.isEmpty(edtSenha.getText().toString())) {
                     edtSenha.setError("Digite sua senha");
                     edtSenha.requestFocus();
                     formularioTrue = false;
-                }
-                else if (TextUtils.isEmpty(confimarSenha.getText().toString())){
+                } else if (TextUtils.isEmpty(confimarSenha.getText().toString())) {
                     confimarSenha.setError("Confirme sua senha");
                     confimarSenha.requestFocus();
                     formularioTrue = false;
                 }
 
-                if (formularioTrue){
+                if (formularioTrue) {
 
-                    if (!validarSenhas()){
+                    if (!validarSenhas()) {
 
                         edtSenha.setError(("Suas senhas não são correspondentes"));
                         confimarSenha.setError(("*"));
                         edtSenha.requestFocus();
-                    }
-                    else {
-                        Toast.makeText(NovoCadastro.this, "Usuario cadastrado com sucesso !!", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(CredencialAcessoActivity.this, "Usuario cadastrado com sucesso !!", Toast.LENGTH_LONG).show();
                     }
                 }
 
             }
         });
+
+    }
+
+    private void restaurarSharedPreferences() {
+
+        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
+        isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
+        if (isPessoaFisica) {
+            edtNome.setText(preferences.getString("nomeCompleto", "Verifique seus dados"));
+        } else {
+            edtNome.setText(preferences.getString("razaoSocial", "Verifique seus dados"));
+        }
+
 
     }
 

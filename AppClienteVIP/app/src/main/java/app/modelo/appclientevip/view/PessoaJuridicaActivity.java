@@ -116,7 +116,7 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
 
                     salvarSharedPreferences();
 
-                    Intent intent = new Intent(PessoaJuridicaActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(PessoaJuridicaActivity.this, CredencialAcessoActivity.class);
                     startActivity(intent);
                 }
 

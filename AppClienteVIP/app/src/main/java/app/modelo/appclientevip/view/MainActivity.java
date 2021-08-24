@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent telaCadastro = new Intent(MainActivity.this, NovoCadastro.class);
+                Intent telaCadastro = new Intent(MainActivity.this, CredencialAcessoActivity.class);
                 startActivity(telaCadastro);
 
             }

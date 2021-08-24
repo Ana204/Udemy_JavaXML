@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.NovoCadastro">
+    tools:context=".view.CredencialAcessoActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -24,9 +24,9 @@
             android:layout_marginRight="16sp"
             android:gravity="center"
             android:padding="7dp"
-            android:text="@string/cadastro"
+            android:text="@string/finalizandoCredenciais"
             android:textColor="@color/purple_700"
-            android:textSize="36sp"
+            android:textSize="33sp"
             android:textStyle="bold" />
 
 
@@ -34,7 +34,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
-            android:layout_marginLeft="16sp"
             android:layout_marginTop="10sp"
             android:text="@string/nome"
             android:textColor="@color/black"
@@ -46,19 +45,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
-            android:layout_marginLeft="16sp"
             android:layout_marginEnd="16sp"
             android:layout_marginTop="6sp"
             android:hint="@string/digite_seu_nome"
             android:inputType="textPersonName"
             android:textColor="@color/black"
+            android:enabled="false"
             tools:ignore="Autofill" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
-            android:layout_marginLeft="16sp"
             android:layout_marginTop="10sp"
             android:text="@string/email"
             android:textColor="@color/black"
@@ -69,7 +67,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
-            android:layout_marginLeft="16sp"
             android:layout_marginEnd="16sp"
             android:layout_marginTop="6sp"
             android:hint="@string/digite_seu_email"
@@ -81,7 +78,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
-            android:layout_marginLeft="16sp"
             android:layout_marginTop="10sp"
             android:text="@string/senha"
             android:textColor="@color/black"
@@ -92,7 +88,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
-            android:layout_marginLeft="16sp"
             android:layout_marginTop="6sp"
             android:layout_marginEnd="16sp"
             android:hint="@string/informe_sua_senha"
@@ -104,7 +99,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
-            android:layout_marginLeft="16sp"
             android:layout_marginTop="10sp"
             android:text="@string/repita_sua_senha"
             android:textColor="@color/black"
@@ -115,7 +109,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
-            android:layout_marginLeft="16sp"
             android:layout_marginTop="6sp"
             android:layout_marginEnd="16sp"
             android:hint="@string/confirme_sua_senha"
@@ -128,9 +121,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
-            android:layout_marginLeft="16sp"
             android:layout_marginTop="10sp"
             android:layout_marginEnd="16sp"
+            android:textColor="@color/purple_700"
             android:text="@string/li_e_concordo_com_os_termos_de_uso"
             android:textStyle="bold"
             android:onClick="validarTermos"/>
@@ -155,7 +148,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
         android:layout_marginBottom="36dp"
         android:text="@string/voltar"
         android:textSize="15sp"

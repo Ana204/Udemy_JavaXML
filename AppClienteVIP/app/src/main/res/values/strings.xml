@@ -7,7 +7,7 @@
     <string name="_00_00_00">00:00:00</string>
     <string name="dd_mm_aaaa">dd/mm/aaaa</string>
     <string name="voltar">Voltar</string>
-    <string name="cadastro">Cadastro</string>
+    <string name="finalizandoCredenciais">Finalizando credenciais</string>
     <string name="nome">NOME</string>
     <string name="email">EMAIL</string>
     <string name="digite_seu_nome">Digite seu nome</string>

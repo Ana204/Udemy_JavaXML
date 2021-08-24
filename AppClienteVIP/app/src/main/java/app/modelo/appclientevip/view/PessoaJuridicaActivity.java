@@ -158,6 +158,12 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
         SharedPreferences.Editor dados = preferences.edit();
 
+        dados.putString("cnpj", edtcnpj.getText().toString());
+        dados.putString("razaoSocial", razaoSocial.getText().toString());
+        dados.putString("dataAberturaEmpresa", edtData.getText().toString());
+        dados.putBoolean("simplesNacional", isSimplesNacional);
+        dados.putBoolean("mei", isMei);
+
         dados.apply();
     }
 

@@ -143,6 +143,8 @@ public class PessoaFisicaActivity extends AppCompatActivity {
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
         SharedPreferences.Editor dados = preferences.edit();
 
+        dados.putString("cpf", edtCPF.getText().toString());
+        dados.putString("nomeCompleto", edtNomeCompleto.getText().toString());
         dados.apply();
     }
 

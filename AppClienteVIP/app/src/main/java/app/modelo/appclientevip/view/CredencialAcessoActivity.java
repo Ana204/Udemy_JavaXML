@@ -126,7 +126,7 @@ public class CredencialAcessoActivity extends AppCompatActivity {
                                 .setTitle("ATENÇÃO !")
                                 .setMessage("As senhas digitadas não correspodem, tente novamente !!")
                                 .setPositiveBtnBackground(Color.parseColor("#FF4081"))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
-                                .setPositiveBtnText("CONTINUAR")
+                                .setPositiveBtnText("OK")
                                 .isCancellable(true)
                                 .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
                                 .onPositiveClicked(dialog -> {})

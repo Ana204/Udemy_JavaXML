@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 
         isFormularioLogin = false;
 
-        cliente = ClienteController.getClienteTeste();
+        cliente = new Cliente();
 
         restaurarSharedPreferences();
 
@@ -188,6 +188,14 @@ public class LoginActivity extends AppCompatActivity {
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
 
         isLembrarSenha = preferences.getBoolean("loginAutomatico", false);
+
+        cliente.setEmail(preferences.getString("email", "teste@teste.com"));
+        cliente.setSenha(preferences.getString("senha", "123456"));
+        cliente.setPrimeiroNome(preferences.getString("primeiroNome", "Cliente"));
+        cliente.setSobrenome(preferences.getString("sobrenome", "Cliente"));
+        cliente.setPessoaFisica(preferences.getBoolean("pessoaFisica", true));
+
+
 
 
     }

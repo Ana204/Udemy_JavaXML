@@ -1,7 +1,10 @@
 package app.modelo.appclientevip.view;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -10,8 +13,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.shashank.sony.fancydialoglib.Animation;
+import com.shashank.sony.fancydialoglib.FancyAlertDialog;
+import com.shashank.sony.fancydialoglib.FancyAlertDialogListener;
 
 import app.modelo.appclientevip.R;
 import app.modelo.appclientevip.api.AppUtil;
@@ -48,8 +54,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
-
     private void initLogin() {
 
         editEmailLogin = findViewById(R.id.editEmailLogin);
@@ -83,7 +87,34 @@ public class LoginActivity extends AppCompatActivity {
 
     private void lerPoliticaPrivacidade() {
 
-        politicaDePrivacidade.setOnClickListener(view -> Toast.makeText(LoginActivity.this, " Ler Política De Privacidade !!", Toast.LENGTH_LONG).show());
+        politicaDePrivacidade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FancyAlertDialog.Builder
+                        .with(LoginActivity.this)
+                        .setTitle("Confimar Politica de Privacidade & Termos ?")
+                        .setBackgroundColor(Color.parseColor("#303F9F"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
+                        .setMessage("TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO ?")
+                        .setNegativeBtnText("NÃO")
+                        .setPositiveBtnBackground(Color.parseColor("#FF4081"))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
+                        .setPositiveBtnText("SIM")
+                        .setNegativeBtnBackground(Color.parseColor("#FFA9A7A8"))  // for @ColorRes use setNegativeBtnBackgroundRes(R.color.colorvalue)
+                        .setAnimation(Animation.POP)
+                        .isCancellable(true)
+                        .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
+                        .onPositiveClicked(dialog -> Toast.makeText(LoginActivity.this, "SEJA BEM VINDO !", Toast.LENGTH_SHORT).show())
+                        .onNegativeClicked(dialog -> {
+                            Toast.makeText(LoginActivity.this, "É NECESSÁRIO CONFIRMAR A POLÍTICA DE PRIVACIDADE", Toast.LENGTH_SHORT).show();
+                            finish();
+                            return;
+                        })
+                        .build()
+                        .show();
+            }
+        });
+
+
     }
 
     private boolean validarFormulario() {

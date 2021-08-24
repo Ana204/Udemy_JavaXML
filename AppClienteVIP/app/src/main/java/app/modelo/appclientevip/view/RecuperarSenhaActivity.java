@@ -32,7 +32,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
         buttonVoltarParaLogin();
         buttonRecuperar();
     }
-    
+
 
     private void initRecuperarSenha() {
 

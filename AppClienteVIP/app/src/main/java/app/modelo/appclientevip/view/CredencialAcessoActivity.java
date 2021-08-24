@@ -2,6 +2,7 @@ package app.modelo.appclientevip.view;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.shashank.sony.fancydialoglib.Animation;
+import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.modelo.appclientevip.R;
 import app.modelo.appclientevip.api.AppUtil;
@@ -45,8 +49,6 @@ public class CredencialAcessoActivity extends AppCompatActivity {
         edtSenha = findViewById(R.id.edtSenha);
         confimarSenha = findViewById(R.id.confimarSenha);
         checkTermos = findViewById(R.id.checkTermos);
-
-        formularioTrue = false;
 
         restaurarSharedPreferences();
     }
@@ -117,8 +119,28 @@ public class CredencialAcessoActivity extends AppCompatActivity {
                         edtSenha.setError(("Suas senhas não são correspondentes"));
                         confimarSenha.setError(("*"));
                         edtSenha.requestFocus();
-                    } else {
+
+                        FancyAlertDialog.Builder
+                                .with(CredencialAcessoActivity.this)
+                                .setBackgroundColor(Color.parseColor("#303F9F"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
+                                .setTitle("ATENÇÃO !")
+                                .setMessage("As senhas digitadas não correspodem, tente novamente !!")
+                                .setPositiveBtnBackground(Color.parseColor("#FF4081"))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
+                                .setPositiveBtnText("CONTINUAR")
+                                .isCancellable(true)
+                                .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
+                                .onPositiveClicked(dialog -> {})
+                                .build()
+                                .show();
+                    }
+                    else {
+                        salvarSharedPreferences();
                         Toast.makeText(CredencialAcessoActivity.this, "Usuario cadastrado com sucesso !!", Toast.LENGTH_LONG).show();
+
+                        Intent intent = new Intent(CredencialAcessoActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                        return;
                     }
                 }
 
@@ -138,6 +160,16 @@ public class CredencialAcessoActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    private void salvarSharedPreferences() {
+
+        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
+        SharedPreferences.Editor dados = preferences.edit();
+
+        dados.putString("email", edtEmail.getText().toString());
+        dados.putString("senha", edtSenha.getText().toString());
+        dados.apply();
     }
 
 }

@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.shashank.sony.fancydialoglib.Animation;
+import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.modelo.appclientevip.R;
 import app.modelo.appclientevip.api.AppUtil;
@@ -109,9 +114,21 @@ public class PessoaFisicaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(PessoaFisicaActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
+                FancyAlertDialog.Builder
+                        .with(PessoaFisicaActivity.this)
+                        .setBackgroundColor(Color.parseColor("#303F9F"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
+                        .setMessage("Deseja realmente cancelar ?")
+                        .setNegativeBtnText("NÃO")
+                        .setPositiveBtnBackground(Color.parseColor("#FF4081"))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
+                        .setPositiveBtnText("SIM")
+                        .setNegativeBtnBackground(Color.parseColor("#FFA9A7A8"))  // for @ColorRes use setNegativeBtnBackgroundRes(R.color.colorvalue)
+                        .setAnimation(Animation.POP)
+                        .isCancellable(true)
+                        .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
+                        .onPositiveClicked(dialog -> Toast.makeText(PessoaFisicaActivity.this, "Cancelado com sucesso", Toast.LENGTH_SHORT).show())
+                        .onNegativeClicked(dialog -> Toast.makeText(PessoaFisicaActivity.this, "Continue com seu cadastro", Toast.LENGTH_SHORT).show())
+                        .build()
+                        .show();;
             }
         });
     }

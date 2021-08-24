@@ -104,10 +104,10 @@ public class ClienteVipActivity extends AppCompatActivity {
                         .isCancellable(true)
                         .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
                         .onPositiveClicked(dialog -> {
-                            Toast.makeText(ClienteVipActivity.this, "", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ClienteVipActivity.this, "Cancelado com sucesso", Toast.LENGTH_SHORT).show();
                             finish();
                         })
-                        .onNegativeClicked(dialog ->Toast.makeText(ClienteVipActivity.this, "", Toast.LENGTH_SHORT).show())
+                        .onNegativeClicked(dialog ->Toast.makeText(ClienteVipActivity.this, "Continue com seu cadastro", Toast.LENGTH_SHORT).show())
                         .build()
                         .show();
 

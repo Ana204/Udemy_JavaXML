@@ -59,7 +59,7 @@ public class CredencialAcessoActivity extends AppCompatActivity {
 
         btnvoltar.setOnClickListener(view -> {
 
-            Intent telaInicial = new Intent(CredencialAcessoActivity.this, MainActivity.class);
+            Intent telaInicial = new Intent(CredencialAcessoActivity.this, LoginActivity.class);
             startActivity(telaInicial);
         });
     }

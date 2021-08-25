@@ -29,7 +29,7 @@ public class PessoaFisicaActivity extends AppCompatActivity {
     Cliente novoVip;
     ClientePF clientePessoaFisica;
 
-    boolean isFormularioPF;
+    boolean isFormularioPF, isPessoaFisica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,8 +101,16 @@ public class PessoaFisicaActivity extends AppCompatActivity {
 
                     salvarSharedPreferences();
 
-                    Intent intent = new Intent(PessoaFisicaActivity.this, CredencialAcessoActivity.class);
-                    startActivity(intent);
+                    if (isPessoaFisica){
+
+                        Intent intent = new Intent(PessoaFisicaActivity.this, CredencialAcessoActivity.class);
+                        startActivity(intent);
+
+                    }else {
+
+                        Intent intent = new Intent(PessoaFisicaActivity.this, PessoaJuridicaActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -136,6 +144,7 @@ public class PessoaFisicaActivity extends AppCompatActivity {
     private void restaurarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
+        isPessoaFisica = preferences.getBoolean("pessoaFisica", true) ;
     }
 
     private void salvarSharedPreferences() {

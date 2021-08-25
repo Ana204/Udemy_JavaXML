@@ -70,23 +70,15 @@ public class ClienteVipActivity extends AppCompatActivity {
 
                     salvarSharedPreferences();
 
-                    if (isPessoaFisica){
-
-                        Intent intent = new Intent(ClienteVipActivity.this, PessoaFisicaActivity.class);
-                        startActivity(intent);
-                    }
-                    else {
-
-                        Intent intent = new Intent(ClienteVipActivity.this, PessoaJuridicaActivity.class);
-                        startActivity(intent);
-                    }
+                    Intent intent = new Intent(ClienteVipActivity.this, PessoaFisicaActivity.class);
+                    startActivity(intent);
 
                 }
             }
         });
     }
 
-  private void btnCancelarEvento() {
+    private void btnCancelarEvento() {
 
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +99,7 @@ public class ClienteVipActivity extends AppCompatActivity {
                             Toast.makeText(ClienteVipActivity.this, "Cancelado com sucesso", Toast.LENGTH_SHORT).show();
                             finish();
                         })
-                        .onNegativeClicked(dialog ->Toast.makeText(ClienteVipActivity.this, "Continue com seu cadastro", Toast.LENGTH_SHORT).show())
+                        .onNegativeClicked(dialog -> Toast.makeText(ClienteVipActivity.this, "Continue com seu cadastro", Toast.LENGTH_SHORT).show())
                         .build()
                         .show();
 

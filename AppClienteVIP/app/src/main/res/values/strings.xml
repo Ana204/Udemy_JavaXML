@@ -1,23 +1,27 @@
 <resources>
     <string name="app_name">Cliente VIP</string>
-    <string name="sao_paulo_sp">São Paulo - SP</string>
 
-    <!--Tela de cadastro-->
-    <string name="novo_cadastro">Novo Cadastro</string>
-    <string name="_00_00_00">00:00:00</string>
-    <string name="dd_mm_aaaa">dd/mm/aaaa</string>
-    <string name="voltar">Voltar</string>
+    <!--Tela inicial-->
+    <string name="MeusDados">MEUS DADOS</string>
+    <string name="BemVindo">Bem vindo</string>
+    <string name="atualizarMeusDados">ATUALIZAR MEUS DADOS</string>
+    <string name="excluirMinhaConta">EXCLUIR MINHA CONTA</string>
+    <string name="consultarClientes">CONSULTAR CLIENTES VIP</string>
+    <string name="sair">SAIR</string>
+
+    <!--Tela de credenciais-->
     <string name="finalizandoCredenciais">Finalizando credenciais</string>
     <string name="nome">NOME</string>
     <string name="email">EMAIL</string>
-    <string name="digite_seu_nome">Digite seu nome</string>
-    <string name="digite_seu_email">Digite seu email</string>
+    <string name="digite_seu_nome">Informe seu nome</string>
+    <string name="digite_seu_email">Informe seu email</string>
     <string name="senha">SENHA</string>
     <string name="informe_sua_senha">Informe sua senha</string>
     <string name="repita_sua_senha">REPITA SUA SENHA</string>
     <string name="confirme_sua_senha">Confirme sua senha</string>
     <string name="li_e_concordo_com_os_termos_de_uso">Li e concordo com os termos de uso</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="voltar">Voltar</string>
 
     <!--Tela de Login-->
     <string name="clientes">Clientes</string>

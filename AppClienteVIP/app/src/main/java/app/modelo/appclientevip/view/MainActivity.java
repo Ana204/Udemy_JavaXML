@@ -1,51 +1,37 @@
 package app.modelo.appclientevip.view;
 
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import app.modelo.appclientevip.R;
-import app.modelo.appclientevip.api.AppUtil;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView data;
-    TextView hora;
-    Button btnCadastro;
-
+    TextView txtNome;
+    Button btnMeusDados, btnAtualizarMeusDados, btnExcluirConta, btnConsultarClientesVIP, btnSairApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        data = findViewById(R.id.data);
-        hora = findViewById(R.id.hora);
-        btnCadastro = findViewById(R.id.btnCadastro);
-
-
-        data.setText(AppUtil.getDataAtual());
-        hora.setText(AppUtil.getHoraAtual());
-
-        NovoCadastro();
+        initTelaInical();
 
     }
 
-    //Método do button para acessar a tela de cadastro
-    private void NovoCadastro() {
+    private void initTelaInical() {
 
-        btnCadastro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        txtNome = findViewById(R.id.txtNome);
+        btnMeusDados = findViewById(R.id.btnMeusDados);
+        btnAtualizarMeusDados = findViewById(R.id.btnAtualizarMeusDados);
+        btnExcluirConta = findViewById(R.id.btnExcluirConta);
+        btnConsultarClientesVIP = findViewById(R.id.btnConsultarClientesVIP);
+        btnSairApp = findViewById(R.id.btnSairApp);
 
-                Intent telaCadastro = new Intent(MainActivity.this, CredencialAcessoActivity.class);
-                startActivity(telaCadastro);
-
-            }
-        });
     }
+
+
 }

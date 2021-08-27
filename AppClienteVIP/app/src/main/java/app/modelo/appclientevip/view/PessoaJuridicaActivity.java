@@ -118,6 +118,7 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(PessoaJuridicaActivity.this, CredencialAcessoActivity.class);
                     startActivity(intent);
+                    finish();
                 }
 
             }

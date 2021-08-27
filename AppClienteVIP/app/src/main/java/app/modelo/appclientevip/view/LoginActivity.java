@@ -179,7 +179,6 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences.Editor dados = preferences.edit();
 
         dados.putBoolean("loginAutomatico", isLembrarSenha);
-        dados.putString("emailCliente", editEmailLogin.getText().toString());
         dados.apply();
     }
 

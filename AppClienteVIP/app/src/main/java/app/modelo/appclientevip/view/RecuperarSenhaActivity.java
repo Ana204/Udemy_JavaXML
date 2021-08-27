@@ -68,6 +68,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(RecuperarSenhaActivity.this, LoginActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         });

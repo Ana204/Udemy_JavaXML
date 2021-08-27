@@ -2,12 +2,17 @@ package app.modelo.appclientevip.view;
 
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.shashank.sony.fancydialoglib.Animation;
+import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.modelo.appclientevip.R;
 import app.modelo.appclientevip.api.AppUtil;
@@ -47,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         clientePF = new ClientePF();
         clientePJ = new ClientePJ();
 
-        restaurarSharedPreferences();
+
     }
 
     private void salvarSharedPreferences() {
@@ -79,26 +84,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void sairDoApp(View view) {
-
-        btnSairApp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-    }
-
-    public void excluirMinhaConta(View view) {
-
-        btnExcluirConta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-    }
-
     public void meusDados(View view) {
 
         btnMeusDados.setOnClickListener(new View.OnClickListener() {
@@ -119,12 +104,58 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void excluirMinhaConta(View view) {
+
+        btnExcluirConta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
+
     public void consultarClientes(View view) {
 
         btnConsultarClientesVIP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
+            }
+        });
+    }
+
+    public void sairDoApp(View view) {
+
+        btnSairApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FancyAlertDialog.Builder
+                        .with(MainActivity.this)
+                        .setTitle("Confirmar saída")
+                        .setBackgroundColor(Color.parseColor("#303F9F"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
+                        .setMessage("TEM CERTEZA QUE DESEJA SAIR ?")
+                        .setNegativeBtnText("RETORNAR")
+                        .setPositiveBtnBackground(Color.parseColor("#FF4081"))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
+                        .setPositiveBtnText("SIM")
+                        .setNegativeBtnBackground(Color.parseColor("#FFA9A7A8"))  // for @ColorRes use setNegativeBtnBackgroundRes(R.color.colorvalue)
+                        .setAnimation(Animation.POP)
+                        .isCancellable(true)
+                        .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
+                        .onPositiveClicked(dialog -> {
+                            Toast.makeText(MainActivity.this, cliente.getPrimeiroNome() + "VOLTE SEMPREs !", Toast.LENGTH_SHORT).show();
+                            finish();
+                            return;
+                            })
+                        .onNegativeClicked(dialog -> {
+                            Toast.makeText(MainActivity.this, "DIVIRTA-SE", Toast.LENGTH_SHORT).show();
+                            finish();
+                            return;
+                        })
+                        .build()
+                        .show();
+
             }
         });
     }

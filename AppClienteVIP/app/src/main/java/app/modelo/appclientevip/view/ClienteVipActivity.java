@@ -72,6 +72,7 @@ public class ClienteVipActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(ClienteVipActivity.this, PessoaFisicaActivity.class);
                     startActivity(intent);
+                    finish();
 
                 }
             }

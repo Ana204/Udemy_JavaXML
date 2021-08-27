@@ -105,11 +105,13 @@ public class PessoaFisicaActivity extends AppCompatActivity {
 
                         Intent intent = new Intent(PessoaFisicaActivity.this, CredencialAcessoActivity.class);
                         startActivity(intent);
+                        finish();
 
                     }else {
 
                         Intent intent = new Intent(PessoaFisicaActivity.this, PessoaJuridicaActivity.class);
                         startActivity(intent);
+                        finish();
                     }
                 }
             }

@@ -61,6 +61,7 @@ public class CredencialAcessoActivity extends AppCompatActivity {
 
             Intent telaInicial = new Intent(CredencialAcessoActivity.this, LoginActivity.class);
             startActivity(telaInicial);
+
         });
     }
 

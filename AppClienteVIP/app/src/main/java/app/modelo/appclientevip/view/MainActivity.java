@@ -36,8 +36,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initTelaInical();
+        sairDoApp();
+        meusDados();
 
     }
+
+
 
     private void initTelaInical() {
 
@@ -51,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         cliente = new Cliente();
         clientePF = new ClientePF();
         clientePJ = new ClientePJ();
+
 
 
     }
@@ -84,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void meusDados(View view) {
+    private void meusDados() {
 
         btnMeusDados.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void sairDoApp(View view) {
+    private void sairDoApp() {
 
         btnSairApp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,14 +149,12 @@ public class MainActivity extends AppCompatActivity {
                         .isCancellable(true)
                         .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
                         .onPositiveClicked(dialog -> {
-                            Toast.makeText(MainActivity.this, cliente.getPrimeiroNome() + "VOLTE SEMPREs !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,  "VOLTE SEMPRE !", Toast.LENGTH_SHORT).show();
                             finish();
                             return;
                             })
                         .onNegativeClicked(dialog -> {
                             Toast.makeText(MainActivity.this, "DIVIRTA-SE", Toast.LENGTH_SHORT).show();
-                            finish();
-                            return;
                         })
                         .build()
                         .show();
@@ -159,4 +162,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

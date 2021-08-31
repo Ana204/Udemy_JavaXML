@@ -15,6 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.shashank.sony.fancydialoglib.Animation;
 import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import app.modelo.appclientevip.R;
 import app.modelo.appclientevip.api.AppUtil;
 import app.modelo.appclientevip.model.Cliente;
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     ClientePF clientePF;
     ClientePJ clientePJ;
     private SharedPreferences preferences;
+    List<Cliente> clientes;
 
     TextView txtNome;
     Button btnMeusDados, btnAtualizarMeusDados, btnExcluirConta, btnConsultarClientesVIP, btnSairApp;
@@ -37,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initTelaInical();
+
+        buscarListaDeClientes();
+
         sairDoApp();
         meusDados();
         excluirMinhaConta();
@@ -45,6 +52,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void buscarListaDeClientes() {
+
+        clientes = new ArrayList<>();
+
+
+        for (int i = 0; i < 10; i++) {
+
+            cliente = new Cliente();
+            cliente.setPrimeiroNome("Cliente nº" +i);
+
+            clientes.add(cliente);
+        }
+        //-----------------------
+
+         for (Cliente obj: clientes){
+
+            Log.i(AppUtil.LOG_APP, "Clientes: " + obj.getPrimeiroNome() + " - " + obj.getSobrenome());
+        }
+
+    }
 
 
     private void initTelaInical() {

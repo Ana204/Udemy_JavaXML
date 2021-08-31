@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         initTelaInical();
         sairDoApp();
         meusDados();
+        excluirMinhaConta();
+        atualizarMeusDados();
 
 
     }
@@ -58,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
         clientePF = new ClientePF();
         clientePJ = new ClientePJ();
 
-        restaurarSharedPreferences();
+      // restaurarSharedPreferences();
+
+       txtNome.setText("Bem vindo, " + cliente.getPrimeiroNome());
     }
 
     private void salvarSharedPreferences() {
@@ -118,17 +122,42 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void atualizarMeusDados(View view) {
+    private void atualizarMeusDados() {
 
         btnAtualizarMeusDados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(cliente.isPessoaFisica()){
+
+                    cliente.setPrimeiroNome("Raissa");
+                    cliente.setSobrenome("Oliveira");
+
+                    clientePF.setNomeCompleto("Raissa Oliveira");
+
+                    //salvarSharedPreferences();
+
+                    Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
+                    Log.i(AppUtil.LOG_APP, "Primeiro Nome: " + cliente.getPrimeiroNome());
+                    Log.i(AppUtil.LOG_APP, "Sobrenome: " + cliente.getSobrenome());
+                    Log.i(AppUtil.LOG_APP, "Nome Completo: " + clientePF.getNomeCompleto());
+//                    Log.i(AppUtil.LOG_APP, "Email: " + cliente.getEmail());
+//                    Log.i(AppUtil.LOG_APP, "Senha: " + cliente.getSenha());
+
+
+                }
+                else {
+
+                    clientePJ.setRazaoSocial("RaOLI");
+
+                    Log.i(AppUtil.LOG_APP, "Razão Social: " + clientePJ.getRazaoSocial());
+
+                }
             }
         });
     }
 
-    public void excluirMinhaConta(View view) {
+    private void excluirMinhaConta() {
 
         btnExcluirConta.setOnClickListener(new View.OnClickListener() {
             @Override

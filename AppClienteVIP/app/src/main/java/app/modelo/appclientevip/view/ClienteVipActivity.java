@@ -129,8 +129,7 @@ public class ClienteVipActivity extends AppCompatActivity {
     private void restaurarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
-
-        //isPessoaFisica = preferences.getBoolean("pessoaFisica", false);
+        isPessoaFisica = preferences.getBoolean("pessoaFisica", false);
     }
 
     private void salvarSharedPreferences() {

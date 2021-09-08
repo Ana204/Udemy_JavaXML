@@ -25,6 +25,7 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
     public ClienteAdapter(List<Cliente> aClientes, Context aContext) {
         this.aClientes = aClientes;
         this.aContext = aContext;
+
     }
 
     @NonNull
@@ -82,6 +83,7 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
             Cliente clienteSelecionado = aClientes.get(position);
 
             if (position != RecyclerView.NO_POSITION){
+
 
                 Log.i(AppUtil.LOG_APP, "Cliente ID" + position + "Primeiro Nome: " +clienteSelecionado.getPrimeiroNome());
 

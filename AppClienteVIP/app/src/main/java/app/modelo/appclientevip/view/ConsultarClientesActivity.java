@@ -3,6 +3,9 @@ package app.modelo.appclientevip.view;
 import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,11 +19,14 @@ public class ConsultarClientesActivity extends Activity {
     ClienteAdapter adapter;
 
     Cliente obj;
+    RecyclerView rvClientes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultar_clientes);
+
+        rvClientes = findViewById(R.id.rvClientes);
 
         clientes = new ArrayList<>();
 
@@ -35,5 +41,9 @@ public class ConsultarClientesActivity extends Activity {
         }
 
         adapter = new ClienteAdapter(clientes, getApplicationContext());
+
+        rvClientes.setAdapter(adapter);
+
+        rvClientes.setLayoutManager(new LinearLayoutManager(this));
     }
 }

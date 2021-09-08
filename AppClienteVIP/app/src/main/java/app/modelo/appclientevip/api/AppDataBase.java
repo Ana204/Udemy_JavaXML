@@ -1,10 +1,14 @@
 package app.modelo.appclientevip.api;
 
 import android.content.Context;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
+
+import app.modelo.appclientevip.dataModel.ClienteDataModel;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -21,6 +25,18 @@ public class AppDataBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        try {
+
+            db.execSQL(ClienteDataModel.Tabela());
+
+            Log.i(AppUtil.LOG_APP, "TABELA CLIENTE: "+ ClienteDataModel.Tabela());
+
+        }
+        catch (SQLException e){
+
+            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA: "+ e.getMessage());
+        }
 
     }
 

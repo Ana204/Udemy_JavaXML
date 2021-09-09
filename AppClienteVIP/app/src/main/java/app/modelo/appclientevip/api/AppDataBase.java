@@ -1,5 +1,6 @@
 package app.modelo.appclientevip.api;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -52,4 +53,41 @@ public class AppDataBase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    /**
+     * Inserir dados
+     * @return
+     */
+    public boolean insert(String tabela, ContentValues dados){
+        return true;
+    }
+
+
+    /**
+     * Atualizar dados
+     * @return
+     */
+    public boolean update(String tabela, ContentValues dados){
+        return true;
+    }
+
+
+    /**
+     * Deletar dados
+     * @return
+     */
+    public boolean delete(){
+        return true;
+    }
+
+
+    /**
+     * Listar dados
+     * @return
+     */
+    public boolean list(){
+        return true;
+    }
+
+
 }

@@ -68,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
 
         clienteController = new ClienteController(getApplicationContext());
 
+        clienteController.incluir(cliente);
+
         restaurarSharedPreferences();
 
     }

@@ -1,27 +1,32 @@
 package app.modelo.appclientevip.controller;
 
-import app.modelo.appclientevip.model.Cliente;
+import android.content.Context;
+import androidx.annotation.Nullable;
+import app.modelo.appclientevip.api.AppDataBase;
 
-public class ClienteController {
+public class ClienteController extends AppDataBase {
 
-    public static boolean validarDadosDoCliente(Cliente cliente, String email, String senha) {
-
-        boolean retorno = ((cliente.getEmail().equals(email)) && (cliente.getSenha().equals(senha)));
-
-        return retorno;
-
+    public ClienteController(@Nullable  Context context) {
+        super(context);
     }
 
-    public static Cliente getClienteTeste() {
+    public boolean incluir(){
 
-        Cliente teste = new Cliente();
+        return true;
+    }
 
-        teste.setPrimeiroNome("Ana");
-        teste.setSobrenome("Gomes");
-        teste.setEmail("Anagomes@gmail.com");
-        teste.setSenha("1234");
-        teste.setPessoaFisica(true);
+    public boolean alterar(){
 
-        return teste;
+        return true;
+    }
+
+    public boolean deletar(){
+
+        return true;
+    }
+
+    public boolean listar(){
+
+        return true;
     }
 }

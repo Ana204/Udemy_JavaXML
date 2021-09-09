@@ -8,15 +8,12 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 import app.modelo.appclientevip.R;
-import app.modelo.appclientevip.api.AppDataBase;
 import app.modelo.appclientevip.api.AppUtil;
 
 public class SplashActivity extends AppCompatActivity {
 
     private SharedPreferences preferences;
     boolean LembrarSenha = false;
-
-    AppDataBase dataBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +25,6 @@ public class SplashActivity extends AppCompatActivity {
         salvarSharedPreferences();
         restaurarSharedPreferences();
 
-        dataBase = new AppDataBase(getApplicationContext());
 
     }
 

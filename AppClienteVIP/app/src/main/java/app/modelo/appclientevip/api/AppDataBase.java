@@ -9,9 +9,13 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import app.modelo.appclientevip.dataModel.ClienteDataModel;
 import app.modelo.appclientevip.dataModel.ClientePfDataModel;
 import app.modelo.appclientevip.dataModel.ClientePjDataModel;
+import app.modelo.appclientevip.model.Cliente;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -76,7 +80,7 @@ public class AppDataBase extends SQLiteOpenHelper {
      * Deletar dados
      * @return
      */
-    public boolean delete(){
+    public boolean delete(String tabela, ContentValues dados){
         return true;
     }
 
@@ -85,8 +89,10 @@ public class AppDataBase extends SQLiteOpenHelper {
      * Listar dados
      * @return
      */
-    public boolean list(){
-        return true;
+    public List<Cliente> list(){
+
+        List<Cliente> list = new ArrayList<>();
+        return list;
     }
 
 

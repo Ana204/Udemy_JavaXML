@@ -15,6 +15,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.shashank.sony.fancydialoglib.Animation;
 import com.shashank.sony.fancydialoglib.FancyAlertDialog;
+
+import java.util.List;
+
 import app.modelo.appclientevip.R;
 import app.modelo.appclientevip.api.AppUtil;
 import app.modelo.appclientevip.controller.ClienteController;
@@ -69,6 +72,10 @@ public class LoginActivity extends AppCompatActivity {
         clienteController = new ClienteController(getApplicationContext());
 
         clienteController.incluir(cliente);
+        clienteController.alterar(cliente);
+        clienteController.deletar(cliente);
+
+        List<Cliente> clientes = clienteController.listar();
 
         restaurarSharedPreferences();
 

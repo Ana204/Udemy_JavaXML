@@ -3,6 +3,9 @@ package app.modelo.appclientevip.controller;
 import android.content.ContentValues;
 import android.content.Context;
 import androidx.annotation.Nullable;
+
+import java.util.List;
+
 import app.modelo.appclientevip.api.AppDataBase;
 import app.modelo.appclientevip.dataModel.ClienteDataModel;
 import app.modelo.appclientevip.model.Cliente;
@@ -44,12 +47,16 @@ public class ClienteController extends AppDataBase {
         return update(TABELA, dados);
     }
 
-    public boolean deletar(){
+    public boolean deletar(Cliente obj){
 
-        return delete();
+        dados = new ContentValues();
+
+        dados.put(ClienteDataModel.ID, obj.getId());
+
+        return delete(TABELA, dados);
     }
 
-    public boolean listar(){
+    public List<Cliente> listar(){
 
         return list();
     }

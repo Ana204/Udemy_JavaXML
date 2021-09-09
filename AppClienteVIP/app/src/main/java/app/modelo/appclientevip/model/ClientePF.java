@@ -2,6 +2,7 @@ package app.modelo.appclientevip.model;
 
 public class ClientePF extends Cliente{
 
+    private int ForeignKey;
     private String cpf;
     private String nomeCompleto;
 

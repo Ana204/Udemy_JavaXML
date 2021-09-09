@@ -9,6 +9,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import app.modelo.appclientevip.dataModel.ClienteDataModel;
+import app.modelo.appclientevip.dataModel.ClientePfDataModel;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -29,13 +30,16 @@ public class AppDataBase extends SQLiteOpenHelper {
         try {
 
             db.execSQL(ClienteDataModel.Tabela());
+            db.execSQL(ClientePfDataModel.TabelaPessoaFisica());
 
             Log.i(AppUtil.LOG_APP, "TABELA CLIENTE: "+ ClienteDataModel.Tabela());
+            Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA FISICA: "+ ClientePfDataModel.TabelaPessoaFisica());
 
         }
         catch (SQLException e){
 
             Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA: "+ e.getMessage());
+            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA DE PESSOA FISICA: "+ e.getMessage());
         }
 
     }

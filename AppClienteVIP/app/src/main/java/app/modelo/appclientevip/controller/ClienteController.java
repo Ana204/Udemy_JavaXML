@@ -53,11 +53,11 @@ public class ClienteController extends AppDataBase {
 
         dados.put(ClienteDataModel.ID, obj.getId());
 
-        return delete(TABELA, dados);
+        return delete(TABELA, obj.getId());
     }
 
     public List<Cliente> listar(){
 
-        return list();
+        return list(TABELA);
     }
 }

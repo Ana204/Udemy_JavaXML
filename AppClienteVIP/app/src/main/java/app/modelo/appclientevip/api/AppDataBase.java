@@ -2,6 +2,7 @@ package app.modelo.appclientevip.api;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -21,6 +22,8 @@ public class AppDataBase extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "cliente.sqlite";
     private static final int DB_VERSION = 1;
+
+    Cursor cursor;
 
     SQLiteDatabase database;
 
@@ -68,9 +71,8 @@ public class AppDataBase extends SQLiteOpenHelper {
         boolean success = true;
 
         try{
-
-            Log.i(AppUtil.LOG_APP, tabela+ "Dados inseridos com sucesso");
             success = database.insert(tabela, null, dados) > 0;
+            Log.i(AppUtil.LOG_APP, tabela+ "Dados inseridos com sucesso");
         }
         catch (SQLException e){
 
@@ -86,7 +88,22 @@ public class AppDataBase extends SQLiteOpenHelper {
      * @return
      */
     public boolean update(String tabela, ContentValues dados){
-        return true;
+
+        boolean success = true;
+
+        try{
+
+            int id = dados.getAsInteger("id");
+
+            success =  database.update(tabela, dados,"id=?", new String[]{Integer.toString(id)}) > 0;
+            Log.i(AppUtil.LOG_APP, tabela+ "Dados atualizado com sucesso");
+        }
+        catch (SQLException e){
+
+            Log.e(AppUtil.LOG_APP, tabela+ "Falha ao atualizar dados"+e.getMessage());
+        }
+
+        return success;
     }
 
 
@@ -94,8 +111,21 @@ public class AppDataBase extends SQLiteOpenHelper {
      * Deletar dados
      * @return
      */
-    public boolean delete(String tabela, ContentValues dados){
-        return true;
+    public boolean delete(String tabela, int id){
+
+        boolean success = true;
+
+        try{
+
+            success = database.delete(tabela, "id=?", new String[]{Integer.toString(id)}) > 0;
+            Log.i(AppUtil.LOG_APP, tabela+ "Dados deletado com sucesso");
+        }
+        catch (SQLException e){
+
+            Log.e(AppUtil.LOG_APP, tabela+ "Falha ao deletar dados"+e.getMessage());
+        }
+
+        return success;
     }
 
 
@@ -103,9 +133,36 @@ public class AppDataBase extends SQLiteOpenHelper {
      * Listar dados
      * @return
      */
-    public List<Cliente> list(){
+    public List<Cliente> list(String tabela){
 
         List<Cliente> list = new ArrayList<>();
+        Cliente cliente;
+
+        String sql = "SELECT * FROM " + tabela;
+
+        cursor = database.rawQuery(sql, null);
+
+        try {
+
+            if (cursor.moveToFirst()) {
+
+                do {
+                    cliente = new Cliente();
+                    cliente.setId(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.ID)));
+                    cliente.setPrimeiroNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.PRIMEIRO_NOME)));
+                    cliente.setSobrenome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.SOBRENOME)));
+                    cliente.setEmail(cursor.getString(cursor.getColumnIndex(ClienteDataModel.EMAIL)));
+                    cliente.setPessoaFisica(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.PESSOA_FISICA)) == 1);
+
+                    list.add(cliente);
+                }
+                while (cursor.moveToNext());
+
+                Log.e(AppUtil.LOG_APP, "Lista gerada com sucesso !!");
+            }
+        }catch (SQLException e){
+            Log.e(AppUtil.LOG_APP, "Falha ao listar"+ tabela + " " +e.getMessage());
+        }
         return list;
     }
 

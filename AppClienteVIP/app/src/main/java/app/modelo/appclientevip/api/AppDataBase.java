@@ -91,16 +91,16 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         boolean success = true;
 
-        try{
 
+        try{
             int id = dados.getAsInteger("id");
 
-            success =  database.update(tabela, dados,"id=?", new String[]{Integer.toString(id)}) > 0;
-            Log.i(AppUtil.LOG_APP, tabela+ "Dados atualizado com sucesso");
-        }
-        catch (SQLException e){
 
-            Log.e(AppUtil.LOG_APP, tabela+ "Falha ao atualizar dados"+e.getMessage());
+            success =  database.update(tabela, dados,"id=?", new String[]{Integer.toString(id)}) > 0;
+
+        }catch (SQLException e){
+
+            Log.i(AppUtil.LOG_APP, tabela+ "Falha ao atualizar dados"+e.getMessage());
         }
 
         return success;
@@ -158,7 +158,7 @@ public class AppDataBase extends SQLiteOpenHelper {
                 }
                 while (cursor.moveToNext());
 
-                Log.e(AppUtil.LOG_APP, "Lista gerada com sucesso !!");
+                Log.i(AppUtil.LOG_APP, "Lista gerada com sucesso !!");
             }
         }catch (SQLException e){
             Log.e(AppUtil.LOG_APP, "Falha ao listar"+ tabela + " " +e.getMessage());

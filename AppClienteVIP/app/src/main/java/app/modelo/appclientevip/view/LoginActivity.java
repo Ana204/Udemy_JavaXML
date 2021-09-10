@@ -12,7 +12,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.shashank.sony.fancydialoglib.Animation;
 import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
@@ -66,18 +68,35 @@ public class LoginActivity extends AppCompatActivity {
         checkLembrar = findViewById(R.id.checkLembrar);
 
         isFormularioLogin = false;
+        clienteController = new ClienteController(getApplicationContext());
 
         cliente = new Cliente();
 
-        clienteController = new ClienteController(getApplicationContext());
+        //Para adicionar dados
+     /* cliente.setPrimeiroNome("Maria");
+        cliente.setSobrenome("Silva");
+        cliente.setEmail("teste@gmail.com");
+        cliente.setSenha("1234");
+        cliente.setPessoaFisica(true);
 
-        clienteController.incluir(cliente);
+        clienteController.incluir(cliente);*/
+
+        //Para alterar dado usando id
+        cliente.setId(1);
+        cliente.setPrimeiroNome("Carla");
+        cliente.setSobrenome("Gomes");
+        cliente.setEmail("Carla@gmail.com");
+        cliente.setSenha("1234");
+        cliente.setPessoaFisica(false);
+
         clienteController.alterar(cliente);
-        clienteController.deletar(cliente);
 
-        List<Cliente> clientes = clienteController.listar();
 
-        restaurarSharedPreferences();
+//        clienteController.deletar(cliente);
+
+        // List<Cliente> clientes = clienteController.listar();
+
+        //restaurarSharedPreferences();
 
     }
 
@@ -122,12 +141,12 @@ public class LoginActivity extends AppCompatActivity {
         //considerar que o usuario preencheu o formulario
         boolean retorno = true;
 
-        if (TextUtils.isEmpty(editEmailLogin.getText().toString())){
+        if (TextUtils.isEmpty(editEmailLogin.getText().toString())) {
             editEmailLogin.setError("Preencha o campo com seu email");
             editEmailLogin.requestFocus();
             retorno = false;
         }
-        if (TextUtils.isEmpty(edtSenhaLogin.getText().toString())){
+        if (TextUtils.isEmpty(edtSenhaLogin.getText().toString())) {
             edtSenhaLogin.setError("Preencha o campo com sua senha");
             edtSenhaLogin.requestFocus();
             retorno = false;
@@ -140,20 +159,19 @@ public class LoginActivity extends AppCompatActivity {
 
         btnAcessar.setOnClickListener(view -> {
 
-           if(isFormularioLogin = validarFormulario()){
+            if (isFormularioLogin = validarFormulario()) {
 
-               if (validarDadosDoUsuario()){
+                if (validarDadosDoUsuario()) {
 
-                   salvarSharedPreferences();
-                   Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                   startActivity(intent);
-                   finish();
-                   return;
-               }
-               else {
-                   Toast.makeText(LoginActivity.this, "Verifique seus dados", Toast.LENGTH_LONG).show();
-               }
-           }
+                    salvarSharedPreferences();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                    return;
+                } else {
+                    Toast.makeText(LoginActivity.this, "Verifique seus dados", Toast.LENGTH_LONG).show();
+                }
+            }
         });
     }
 
@@ -188,8 +206,6 @@ public class LoginActivity extends AppCompatActivity {
         cliente.setPrimeiroNome(preferences.getString("primeiroNome", "Cliente"));
         cliente.setSobrenome(preferences.getString("sobrenome", "Cliente"));
         cliente.setPessoaFisica(preferences.getBoolean("pessoaFisica", true));
-
-
 
 
     }

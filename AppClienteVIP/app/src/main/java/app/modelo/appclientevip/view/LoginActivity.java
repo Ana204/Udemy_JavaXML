@@ -72,27 +72,32 @@ public class LoginActivity extends AppCompatActivity {
 
         cliente = new Cliente();
 
-        //Para adicionar dados
-     /* cliente.setPrimeiroNome("Maria");
-        cliente.setSobrenome("Silva");
-        cliente.setEmail("teste@gmail.com");
-        cliente.setSenha("1234");
-        cliente.setPessoaFisica(true);
+        //Para adicionar 10 dados
+/*        for (int i = 0; i < 10; i++) {
 
-        clienteController.incluir(cliente);*/
+            cliente.setPrimeiroNome("Maria_" + i);
+            cliente.setSobrenome("Silva_" + i);
+            cliente.setEmail("teste@gmail.com_" + i);
+            cliente.setSenha("1234_" + i);
+            cliente.setPessoaFisica(true);
+
+            clienteController.incluir(cliente);
+        }*/
 
         //Para alterar dado usando id
-        cliente.setId(1);
+/*      cliente.setId(1);
         cliente.setPrimeiroNome("Carla");
         cliente.setSobrenome("Gomes");
         cliente.setEmail("Carla@gmail.com");
         cliente.setSenha("1234");
         cliente.setPessoaFisica(false);
 
-        clienteController.alterar(cliente);
+        clienteController.alterar(cliente);*/
 
+        //Para deletar dados usando ID
+        cliente.setId(1);
 
-//        clienteController.deletar(cliente);
+        clienteController.deletar(cliente);
 
         // List<Cliente> clientes = clienteController.listar();
 

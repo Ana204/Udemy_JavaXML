@@ -14,7 +14,10 @@
         <activity android:name=".view.PessoaJuridicaActivity" />
         <activity android:name=".view.PessoaFisicaActivity" />
         <activity android:name=".view.ClienteVipActivity" />
-        <activity android:name=".view.LoginActivity" />
+        <activity
+            android:name=".view.LoginActivity"
+            android:theme="@style/buttonBlue">
+        </activity>
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.CredencialAcessoActivity" />
         <activity android:name=".view.SplashActivity">

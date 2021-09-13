@@ -4,6 +4,7 @@
     android:shape="rectangle">
 
     <solid
+        android:state_enabled="true"
         android:color="@color/blue"
         />
 

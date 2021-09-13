@@ -95,13 +95,13 @@ public class LoginActivity extends AppCompatActivity {
         clienteController.alterar(cliente);*/
 
         //Para deletar dados usando ID
-        cliente.setId(1);
+        //cliente.setId(1);
 
-        clienteController.deletar(cliente);
+        //clienteController.deletar(cliente);
 
         // List<Cliente> clientes = clienteController.listar();
 
-        //restaurarSharedPreferences();
+        restaurarSharedPreferences();
 
     }
 

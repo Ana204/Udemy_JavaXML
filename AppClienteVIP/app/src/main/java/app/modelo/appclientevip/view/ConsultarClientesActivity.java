@@ -11,12 +11,14 @@ import java.util.List;
 
 import app.modelo.appclientevip.R;
 import app.modelo.appclientevip.api.ClienteAdapter;
+import app.modelo.appclientevip.controller.ClienteController;
 import app.modelo.appclientevip.model.Cliente;
 
 public class ConsultarClientesActivity extends Activity {
 
     List<Cliente> clientes;
     ClienteAdapter adapter;
+    ClienteController clienteController;
 
     Cliente obj;
     RecyclerView rvClientes;
@@ -27,10 +29,10 @@ public class ConsultarClientesActivity extends Activity {
         setContentView(R.layout.activity_consultar_clientes);
 
         rvClientes = findViewById(R.id.rvClientes);
+        clienteController = new ClienteController(getApplicationContext());
+        clientes = clienteController.listar();
 
-        clientes = new ArrayList<>();
-
-        for (int i = 0; i < 10; i++){
+/*        for (int i = 0; i < 10; i++){
 
             obj = new Cliente();
 
@@ -38,7 +40,7 @@ public class ConsultarClientesActivity extends Activity {
             obj.setPessoaFisica(i % 2 == 0);
 
             clientes.add(obj);
-        }
+        }*/
 
         adapter = new ClienteAdapter(clientes, getApplicationContext());
 

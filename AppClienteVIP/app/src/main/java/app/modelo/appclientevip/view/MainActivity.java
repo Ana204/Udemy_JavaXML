@@ -1,6 +1,7 @@
 package app.modelo.appclientevip.view;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         meusDados();
         excluirMinhaConta();
         atualizarMeusDados();
-
+        consultarClientes();
 
     }
 
@@ -225,12 +226,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void consultarClientes(View view) {
+    private void consultarClientes() {
 
         btnConsultarClientesVIP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, ConsultarClientesActivity.class);
+                startActivity(intent);
             }
         });
     }

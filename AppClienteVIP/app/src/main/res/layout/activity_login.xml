@@ -18,7 +18,7 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="142dp"
+            android:layout_height="90dp"
             android:scaleType="fitStart"
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,8 +32,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="332dp"
-        android:background="#66838383"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:background="#D5D5D5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/textView"
@@ -45,19 +47,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.447" />
+            app:layout_constraintVertical_bias="0.609" />
 
         <Button
             android:id="@+id/btnSejaVip"
+            style="@style/buttonBlue"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
             android:text="@string/seja_vip"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.378" />
 
         <TextView
             android:id="@+id/politicaDePrivacidade"
@@ -66,8 +72,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:text="@string/ler_politica_de_privacidade_termos_de_uso"
-            android:textSize="13sp"
             android:textColor="@color/blue_200"
+            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +84,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLogin"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginStart="30dp"
@@ -88,18 +95,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41">
+        app:layout_constraintVertical_bias="0.31">
+
 
         <ImageView
             android:id="@+id/imageUser"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="50dp"
-            android:src="@drawable/user"
+            android:src="@drawable/ic_user"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editEmailLogin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/editEmailLogin"
             app:layout_constraintVertical_bias="0.17"
             tools:ignore="ContentDescription" />
 
@@ -125,7 +133,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="50dp"
-            android:src="@drawable/password"
+            android:src="@drawable/ic_password"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/edtSenhaLogin"
             app:layout_constraintStart_toStartOf="parent"
@@ -138,8 +146,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginEnd="13dp"
             android:layout_marginStart="13dp"
+            android:layout_marginEnd="13dp"
             android:gravity="center"
             android:hint="@string/informe_a_senha_cadastrada"
             android:inputType="textWebPassword"
@@ -155,20 +163,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.19"
-            app:layout_constraintTop_toBottomOf="@+id/edtSenhaLogin">
+            app:layout_constraintTop_toBottomOf="@+id/edtSenhaLogin"
+            app:layout_constraintVertical_bias="0.19">
 
             <CheckBox
                 android:id="@+id/checkLembrar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="sans-serif-light"
                 android:onClick="lembrarSenha"
                 android:text="@string/lembrar"
-                android:textSize="15sp"
-                android:fontFamily="sans-serif-light"
-                android:textStyle="bold"
                 android:textColor="#030161"
-                android:layout_marginStart="16dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.003"
@@ -179,11 +187,11 @@
                 android:id="@+id/recuperarSenha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/recuperar_senha"
-                android:textSize="15sp"
                 android:fontFamily="sans-serif-light"
-                android:textStyle="bold"
+                android:text="@string/recuperar_senha"
                 android:textColor="#030161"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.893"
@@ -197,15 +205,16 @@
 
     <Button
         android:id="@+id/btnAcessar"
+        style="@style/buttonBlue"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-15dp"
         android:text="@string/acessar"
-        style="@style/buttonBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutAzul"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLogin"
+        app:layout_constraintVertical_bias="0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

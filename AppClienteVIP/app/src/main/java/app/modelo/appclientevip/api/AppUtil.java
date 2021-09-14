@@ -10,11 +10,8 @@ public class AppUtil {
     public static final String APP_PREFERENCIA = "cliente_vip_pref";
     public static final String LOG_APP = "CLIENTE_LOG";
 
-    /**
-     *
-     * @return data atual
-     */
-    public static String getDataAtual(){
+
+/*    public static String getDataAtual(){
 
         String dataAtual = "dd/mm/aaaa";
 
@@ -27,10 +24,6 @@ public class AppUtil {
 
     }
 
-    /**
-     *
-     * @return hora atual
-     */
 
     public static String getHoraAtual(){
 
@@ -45,5 +38,5 @@ public class AppUtil {
         horaAtual = dateFormat.format(data);
 
         return horaAtual;
-    }
+    }*/
 }

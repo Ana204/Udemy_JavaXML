@@ -68,11 +68,11 @@
 
 
         <ImageView
-            android:id="@+id/imageUser"
+            android:id="@+id/image_addUser"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="50dp"
-            android:src="@drawable/ic_user"
+            android:src="@drawable/ic_add_user"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/edtPrimeiroNome"
             app:layout_constraintStart_toStartOf="parent"
@@ -99,11 +99,11 @@
 
 
         <ImageView
-            android:id="@+id/imagePassword"
+            android:id="@+id/iconAddUser"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="50dp"
-            android:src="@drawable/ic_password"
+            android:src="@drawable/ic_add_user"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/edtSobrenome"
             app:layout_constraintStart_toStartOf="parent"

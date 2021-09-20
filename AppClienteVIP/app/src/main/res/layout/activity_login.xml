@@ -180,6 +180,7 @@
                 android:textColor="#030161"
                 android:textSize="15sp"
                 android:textStyle="bold"
+                app:buttonTint="@color/blue_100"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.003"

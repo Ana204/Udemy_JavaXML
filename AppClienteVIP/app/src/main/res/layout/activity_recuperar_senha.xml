@@ -23,20 +23,22 @@
             android:src="@drawable/logotipo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="REDEFINIR SENHA"
+            android:text="@string/redefinir_senha"
             android:textColor="@color/white"
-            android:textFontWeight="@integer/material_motion_duration_long_1"
+            android:textFontWeight="300"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:ignore="UnusedAttribute" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -92,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="15dp"
-                android:text="Lhe enviaremos um e-mail com mais informações sobre como redefinir sua senha"
+                android:text="@string/lhe_enviaremos_um_e_mail_com_mais_informa_es_sobre_como_redefinir_sua_senha"
                 android:textColor="#A3841C"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -118,7 +120,8 @@
                 android:src="@drawable/email"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
             <EditText
                 android:id="@+id/edtEmailCadastrado"
@@ -127,13 +130,15 @@
                 android:layout_gravity="end"
                 android:layout_marginStart="13dp"
                 android:gravity="center"
-                android:hint="Email para recuperação"
+                android:hint="@string/email_para_recuperacao"
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/blueTransparent"
+                app:backgroundTint="@color/tint"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:importantForAutofill="no" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

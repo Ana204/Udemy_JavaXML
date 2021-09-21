@@ -13,5 +13,6 @@
     <color name="green">#057825</color>
     <color name="red">#B20000</color>
     <color name="tint">#576288</color>
+    <color name="whiteTransparent">#D5D5D5</color>
 
 </resources>

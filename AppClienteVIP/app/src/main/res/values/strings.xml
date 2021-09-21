@@ -46,9 +46,10 @@
     <string name="PessoaFisica">Pessoa Física</string>
     <string name="salvarEContinuar">SALVAR E CONTINUAR</string>
     <string name="cancelar">CANCELAR</string>
+    <string name="novo_cadastro">NOVO CADASTRO</string>
 
     <!--Tela de Pessoa fisica-->
-    <string name="pessoaFisica">Pessoa Física</string>
+    <string name="pessoaFisica">PESSOA FÍSICA</string>
     <string name="cpf">CPF</string>
     <string name="informe_seu_cpf">Informe seu CPF</string>
     <string name="nomeCompleto">Nome Completo</string>

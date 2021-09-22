@@ -10,8 +10,8 @@
     <string name="sair">SAIR</string>
 
     <!--Tela de credenciais-->
-    <string name="finalizandoCredenciais">Finalizando credenciais</string>
-    <string name="nome">NOME</string>
+    <string name="finalizandoCredenciais">FINALIZANDO...</string>
+    <string name="nome">NOME:</string>
     <string name="email">EMAIL</string>
     <string name="digite_seu_nome">Informe seu nome</string>
     <string name="digite_seu_email">Informe seu email</string>

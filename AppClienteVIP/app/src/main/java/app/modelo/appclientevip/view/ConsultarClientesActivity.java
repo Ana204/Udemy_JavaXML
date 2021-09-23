@@ -32,7 +32,7 @@ public class ConsultarClientesActivity extends Activity {
         clienteController = new ClienteController(getApplicationContext());
         clientes = clienteController.listar();
 
-/*        for (int i = 0; i < 10; i++){
+      for (int i = 0; i < 10; i++){
 
             obj = new Cliente();
 
@@ -40,7 +40,7 @@ public class ConsultarClientesActivity extends Activity {
             obj.setPessoaFisica(i % 2 == 0);
 
             clientes.add(obj);
-        }*/
+        }
 
         adapter = new ClienteAdapter(clientes, getApplicationContext());
 

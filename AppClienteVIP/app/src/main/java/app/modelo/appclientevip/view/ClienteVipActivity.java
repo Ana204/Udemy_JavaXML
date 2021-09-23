@@ -146,5 +146,6 @@ public class ClienteVipActivity extends AppCompatActivity {
     public void pessoaFisica(View view) {
 
         isPessoaFisica = ckPessoaFisica.isChecked();
+
     }
 }

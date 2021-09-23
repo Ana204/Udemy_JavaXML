@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences preferences;
     List<Cliente> clientes;
 
-    TextView txtNome;
+
     Button btnMeusDados, btnAtualizarMeusDados, btnExcluirConta, btnConsultarClientesVIP, btnSairApp;
 
     @Override
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initTelaInical() {
 
-        txtNome = findViewById(R.id.txtNome);
+        //txtNome = findViewById(R.id.txtNome);
         btnMeusDados = findViewById(R.id.btnMeusDados);
         btnAtualizarMeusDados = findViewById(R.id.btnAtualizarMeusDados);
         btnExcluirConta = findViewById(R.id.btnExcluirConta);
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
       // restaurarSharedPreferences();
 
-       txtNome.setText("Bem vindo, " + cliente.getPrimeiroNome());
+       //txtNome.setText(cliente.getPrimeiroNome());
     }
 
     private void salvarSharedPreferences() {

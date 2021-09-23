@@ -3,7 +3,7 @@
 
     <!--Tela inicial-->
     <string name="MeusDados">MEUS DADOS</string>
-    <string name="BemVindo">Bem vindo</string>
+    <string name="BemVindo">BEM-VINDO</string>
     <string name="atualizarMeusDados">ATUALIZAR MEUS DADOS</string>
     <string name="excluirMinhaConta">EXCLUIR MINHA CONTA</string>
     <string name="consultarClientes">CONSULTAR CLIENTES VIP</string>

@@ -154,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/buttonblue"
+                android:background="@drawable/buttongreen"
                 android:text="@string/recuperar"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"

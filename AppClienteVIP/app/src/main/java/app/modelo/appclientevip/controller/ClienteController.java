@@ -60,4 +60,9 @@ public class ClienteController extends AppDataBase {
 
         return list(TABELA);
     }
+
+    public int getUltimo(){
+
+        return getPk(TABELA);
+    }
 }

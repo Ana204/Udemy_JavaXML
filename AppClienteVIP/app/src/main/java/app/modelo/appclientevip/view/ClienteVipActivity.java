@@ -18,12 +18,15 @@ import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.modelo.appclientevip.R;
 import app.modelo.appclientevip.api.AppUtil;
+import app.modelo.appclientevip.controller.ClienteController;
 import app.modelo.appclientevip.model.Cliente;
 
 
 public class ClienteVipActivity extends AppCompatActivity {
 
     Cliente novoVip;
+    ClienteController controller;
+
     private SharedPreferences preferences;
 
     EditText edtPrimeiroNome, edtSobrenome;
@@ -31,6 +34,7 @@ public class ClienteVipActivity extends AppCompatActivity {
     Button btnSalvarEContinuar, btnCancelar;
 
     boolean isFormularioNovoVip, isPessoaFisica;
+    int ultimoId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,8 @@ public class ClienteVipActivity extends AppCompatActivity {
 
         isFormularioNovoVip = false;
         novoVip = new Cliente();
+        controller = new ClienteController(this);
+
         restaurarSharedPreferences();
     }
 
@@ -67,6 +73,9 @@ public class ClienteVipActivity extends AppCompatActivity {
                     novoVip.setPrimeiroNome(edtPrimeiroNome.getText().toString());
                     novoVip.setSobrenome(edtSobrenome.getText().toString());
                     novoVip.setPessoaFisica(isPessoaFisica);
+
+                    controller.incluir(novoVip);
+                    ultimoId = controller.getUltimo();
 
                     salvarSharedPreferences();
 
@@ -140,6 +149,7 @@ public class ClienteVipActivity extends AppCompatActivity {
         dados.putBoolean("pessoaFisica", novoVip.isPessoaFisica());
         dados.putString("primeiroNome", novoVip.getPrimeiroNome());
         dados.putString("sobrenome", novoVip.getSobrenome());
+        dados.putInt("ultimoId", ultimoId);
         dados.apply();
     }
 

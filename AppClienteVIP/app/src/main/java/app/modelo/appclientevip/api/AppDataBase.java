@@ -167,4 +167,30 @@ public class AppDataBase extends SQLiteOpenHelper {
     }
 
 
+    public int getPk(String tabela){
+
+        //SELECT seq FROM sqlite_sequence WHERE name="tabela"
+        String sql = "SELECT seq FROM sqlite_sequence WHERE name = '" + tabela + "'";
+
+        try {
+            Log.e(AppUtil.LOG_APP, "SQL RAW:" + sql);
+
+            cursor = database.rawQuery(sql, null);
+
+            if (cursor.moveToFirst()) {
+
+                do {
+                  return cursor.getInt(cursor.getColumnIndex("seq"));
+
+                }
+                while (cursor.moveToNext());
+
+            }
+        }catch (SQLException e){
+            Log.e(AppUtil.LOG_APP, "ERRO recuperando último PK"+ tabela + " " +e.getMessage());
+        }
+        return -1;
+    }
+
+
 }

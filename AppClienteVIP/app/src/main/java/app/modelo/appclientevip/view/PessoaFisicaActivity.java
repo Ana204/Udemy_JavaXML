@@ -17,6 +17,7 @@ import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.modelo.appclientevip.R;
 import app.modelo.appclientevip.api.AppUtil;
+import app.modelo.appclientevip.controller.ClientePfController;
 import app.modelo.appclientevip.model.Cliente;
 import app.modelo.appclientevip.model.ClientePF;
 
@@ -24,12 +25,15 @@ public class PessoaFisicaActivity extends AppCompatActivity {
 
     Button btn_voltar, btnSalvarEContinuar, cancelarBtn;
     EditText edtCPF, edtNomeCompleto;
+    ClientePfController clientePfController;
 
     private SharedPreferences preferences;
     Cliente novoVip;
     ClientePF clientePessoaFisica;
 
     boolean isFormularioPF, isPessoaFisica;
+    int clienteID;
+    int ultimoIDClientePessoaPf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,7 @@ public class PessoaFisicaActivity extends AppCompatActivity {
         isFormularioPF = false;
         clientePessoaFisica = new ClientePF();
         novoVip = new Cliente();
+        clientePfController = new ClientePfController(this);
 
         restaurarSharedPreferences();
     }
@@ -98,6 +103,10 @@ public class PessoaFisicaActivity extends AppCompatActivity {
 
                     clientePessoaFisica.setCpf(edtCPF.getText().toString());
                     clientePessoaFisica.setNomeCompleto(edtNomeCompleto.getText().toString());
+                    clientePessoaFisica.setClienteID(clienteID);
+
+                    clientePfController.incluir(clientePessoaFisica);
+                    ultimoIDClientePessoaPf = clientePfController.getUltimo();
 
                     salvarSharedPreferences();
 
@@ -147,6 +156,7 @@ public class PessoaFisicaActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
         isPessoaFisica = preferences.getBoolean("pessoaFisica", true) ;
+        clienteID = preferences.getInt("UltimoID", -1);
     }
 
     private void salvarSharedPreferences() {
@@ -156,6 +166,7 @@ public class PessoaFisicaActivity extends AppCompatActivity {
 
         dados.putString("cpf", edtCPF.getText().toString());
         dados.putString("nomeCompleto", edtNomeCompleto.getText().toString());
+        dados.putInt("ultimoIDClientePessoaPf", ultimoIDClientePessoaPf);
         dados.apply();
     }
 

@@ -8,11 +8,11 @@ public class ClientePfDataModel {
      *     private String nomeCompleto;
      */
 
-    private static final String TABELA = "pessoaFisica";
-    private static final String ID = "id";
-    private static final String FK = "clienteID";
-    private static final String CPF = "cpf";
-    private static final String NOME_COMPLETO = "nomeCompleto";
+    public static final String TABELA = "pessoaFisica";
+    public static final String ID = "id";
+    public static final String FK = "clienteID";
+    public static final String CPF = "cpf";
+    public static final String NOME_COMPLETO = "nomeCompleto";
     private static final String DATA_INCLUSAO = "dataInclusao";
     private static final String DATA_ALTERACAO = "dataAlteracao";
 

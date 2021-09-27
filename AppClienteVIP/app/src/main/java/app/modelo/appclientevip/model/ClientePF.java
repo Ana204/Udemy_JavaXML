@@ -2,7 +2,8 @@ package app.modelo.appclientevip.model;
 
 public class ClientePF extends Cliente{
 
-    private int ForeignKey;
+    private int id;
+    private int clienteID;
     private String cpf;
     private String nomeCompleto;
 
@@ -22,5 +23,23 @@ public class ClientePF extends Cliente{
 
     public void setNomeCompleto(String nomeCompleto) {
         this.nomeCompleto = nomeCompleto;
+    }
+
+    public int getClienteID() {
+        return clienteID;
+    }
+
+    public void setClienteID(int clienteID) {
+        this.clienteID = clienteID;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
     }
 }

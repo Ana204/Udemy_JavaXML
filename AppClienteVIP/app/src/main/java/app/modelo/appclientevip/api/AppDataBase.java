@@ -17,6 +17,7 @@ import app.modelo.appclientevip.dataModel.ClienteDataModel;
 import app.modelo.appclientevip.dataModel.ClientePfDataModel;
 import app.modelo.appclientevip.dataModel.ClientePjDataModel;
 import app.modelo.appclientevip.model.Cliente;
+import app.modelo.appclientevip.model.ClientePF;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -133,7 +134,7 @@ public class AppDataBase extends SQLiteOpenHelper {
      * Listar dados
      * @return
      */
-    public List<Cliente> list(String tabela){
+    public List<Cliente> listClientes(String tabela){
 
         List<Cliente> list = new ArrayList<>();
         Cliente cliente;
@@ -155,6 +156,38 @@ public class AppDataBase extends SQLiteOpenHelper {
                     cliente.setPessoaFisica(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.PESSOA_FISICA)) == 1);
 
                     list.add(cliente);
+                }
+                while (cursor.moveToNext());
+
+                Log.i(AppUtil.LOG_APP, "Lista gerada com sucesso !!");
+            }
+        }catch (SQLException e){
+            Log.e(AppUtil.LOG_APP, "Falha ao listar"+ tabela + " " +e.getMessage());
+        }
+        return list;
+    }
+
+    public List<ClientePF> listClientesPessoaFisica(String tabela){
+
+        List<ClientePF> list = new ArrayList<>();
+        ClientePF clientePF;
+
+        String sql = "SELECT * FROM " + tabela;
+
+        cursor = database.rawQuery(sql, null);
+
+        try {
+
+            if (cursor.moveToFirst()) {
+
+                do {
+                    clientePF = new ClientePF();
+                    clientePF.setId(cursor.getInt(cursor.getColumnIndex(ClientePfDataModel.ID)));
+                    clientePF.setClienteID(cursor.getInt(cursor.getColumnIndex(ClientePfDataModel.FK)));
+                    clientePF.setCpf(cursor.getString(cursor.getColumnIndex(ClientePfDataModel.CPF)));
+                    clientePF.setNomeCompleto(cursor.getString(cursor.getColumnIndex(ClientePfDataModel.NOME_COMPLETO)));
+
+                    list.add(clientePF);
                 }
                 while (cursor.moveToNext());
 

@@ -10,14 +10,14 @@ public class ClientePjDataModel {
      *     private boolean mei;
      */
 
-    private static final String TABELA = "pessoaJuridica";
-    private static final String ID = "id";
-    private static final String FK = "clientePjID";
-    private static final String CNPJ = "cnpj";
-    private static final String RAZAOSOCIAL = "razaoSocial";
-    private static final String DATA_ABERTURA = "dataAbertura";
-    private static final String SIMPLESNACIONAL = "simplesNacional";
-    private static final String MEI = "mei";
+    public static final String TABELA = "pessoaJuridica";
+    public static final String ID = "id";
+    public static final String FK = "clientePjID";
+    public static final String CNPJ = "cnpj";
+    public static final String RAZAOSOCIAL = "razaoSocial";
+    public static final String DATA_ABERTURA = "dataAbertura";
+    public static final String SIMPLESNACIONAL = "simplesNacional";
+    public static final String MEI = "mei";
     private static final String DATA_INCLUSAO = "dataInclusao";
     private static final String DATA_ALTERACAO = "dataAlteracao";
 

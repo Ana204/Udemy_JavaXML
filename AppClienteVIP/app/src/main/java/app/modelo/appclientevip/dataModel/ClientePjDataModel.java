@@ -33,8 +33,8 @@ public class ClientePjDataModel {
         query += DATA_ABERTURA + " TEXT, ";
         query += SIMPLESNACIONAL + " INTEGER, ";
         query += MEI + " TEXT, ";
-        query += DATA_INCLUSAO + " TEXT, ";
-        query += DATA_ALTERACAO + " TEXT, ";
+        query += DATA_INCLUSAO + " datetime default current_timestamp, ";
+        query += DATA_ALTERACAO + " datetime default current_timestamp,, ";
         query += "FOREIGN KEY("+FK+") REFERENCES pessoaFisica(id)";
         query += ")";
 

@@ -2,7 +2,8 @@ package app.modelo.appclientevip.model;
 
 public class ClientePJ extends ClientePF {
 
-    private int ForeignKey;
+    private  int id;
+    private int clientePfID;
     private String cnpj;
     private String razaoSocial;
     private String dataAbertura;
@@ -47,5 +48,23 @@ public class ClientePJ extends ClientePF {
 
     public void setMei(boolean mei) {
         this.mei = mei;
+    }
+
+    public int getClientePfID() {
+        return clientePfID;
+    }
+
+    public void setClientePfID(int clientePfID) {
+        this.clientePfID = clientePfID;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -14,7 +14,7 @@ import app.modelo.appclientevip.model.ClientePF;
 
 public class ClientePfController extends AppDataBase {
 
-    private static final String TABELA = ClienteDataModel.TABELA;
+    private static final String TABELA = ClientePfDataModel.TABELA;
     private ContentValues dados;
 
     public ClientePfController(@Nullable  Context context) {

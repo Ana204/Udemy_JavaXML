@@ -18,6 +18,7 @@ import app.modelo.appclientevip.dataModel.ClientePfDataModel;
 import app.modelo.appclientevip.dataModel.ClientePjDataModel;
 import app.modelo.appclientevip.model.Cliente;
 import app.modelo.appclientevip.model.ClientePF;
+import app.modelo.appclientevip.model.ClientePJ;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -199,6 +200,40 @@ public class AppDataBase extends SQLiteOpenHelper {
         return list;
     }
 
+    public List<ClientePJ> listClientesPessoaJuridica(String tabela){
+
+        List<ClientePJ> list = new ArrayList<>();
+        ClientePJ clientePJ;
+
+        String sql = "SELECT * FROM " + tabela;
+
+        cursor = database.rawQuery(sql, null);
+
+        try {
+
+            if (cursor.moveToFirst()) {
+
+                do {
+                    clientePJ = new ClientePJ();
+                    clientePJ.setId(cursor.getInt(cursor.getColumnIndex(ClientePjDataModel.ID)));
+                    clientePJ.setClientePfID(cursor.getInt(cursor.getColumnIndex(ClientePjDataModel.FK)));
+                    clientePJ.setCnpj(cursor.getString(cursor.getColumnIndex(ClientePjDataModel.CNPJ)));
+                    clientePJ.setRazaoSocial(cursor.getString(cursor.getColumnIndex(ClientePjDataModel.RAZAOSOCIAL)));
+                    clientePJ.setDataAbertura(cursor.getString(cursor.getColumnIndex(ClientePjDataModel.DATA_ABERTURA)));
+                    clientePJ.setSimplesNacional(cursor.getInt(cursor.getColumnIndex(ClientePjDataModel.SIMPLESNACIONAL)) == 1);
+                    clientePJ.setMei(cursor.getInt(cursor.getColumnIndex(ClientePjDataModel.MEI)) == 1);
+
+                    list.add(clientePJ);
+                }
+                while (cursor.moveToNext());
+
+                Log.i(AppUtil.LOG_APP, "Lista gerada com sucesso !!");
+            }
+        }catch (SQLException e){
+            Log.e(AppUtil.LOG_APP, "Falha ao listar"+ tabela + " " +e.getMessage());
+        }
+        return list;
+    }
 
     public int getPk(String tabela){
 

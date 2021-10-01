@@ -18,6 +18,7 @@ import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.modelo.appclientevip.R;
 import app.modelo.appclientevip.api.AppUtil;
+import app.modelo.appclientevip.controller.ClientePjController;
 import app.modelo.appclientevip.model.Cliente;
 import app.modelo.appclientevip.model.ClientePJ;
 
@@ -32,6 +33,9 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
     ClientePJ clientePessoaJuridica;
 
     boolean isFormularioPJ, isSimplesNacional, isMei;
+
+    ClientePjController clientePjController;
+    int ultimoIDClientePessoaPf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +65,7 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
         clientePessoaJuridica = new ClientePJ();
         novoVip = new Cliente();
 
+        clientePjController = new ClientePjController(this);
 
         restaurarSharedPreferences();
 
@@ -108,12 +113,14 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (isFormularioPJ = validarFormulario()) {
+                    clientePessoaJuridica.setClientePfID(ultimoIDClientePessoaPf);
                     clientePessoaJuridica.setCnpj(edtcnpj.getText().toString());
                     clientePessoaJuridica.setRazaoSocial(razaoSocial.getText().toString());
                     clientePessoaJuridica.setDataAbertura(edtData.getText().toString());
                     clientePessoaJuridica.setSimplesNacional(isSimplesNacional);
                     clientePessoaJuridica.setMei(isMei);
 
+                    clientePjController.incluir(clientePessoaJuridica);
                     salvarSharedPreferences();
 
                     Intent intent = new Intent(PessoaJuridicaActivity.this, CredencialAcessoActivity.class);
@@ -164,6 +171,7 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
         dados.putString("dataAberturaEmpresa", edtData.getText().toString());
         dados.putBoolean("simplesNacional", isSimplesNacional);
         dados.putBoolean("mei", isMei);
+        dados.putInt("ultimoIDClientePessoaPf", ultimoIDClientePessoaPf);
 
         dados.apply();
     }

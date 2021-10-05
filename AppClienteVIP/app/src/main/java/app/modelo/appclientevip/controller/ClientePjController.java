@@ -27,7 +27,7 @@ public class ClientePjController extends AppDataBase {
 
         dados = new ContentValues();
 
-        dados.put(ClientePjDataModel.FK, obj.getClienteID());
+        dados.put(ClientePjDataModel.FK, obj.getClientePfID());
         dados.put(ClientePjDataModel.CNPJ, obj.getCnpj());
         dados.put(ClientePjDataModel.RAZAOSOCIAL, obj.getRazaoSocial());
         dados.put(ClientePjDataModel.DATA_ABERTURA, obj.getDataAbertura());

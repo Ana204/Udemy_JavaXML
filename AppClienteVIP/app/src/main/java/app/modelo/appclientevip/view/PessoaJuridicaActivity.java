@@ -159,6 +159,7 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
     private void restaurarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
+        ultimoIDClientePessoaPf = preferences.getInt("ultimoIDClientePessoaPf", -1);
     }
 
     private void salvarSharedPreferences() {

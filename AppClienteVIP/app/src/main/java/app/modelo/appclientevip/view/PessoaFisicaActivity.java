@@ -67,11 +67,21 @@ public class PessoaFisicaActivity extends AppCompatActivity {
 
         //considerar que o usuario  preencheu o formulario
         boolean retorno = true;
+        String cpf = edtCPF.getText().toString();
 
-        if (TextUtils.isEmpty(edtCPF.getText().toString())) {
+        if (TextUtils.isEmpty(cpf)) {
             edtCPF.setError("Preencha o campo com seu CPF");
             retorno = false;
         }
+        if (!AppUtil.isCPF(cpf)){
+            edtCPF.setError("*");
+            retorno = false;
+
+            Toast.makeText(this, "CPF inválido, tente novamente !!", Toast.LENGTH_LONG).show();
+        }else {
+            edtCPF.setText(AppUtil.mascaraCPF(edtCPF.getText().toString()));
+        }
+
         if (TextUtils.isEmpty(edtNomeCompleto.getText().toString())) {
             edtNomeCompleto.setError("Preencha o campo com seu nome completo");
             retorno = false;

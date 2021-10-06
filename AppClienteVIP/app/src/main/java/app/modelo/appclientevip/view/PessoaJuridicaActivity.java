@@ -113,7 +113,6 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (isFormularioPJ = validarFormulario()) {
-                    //TODO: setar o valor do id do ultimo clientes incluido
                     clientePessoaJuridica.setClientePfID(ultimoIDClientePessoaPf);
                     clientePessoaJuridica.setCnpj(edtcnpj.getText().toString());
                     clientePessoaJuridica.setRazaoSocial(razaoSocial.getText().toString());

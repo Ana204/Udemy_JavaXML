@@ -91,10 +91,20 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
         //considerar que o usuario  preencheu o formulario
         boolean retorno = true;
 
-        if (TextUtils.isEmpty(edtcnpj.getText().toString())) {
+        String cnpj = edtcnpj.getText().toString();
+        if (TextUtils.isEmpty(cnpj)) {
             edtcnpj.setError("Preencha o campo com seu CNPJ");
             retorno = false;
         }
+        if (!AppUtil.isCNPJ(cnpj)){
+            edtcnpj.setError("*");
+            retorno = false;
+
+            Toast.makeText(this, "CNPJ inválido, tente novamente", Toast.LENGTH_LONG).show();
+        }else {
+            edtcnpj.setText(AppUtil.mascaraCNPJ(edtcnpj.getText().toString()));
+        }
+
         if (TextUtils.isEmpty(razaoSocial.getText().toString())) {
             razaoSocial.setError("Preencha o campo com sua razão social");
             retorno = false;

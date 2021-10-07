@@ -18,6 +18,8 @@ import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.modelo.appclientevip.R;
 import app.modelo.appclientevip.api.AppUtil;
+import app.modelo.appclientevip.controller.ClienteController;
+import app.modelo.appclientevip.model.Cliente;
 
 public class CredencialAcessoActivity extends AppCompatActivity {
 
@@ -31,6 +33,9 @@ public class CredencialAcessoActivity extends AppCompatActivity {
 
     boolean formularioTrue, isPessoaFisica;
     private SharedPreferences preferences;
+    int clienteID;
+    Cliente cliente;
+    ClienteController clienteController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,8 @@ public class CredencialAcessoActivity extends AppCompatActivity {
         confimarSenha = findViewById(R.id.confimarSenha);
         checkTermos = findViewById(R.id.checkTermos);
 
+        cliente = new Cliente();
+        clienteController = new ClienteController(this);
         restaurarSharedPreferences();
     }
 
@@ -135,6 +142,11 @@ public class CredencialAcessoActivity extends AppCompatActivity {
                                 .show();
                     }
                     else {
+
+                        cliente.setEmail(edtEmail.getText().toString());
+                        cliente.setSenha(edtSenha.getText().toString());
+                        clienteController.alterar(cliente);
+
                         salvarSharedPreferences();
                         Toast.makeText(CredencialAcessoActivity.this, "Usuario cadastrado com sucesso !!", Toast.LENGTH_LONG).show();
 
@@ -154,6 +166,15 @@ public class CredencialAcessoActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
         isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
+        clienteID = preferences.getInt("clienteID", -1);
+        String primeiroNome = preferences.getString("primeiroNome", "");
+        String sobrenome = preferences.getString("sobrenome", "");
+
+        cliente.setId(clienteID);
+        cliente.setPrimeiroNome(primeiroNome);
+        cliente.setSobrenome(sobrenome);
+        cliente.setPessoaFisica(isPessoaFisica);
+
         if (isPessoaFisica) {
             edtNome.setText(preferences.getString("nomeCompleto", "Verifique seus dados"));
         } else {

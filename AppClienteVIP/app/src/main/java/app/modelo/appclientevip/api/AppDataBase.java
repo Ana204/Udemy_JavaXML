@@ -260,5 +260,9 @@ public class AppDataBase extends SQLiteOpenHelper {
         return -1;
     }
 
+    public void getClienteByID(String tabela, Cliente obj){
+
+    }
+
 
 }

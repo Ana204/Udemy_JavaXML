@@ -21,6 +21,7 @@ import java.util.List;
 
 import app.modelo.appclientevip.R;
 import app.modelo.appclientevip.api.AppUtil;
+import app.modelo.appclientevip.controller.ClienteController;
 import app.modelo.appclientevip.model.Cliente;
 import app.modelo.appclientevip.model.ClientePF;
 import app.modelo.appclientevip.model.ClientePJ;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     ClientePJ clientePJ;
     private SharedPreferences preferences;
     List<Cliente> clientes;
+    ClienteController clienteController;
 
 
     Button btnMeusDados, btnAtualizarMeusDados, btnExcluirConta, btnConsultarClientesVIP, btnSairApp;
@@ -40,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        clienteController = new ClienteController(this);
+        clienteController.getClienteByID(cliente);
+
+        cliente.getClientePF();
 
         initTelaInical();
 

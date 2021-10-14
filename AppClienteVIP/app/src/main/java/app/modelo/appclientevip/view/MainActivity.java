@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
+               /* Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
                 Log.i(AppUtil.LOG_APP, "Primeiro Nome: " + cliente.getPrimeiroNome());
                 Log.i(AppUtil.LOG_APP, "Sobrenome: " + cliente.getSobrenome());
                 Log.i(AppUtil.LOG_APP, "Email: " + cliente.getEmail());
@@ -151,8 +151,9 @@ public class MainActivity extends AppCompatActivity {
                     Log.i(AppUtil.LOG_APP, "Data Abertura: " + clientePJ.getDataAbertura());
                     Log.i(AppUtil.LOG_APP, "Simples Nacional: " + clientePJ.isSimplesNacional());
                     Log.i(AppUtil.LOG_APP, "MEI: " + clientePJ.isMei());
-                }
-
+                }*/
+                Intent intent = new Intent(MainActivity.this, MeusDadosActivity.class);
+                startActivity(intent);
             }
         });
     }

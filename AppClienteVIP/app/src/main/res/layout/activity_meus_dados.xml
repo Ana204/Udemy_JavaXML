@@ -37,6 +37,20 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="ContentDescription" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/meusDados"
+                    android:textColor="@color/white"
+                    android:textFontWeight="300"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageLogo"
+                    tools:ignore="UnusedAttribute" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -79,6 +93,7 @@
                         android:layout_marginStart="13dp"
                         android:layout_marginEnd="13dp"
                         android:gravity="center"
+                        android:enabled="false"
                         android:hint="@string/informe_seu_nome"
                         android:inputType="textPersonName"
                         app:backgroundTint="@color/tint"
@@ -96,6 +111,7 @@
                         android:layout_marginStart="13dp"
                         android:layout_marginEnd="13dp"
                         android:gravity="center"
+                        android:enabled="false"
                         android:hint="@string/informe_seu_sobrenome"
                         android:inputType="textPersonName"
                         app:backgroundTint="@color/tint"
@@ -112,6 +128,7 @@
                         android:layout_marginStart="13dp"
                         android:layout_marginEnd="13dp"
                         android:gravity="center"
+                        android:enabled="false"
                         android:hint="@string/informe_seu_cpf"
                         android:inputType="textPersonName"
                         app:backgroundTint="@color/tint"
@@ -131,6 +148,7 @@
                         android:textColor="@color/blue"
                         android:textSize="15sp"
                         android:textStyle="bold"
+                        android:enabled="false"
                         app:buttonTint="@color/blue_100"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -146,6 +164,7 @@
                         android:layout_marginStart="13dp"
                         android:layout_marginEnd="13dp"
                         android:gravity="center"
+                        android:enabled="false"
                         android:hint="@string/digite_seu_email"
                         android:inputType="textEmailAddress"
                         app:backgroundTint="@color/tint"
@@ -163,6 +182,7 @@
                         android:layout_marginStart="13dp"
                         android:layout_marginEnd="13dp"
                         android:gravity="center"
+                        android:enabled="false"
                         android:hint="@string/informe_sua_senha"
                         android:inputType="textWebPassword"
                         app:backgroundTint="@color/tint"
@@ -181,6 +201,7 @@
                         android:layout_marginStart="13dp"
                         android:layout_marginEnd="13dp"
                         android:gravity="center"
+                        android:enabled="false"
                         android:hint="@string/informe_nomeCompleto"
                         android:inputType="textPersonName"
                         app:backgroundTint="@color/tint"
@@ -197,6 +218,7 @@
                         android:layout_marginStart="13dp"
                         android:layout_marginEnd="13dp"
                         android:gravity="center"
+                        android:enabled="false"
                         android:hint="@string/informe_seu_cnpj"
                         android:inputType="textPersonName"
                         app:backgroundTint="@color/tint"
@@ -214,6 +236,7 @@
                         android:layout_marginStart="13dp"
                         android:layout_marginEnd="13dp"
                         android:gravity="center"
+                        android:enabled="false"
                         android:hint="@string/informe_sua_razaoSocial"
                         android:inputType="textPersonName"
                         app:backgroundTint="@color/tint"
@@ -221,6 +244,90 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="Autofill" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/razaoSocial">
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/data_de_abertura_da_empresa"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/edtData"
+                            app:layout_constraintHorizontal_bias="0.393"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.476" />
+
+                        <EditText
+                            android:id="@+id/edtData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:hint="@string/aberturaData"
+                            android:inputType="date"
+                            android:enabled="false"
+                            app:backgroundTint="@color/tint"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0"
+                            tools:ignore="Autofill" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <CheckBox
+                            android:id="@+id/ckSimplesNacional"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/simplesNacional"
+                            android:textColor="@color/blue"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:enabled="false"
+                            app:buttonTint="@color/blue_100"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.003"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <CheckBox
+                            android:id="@+id/ckMei"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/mei"
+                            android:textColor="@color/blue"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:enabled="false"
+                            app:buttonTint="@color/blue_100"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.003"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 

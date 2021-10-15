@@ -245,6 +245,8 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="Autofill" />
 
+
+
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -308,7 +310,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-
                         <CheckBox
                             android:id="@+id/ckMei"
                             android:layout_width="wrap_content"
@@ -329,13 +330,20 @@
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                    <Button
+                        android:id="@+id/voltarBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/buttonblue"
+                        android:text="@string/voltar"
+                        android:textColor="@color/white" />
 
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

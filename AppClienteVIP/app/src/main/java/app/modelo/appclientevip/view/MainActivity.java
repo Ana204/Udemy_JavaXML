@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     List<Cliente> clientes;
     ClienteController clienteController;
 
+    TextView txtNome;
 
     Button btnMeusDados, btnAtualizarMeusDados, btnExcluirConta, btnConsultarClientesVIP, btnSairApp;
 
@@ -44,13 +45,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         clienteController = new ClienteController(this);
-        clienteController.getClienteByID(cliente);
+        //clienteController.getClienteByID(cliente);
 
-        cliente.getClientePF();
+       // cliente.getClientePF();
 
         initTelaInical();
 
-        buscarListaDeClientes();
+        //buscarListaDeClientes();
 
         sairDoApp();
         meusDados();
@@ -63,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
     private void buscarListaDeClientes() {
 
         clientes = new ArrayList<>();
-
 
         for (int i = 0; i < 10; i++) {
 
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initTelaInical() {
 
-        //txtNome = findViewById(R.id.txtNome);
+        txtNome = findViewById(R.id.txtNome);
         btnMeusDados = findViewById(R.id.btnMeusDados);
         btnAtualizarMeusDados = findViewById(R.id.btnAtualizarMeusDados);
         btnExcluirConta = findViewById(R.id.btnExcluirConta);
@@ -95,9 +95,8 @@ public class MainActivity extends AppCompatActivity {
         clientePF = new ClientePF();
         clientePJ = new ClientePJ();
 
-      // restaurarSharedPreferences();
-
-       //txtNome.setText(cliente.getPrimeiroNome());
+        txtNome.setText(cliente.getPrimeiroNome());
+        restaurarSharedPreferences();
     }
 
     private void salvarSharedPreferences() {
@@ -114,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         cliente.setSobrenome(preferences.getString("sobrenome", "null"));
         cliente.setEmail(preferences.getString("email", "null"));
         cliente.setSenha(preferences.getString("senha", "null"));
-        cliente.setPessoaFisica(preferences.getBoolean("senha", true));
+        cliente.setPessoaFisica(preferences.getBoolean("pessoaFisica", true));
 
 
         clientePF.setCpf(preferences.getString("cpf", "null"));
@@ -135,14 +134,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               /* Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
+                Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
                 Log.i(AppUtil.LOG_APP, "Primeiro Nome: " + cliente.getPrimeiroNome());
                 Log.i(AppUtil.LOG_APP, "Sobrenome: " + cliente.getSobrenome());
                 Log.i(AppUtil.LOG_APP, "Email: " + cliente.getEmail());
                 Log.i(AppUtil.LOG_APP, "Senha: " + cliente.getSenha());
 
                 Log.i(AppUtil.LOG_APP, "CPF: " + clientePF.getCpf());
-                Log.i(AppUtil.LOG_APP, "Nome Completo: " + clientePF.getCpf());
+                Log.i(AppUtil.LOG_APP, "Nome Completo: " + clientePF.getNomeCompleto());
 
                 if(!cliente.isPessoaFisica()){
 
@@ -151,7 +150,9 @@ public class MainActivity extends AppCompatActivity {
                     Log.i(AppUtil.LOG_APP, "Data Abertura: " + clientePJ.getDataAbertura());
                     Log.i(AppUtil.LOG_APP, "Simples Nacional: " + clientePJ.isSimplesNacional());
                     Log.i(AppUtil.LOG_APP, "MEI: " + clientePJ.isMei());
-                }*/
+                }
+
+                salvarSharedPreferences();
                 Intent intent = new Intent(MainActivity.this, MeusDadosActivity.class);
                 startActivity(intent);
             }
@@ -264,9 +265,9 @@ public class MainActivity extends AppCompatActivity {
                         .isCancellable(true)
                         .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
                         .onPositiveClicked(dialog -> {
+                            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                            startActivity(intent);
                             Toast.makeText(MainActivity.this,  "VOLTE SEMPRE !", Toast.LENGTH_SHORT).show();
-                            finish();
-                            return;
                             })
                         .onNegativeClicked(dialog -> {
                             Toast.makeText(MainActivity.this, "DIVIRTA-SE", Toast.LENGTH_SHORT).show();

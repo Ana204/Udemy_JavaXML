@@ -153,9 +153,14 @@ public class ClienteVipActivity extends AppCompatActivity {
         dados.apply();
     }
 
-    public void pessoaFisica(View view) {
+    public void pessoaFisica() {
 
-        isPessoaFisica = ckPessoaFisica.isChecked();
+        ckPessoaFisica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isPessoaFisica = ckPessoaFisica.isChecked();
+            }
+        });
 
     }
 }

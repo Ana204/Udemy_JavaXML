@@ -39,23 +39,30 @@ public class AppDataBase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         try {
-
             db.execSQL(ClienteDataModel.Tabela());
-            db.execSQL(ClientePfDataModel.TabelaPessoaFisica());
-            db.execSQL(ClientePjDataModel.TabelaPessoaJuridica());
-
             Log.i(AppUtil.LOG_APP, "TABELA CLIENTE: "+ ClienteDataModel.Tabela());
-            Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA FISICA: "+ ClientePfDataModel.TabelaPessoaFisica());
-            Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA JURIDICA: "+ ClientePjDataModel.TabelaPessoaJuridica());
-
         }
         catch (SQLException e){
-
-            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA: "+ e.getMessage());
-            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA DE PESSOA FISICA: "+ e.getMessage());
-            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA DE PESSOA JURIDICA: "+ e.getMessage());
+            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA CLIENTE: "+ e.getMessage());
         }
 
+
+        try {
+            db.execSQL(ClientePfDataModel.TabelaPessoaFisica());
+            Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA FISICA: "+ ClientePfDataModel.TabelaPessoaFisica());
+
+        }catch (SQLException e){
+            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA DE PESSOA FISICA: "+ e.getMessage());
+        }
+
+
+        try {
+            db.execSQL(ClientePjDataModel.TabelaPessoaJuridica());
+            Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA JURIDICA: "+ ClientePjDataModel.TabelaPessoaJuridica());
+
+        }catch (SQLException e){
+            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA DE PESSOA JURIDICA: "+ e.getMessage());
+        }
     }
 
     @Override
@@ -260,8 +267,30 @@ public class AppDataBase extends SQLiteOpenHelper {
         return -1;
     }
 
-    public void getClienteByID(String tabela, Cliente obj){
+    public Cliente getClienteByID(String tabela, Cliente obj){
 
+        Cliente cliente = new Cliente();
+
+        String sql = "SELECT * FROM" + tabela + "WHERE id = "+obj.getId();
+
+        try{
+
+            cursor = database.rawQuery(sql, null);
+
+            if (cursor.moveToNext()){
+
+                cliente.setPrimeiroNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.PRIMEIRO_NOME)));
+                cliente.setSobrenome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.SOBRENOME)));
+                cliente.setEmail(cursor.getString(cursor.getColumnIndex(ClienteDataModel.EMAIL)));
+                cliente.setSenha(cursor.getString(cursor.getColumnIndex(ClienteDataModel.SENHA)));
+                cliente.setPessoaFisica(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.PESSOA_FISICA)) == 1);
+            }
+
+        }catch (SQLException e){
+            Log.e(AppUtil.LOG_APP, "ERROR GetClienteByID"+obj.getId() + " - " +e.getMessage());
+        }
+
+        return cliente;
     }
 
 

@@ -66,6 +66,7 @@ public class MeusDadosActivity extends AppCompatActivity {
         voltarBtn = findViewById(R.id.voltarBtn);
 
         cliente = new Cliente();
+        cliente.setId(clienteID);
         clienteController = new ClienteController(this);
 
     }
@@ -91,6 +92,8 @@ public class MeusDadosActivity extends AppCompatActivity {
     private void popularFormulario() {
 
         if (clienteID>=1){
+
+            cliente = clienteController.getClienteByID(cliente);
 
         }else{
 

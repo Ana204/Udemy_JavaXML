@@ -54,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
 
         btnSejaVipEvento();
 
+        lembrarSenha();
     }
 
 
@@ -185,10 +186,14 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
-    public void lembrarSenha(View view) {
+    public void lembrarSenha() {
 
-        isLembrarSenha = checkLembrar.isChecked();
-
+        checkLembrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isLembrarSenha = checkLembrar.isChecked();
+            }
+        });
     }
 
     private void salvarSharedPreferences() {
@@ -206,10 +211,10 @@ public class LoginActivity extends AppCompatActivity {
 
         isLembrarSenha = preferences.getBoolean("loginAutomatico", false);
 
-        cliente.setEmail(preferences.getString("email", "teste@teste.com"));
-        cliente.setSenha(preferences.getString("senha", "123456"));
-        cliente.setPrimeiroNome(preferences.getString("primeiroNome", "Cliente"));
-        cliente.setSobrenome(preferences.getString("sobrenome", "Cliente"));
+        cliente.setEmail(preferences.getString("email", "null"));
+        cliente.setSenha(preferences.getString("senha", "null"));
+        cliente.setPrimeiroNome(preferences.getString("primeiroNome", "null"));
+        cliente.setSobrenome(preferences.getString("sobrenome", "null"));
         cliente.setPessoaFisica(preferences.getBoolean("pessoaFisica", true));
 
 

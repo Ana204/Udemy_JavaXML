@@ -74,7 +74,7 @@ public class PessoaFisicaActivity extends AppCompatActivity {
             retorno = false;
         }
         if (!AppUtil.isCPF(cpf)){
-            edtCPF.setError("*");
+            edtCPF.setError("Preencha o campo com seu CPF");
             retorno = false;
 
             Toast.makeText(this, "CPF inválido, tente novamente !!", Toast.LENGTH_LONG).show();

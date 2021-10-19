@@ -125,7 +125,7 @@ public class CredencialAcessoActivity extends AppCompatActivity {
                     if (!validarSenhas()) {
 
                         edtSenha.setError(("Suas senhas não são correspondentes"));
-                        confimarSenha.setError(("*"));
+                        confimarSenha.setError(("Suas senhas não são correspondentes"));
                         edtSenha.requestFocus();
 
                         FancyAlertDialog.Builder
@@ -167,8 +167,8 @@ public class CredencialAcessoActivity extends AppCompatActivity {
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
         isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
         clienteID = preferences.getInt("clienteID", -1);
-        String primeiroNome = preferences.getString("primeiroNome", "");
-        String sobrenome = preferences.getString("sobrenome", "");
+        String primeiroNome = preferences.getString("primeiroNome", "null");
+        String sobrenome = preferences.getString("sobrenome", "null");
 
         cliente.setId(clienteID);
         cliente.setPrimeiroNome(primeiroNome);

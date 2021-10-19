@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
         clienteController = new ClienteController(this);
         //clienteController.getClienteByID(cliente);
 
-       // cliente.getClientePF();
+        //cliente.getClientePF();
+
 
         initTelaInical();
 
@@ -58,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         excluirMinhaConta();
         atualizarMeusDados();
         consultarClientes();
+
+        txtNome.setText("Bem Vindo " + " - " + cliente.getPrimeiroNome());
 
     }
 
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         clientePF = new ClientePF();
         clientePJ = new ClientePJ();
 
-        txtNome.setText(cliente.getPrimeiroNome());
+
         restaurarSharedPreferences();
     }
 
@@ -172,14 +175,14 @@ public class MainActivity extends AppCompatActivity {
 
                     clientePF.setNomeCompleto("Raissa Oliveira");
 
-                    //salvarSharedPreferences();
+                    salvarSharedPreferences();
 
                     Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
                     Log.i(AppUtil.LOG_APP, "Primeiro Nome: " + cliente.getPrimeiroNome());
                     Log.i(AppUtil.LOG_APP, "Sobrenome: " + cliente.getSobrenome());
                     Log.i(AppUtil.LOG_APP, "Nome Completo: " + clientePF.getNomeCompleto());
-//                    Log.i(AppUtil.LOG_APP, "Email: " + cliente.getEmail());
-//                    Log.i(AppUtil.LOG_APP, "Senha: " + cliente.getSenha());
+                    Log.i(AppUtil.LOG_APP, "Email: " + cliente.getEmail());
+                    Log.i(AppUtil.LOG_APP, "Senha: " + cliente.getSenha());
 
 
                 }
@@ -219,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
                             clientePF = new ClientePF();
                             clientePJ = new ClientePJ();
 
-                           // salvarSharedPreferences();
+                            salvarSharedPreferences();
 
                             finish();
                             return;

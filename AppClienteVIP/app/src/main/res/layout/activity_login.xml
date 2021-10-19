@@ -176,7 +176,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="sans-serif-light"
-                android:onClick="lembrarSenha"
                 android:text="@string/lembrar"
                 android:textColor="#030161"
                 android:textSize="15sp"

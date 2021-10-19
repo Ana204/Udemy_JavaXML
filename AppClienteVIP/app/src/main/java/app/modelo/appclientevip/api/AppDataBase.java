@@ -56,7 +56,7 @@ public class AppDataBase extends SQLiteOpenHelper {
         }
 
 
-        try {
+       try {
             db.execSQL(ClientePjDataModel.TabelaPessoaJuridica());
             Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA JURIDICA: "+ ClientePjDataModel.TabelaPessoaJuridica());
 

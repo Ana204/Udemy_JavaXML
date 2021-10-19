@@ -45,6 +45,7 @@ public class CredencialAcessoActivity extends AppCompatActivity {
         initFormulario();
         BtnVoltar();
         BtnCadastrar();
+        validarTermos();
 
     }
 
@@ -73,13 +74,21 @@ public class CredencialAcessoActivity extends AppCompatActivity {
     }
 
 
-    public void validarTermos(View view) {
+    public void validarTermos() {
 
-        if (!checkTermos.isChecked()) {
+        checkTermos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-            Toast.makeText(getApplicationContext(), "É necessario aceitar os termos de uso", Toast.LENGTH_LONG).show();
-            formularioTrue = true;
-        }
+                if (!checkTermos.isChecked()) {
+
+                    Toast.makeText(getApplicationContext(), "É necessario aceitar os termos de uso", Toast.LENGTH_LONG).show();
+                    formularioTrue = true;
+                }
+            }
+        });
+
+
     }
 
     public boolean validarSenhas() {

@@ -237,7 +237,6 @@
                     android:textSize="13sp"
                     android:textStyle="bold"
                     app:buttonTint="@color/blue_100"
-                    android:onClick="validarTermos"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.003"

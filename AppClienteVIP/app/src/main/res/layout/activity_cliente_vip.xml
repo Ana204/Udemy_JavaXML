@@ -163,6 +163,7 @@
                 android:textColor="@color/blue"
                 android:textSize="15sp"
                 android:textStyle="bold"
+                android:onClick="pessoaFisica"
                 app:buttonTint="@color/blue_100"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

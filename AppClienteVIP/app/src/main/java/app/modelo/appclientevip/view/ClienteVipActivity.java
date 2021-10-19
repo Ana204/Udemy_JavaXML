@@ -45,6 +45,8 @@ public class ClienteVipActivity extends AppCompatActivity {
         btnSalvarEContinuarEvento();
         btnCancelarEvento();
 
+
+
     }
 
     private void initNovoVip() {
@@ -153,7 +155,7 @@ public class ClienteVipActivity extends AppCompatActivity {
         dados.apply();
     }
 
-    public void pessoaFisica() {
+/*    public void pessoaFisica() {
 
         ckPessoaFisica.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,6 +163,9 @@ public class ClienteVipActivity extends AppCompatActivity {
                 isPessoaFisica = ckPessoaFisica.isChecked();
             }
         });
+    }*/
 
+    public void pessoaFisica(View view) {
+        isPessoaFisica = ckPessoaFisica.isChecked();
     }
 }

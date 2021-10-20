@@ -15,4 +15,18 @@
     <string name="seja_vip">CADASTRE-SE</string>
     <string name="ler_politica_de_privacidade_termos_de_uso">Ler Política de Privacidade - Termos de Uso</string>
     <string name="versao_v1_0">Versão V2.0</string>
+
+    <!--Tela de credenciais-->
+    <string name="finalizandoCredenciais">FINALIZANDO...</string>
+    <string name="nome">NOME:</string>
+    <string name="email">EMAIL</string>
+    <string name="digite_seu_nome">Informe seu nome</string>
+    <string name="digite_seu_email">Informe seu email</string>
+    <string name="senha">SENHA</string>
+    <string name="informe_sua_senha">Informe sua senha</string>
+    <string name="repita_sua_senha">REPITA SUA SENHA</string>
+    <string name="confirme_sua_senha">Confirme sua senha</string>
+    <string name="li_e_concordo_com_os_termos_de_uso">Li e concordo com os termos de uso</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="voltar">Voltar</string>
 </resources>

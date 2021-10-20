@@ -1,4 +1,4 @@
-package app.novo.clientevip.api;
+package app.novo.clientevip;
 
 import java.util.InputMismatchException;
 

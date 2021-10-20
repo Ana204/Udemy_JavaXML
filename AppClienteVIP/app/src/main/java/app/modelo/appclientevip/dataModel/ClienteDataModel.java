@@ -23,7 +23,7 @@ public class ClienteDataModel {
     private static final String DATA_INCLUSAO = "dataInclusao";
     private static final String DATA_ALTERACAO = "dataAlteracao";
 
-    private static String query;
+    public static String query;
 
 
     public static String Tabela(){
@@ -37,7 +37,7 @@ public class ClienteDataModel {
         query += PESSOA_FISICA+ " INTEGER, ";
         query += DATA_INCLUSAO+ " datetime default current_timestamp, ";
         query += DATA_ALTERACAO+ " datetime default current_timestamp ";
-        query +=")";
+        query += ")";
 
         // datetime default current_timestamp
 

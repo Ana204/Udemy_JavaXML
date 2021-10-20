@@ -22,7 +22,7 @@ public class ClientePjDataModel {
     private static final String DATA_INCLUSAO = "dataInclusao";
     private static final String DATA_ALTERACAO = "dataAlteracao";
 
-    private static String query;
+    public static String query;
 
     public static String TabelaPessoaJuridica() {
 

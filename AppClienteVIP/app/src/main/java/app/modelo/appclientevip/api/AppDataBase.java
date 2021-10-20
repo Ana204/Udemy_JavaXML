@@ -27,12 +27,14 @@ public class AppDataBase extends SQLiteOpenHelper {
 
     Cursor cursor;
 
-    SQLiteDatabase database;
+    SQLiteDatabase db;
 
-    public AppDataBase(@Nullable Context context) {
+    public AppDataBase(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
 
-        database = getWritableDatabase();
+        System.out.println("Criando banco de Dados !!");
+
+        db = getWritableDatabase();
     }
 
     @Override
@@ -63,12 +65,14 @@ public class AppDataBase extends SQLiteOpenHelper {
         }catch (SQLException e){
             Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA DE PESSOA JURIDICA: "+ e.getMessage());
         }
+
+
+/*        db.execSQL(ClientePjDataModel.TabelaPessoaJuridica());
+        System.out.println("Cliente PESSOA JURIDICA criada: ----- " + ClientePjDataModel.TabelaPessoaJuridica());*/
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 
 
     /**
@@ -80,7 +84,7 @@ public class AppDataBase extends SQLiteOpenHelper {
         boolean success = true;
 
         try{
-            success = database.insert(tabela, null, dados) > 0;
+            success = db.insert(tabela, null, dados) > 0;
             Log.i(AppUtil.LOG_APP, tabela+ "Dados inseridos com sucesso");
         }
         catch (SQLException e){
@@ -105,7 +109,7 @@ public class AppDataBase extends SQLiteOpenHelper {
             int id = dados.getAsInteger("id");
 
 
-            success =  database.update(tabela, dados,"id=?", new String[]{Integer.toString(id)}) > 0;
+            success =  db.update(tabela, dados,"id=?", new String[]{Integer.toString(id)}) > 0;
 
         }catch (SQLException e){
 
@@ -126,7 +130,7 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         try{
 
-            success = database.delete(tabela, "id=?", new String[]{Integer.toString(id)}) > 0;
+            success = db.delete(tabela, "id=?", new String[]{Integer.toString(id)}) > 0;
             Log.i(AppUtil.LOG_APP, tabela+ "Dados deletado com sucesso");
         }
         catch (SQLException e){
@@ -149,7 +153,7 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         String sql = "SELECT * FROM " + tabela;
 
-        cursor = database.rawQuery(sql, null);
+        cursor = db.rawQuery(sql, null);
 
         try {
 
@@ -182,7 +186,7 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         String sql = "SELECT * FROM " + tabela;
 
-        cursor = database.rawQuery(sql, null);
+        cursor = db.rawQuery(sql, null);
 
         try {
 
@@ -214,7 +218,7 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         String sql = "SELECT * FROM " + tabela;
 
-        cursor = database.rawQuery(sql, null);
+        cursor = db.rawQuery(sql, null);
 
         try {
 
@@ -245,12 +249,12 @@ public class AppDataBase extends SQLiteOpenHelper {
     public int getPk(String tabela){
 
         //SELECT seq FROM sqlite_sequence WHERE name="tabela"
-        String sql = "SELECT seq FROM sqlite_sequence WHERE name = '" + tabela + "'";
+        String sql = "SELECT seq FROM sqlite_sequence WHERE name = " + tabela;
 
         try {
-            Log.e(AppUtil.LOG_APP, "SQL RAW:" + sql);
+            Log.i(AppUtil.LOG_APP, "SQL RAW:" + sql);
 
-            cursor = database.rawQuery(sql, null);
+            cursor = db.rawQuery(sql, null);
 
             if (cursor.moveToFirst()) {
 
@@ -275,7 +279,7 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         try{
 
-            cursor = database.rawQuery(sql, null);
+            cursor = db.rawQuery(sql, null);
 
             if (cursor.moveToNext()){
 

@@ -19,7 +19,7 @@ public class ClienteController extends AppDataBase {
         super(context);
     }
 
-    public boolean incluir(Cliente obj){
+   public boolean incluir(Cliente obj){
 
         dados = new ContentValues();
 
@@ -32,7 +32,7 @@ public class ClienteController extends AppDataBase {
         return insert(TABELA, dados);
     }
 
-    public boolean alterar(Cliente obj){
+   public boolean alterar(Cliente obj){
 
 
         dados = new ContentValues();

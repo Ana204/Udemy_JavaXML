@@ -29,4 +29,11 @@
     <string name="li_e_concordo_com_os_termos_de_uso">Li e concordo com os termos de uso</string>
     <string name="cadastrar">Cadastrar</string>
     <string name="voltar">Voltar</string>
+
+    <string name="recuperarSenha">RECUPERAR SENHA</string>
+    <string name="emailCadastrado">Informe o email cadastrado</string>
+    <string name="recuperar">RECUPERAR</string>
+    <string name="email_para_recuperacao">Email para recuperação</string>
+    <string name="redefinir_senha">REDEFINIR SENHA</string>
+    <string name="lhe_enviaremos_um_e_mail_com_mais_informa_es_sobre_como_redefinir_sua_senha">Lhe enviaremos um e-mail com mais informações sobre como redefinir sua senha</string>
 </resources>

@@ -1,21 +1,24 @@
 package app.novo.clientevip;
 
-
-import android.content.SharedPreferences;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import app.novo.clientevip.R;
+import com.shashank.sony.fancydialoglib.Animation;
+import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 public class LoginActivity extends AppCompatActivity {
 
     //Cliente cliente;
-    private SharedPreferences preferences;
+    //private SharedPreferences preferences;
 
     EditText editEmailLogin, edtSenhaLogin;
     CheckBox checkLembrar;
@@ -35,13 +38,13 @@ public class LoginActivity extends AppCompatActivity {
 
         initLogin();
 
-/*        btnAcessarEvento();
+        //btnAcessarEvento();
         recuperarsenhaEvento();
         lerPoliticaPrivacidade();
 
-        btnSejaVipEvento();
+        //btnSejaVipEvento();
 
-        lembrarSenha();*/
+        //lembrarSenha();
     }
 
 
@@ -55,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         btnSejaVip = findViewById(R.id.btnSejaVip);
         checkLembrar = findViewById(R.id.checkLembrar);
 
-       // isFormularioLogin = false;
+        isFormularioLogin = false;
         //clienteController = new ClienteController(getApplicationContext());
 
         //cliente = new Cliente();
@@ -93,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-/*    private void recuperarsenhaEvento() {
+    private void recuperarsenhaEvento() {
 
         recuperarSenha.setOnClickListener(v -> {
 
@@ -101,9 +104,9 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
-    }*/
+    }
 
-/*    private void lerPoliticaPrivacidade() {
+   private void lerPoliticaPrivacidade() {
 
         politicaDePrivacidade.setOnClickListener(v -> FancyAlertDialog.Builder
                 .with(LoginActivity.this)
@@ -127,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                 .show());
 
 
-    }*/
+    }
 
 /*    private boolean validarFormulario() {
 

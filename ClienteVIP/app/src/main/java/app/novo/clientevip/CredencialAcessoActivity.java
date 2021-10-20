@@ -35,8 +35,9 @@ public class CredencialAcessoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_credencial_acesso);
 
         initFormulario();
+
         BtnVoltar();
-        //BtnCadastrar();
+        BtnCadastrar();
         validarTermos();
 
     }
@@ -98,7 +99,7 @@ public class CredencialAcessoActivity extends AppCompatActivity {
 
     }
 
-   /* private void BtnCadastrar() {
+    private void BtnCadastrar() {
         cadastrar = findViewById(R.id.cadastrar);
 
         formularioTrue = true;
@@ -129,7 +130,8 @@ public class CredencialAcessoActivity extends AppCompatActivity {
                         confimarSenha.setError(("Suas senhas não são correspondentes"));
                         edtSenha.requestFocus();
 
-                        FancyAlertDialog.Builder
+                        Toast.makeText(CredencialAcessoActivity.this, "As senhas digitadas não correspodem", Toast.LENGTH_LONG).show();
+/*                        FancyAlertDialog.Builder
                                 .with(CredencialAcessoActivity.this)
                                 .setBackgroundColor(Color.parseColor("#303F9F"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
                                 .setTitle("ATENÇÃO !")
@@ -140,15 +142,15 @@ public class CredencialAcessoActivity extends AppCompatActivity {
                                 .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
                                 .onPositiveClicked(dialog -> {})
                                 .build()
-                                .show();
+                                .show();*/
                     }
                     else {
 
-                        cliente.setEmail(edtEmail.getText().toString());
+/*                        cliente.setEmail(edtEmail.getText().toString());
                         cliente.setSenha(edtSenha.getText().toString());
                         clienteController.alterar(cliente);
 
-                        salvarSharedPreferences();
+                        salvarSharedPreferences();*/
                         Toast.makeText(CredencialAcessoActivity.this, "Usuario cadastrado com sucesso !!", Toast.LENGTH_LONG).show();
 
                         Intent intent = new Intent(CredencialAcessoActivity.this, LoginActivity.class);
@@ -161,7 +163,7 @@ public class CredencialAcessoActivity extends AppCompatActivity {
             }
         });
 
-    }*/
+    }
 
    /* private void restaurarSharedPreferences() {
 

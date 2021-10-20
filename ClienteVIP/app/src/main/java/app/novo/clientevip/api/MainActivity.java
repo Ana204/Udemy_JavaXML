@@ -1,8 +1,10 @@
-package app.novo.clientevip;
+package app.novo.clientevip.api;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import app.novo.clientevip.R;
 
 public class MainActivity extends AppCompatActivity {
 

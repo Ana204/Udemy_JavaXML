@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">ClienteVIP</string>
+
+
+
+    <!--Tela de Login-->
+    <string name="clientes">Clientes</string>
+    <string name="login">Login</string>
+    <string name="digite_sua_senha">Digite sua senha</string>
+    <string name="infome_o_e_mail_cadastrado">Digite seu email</string>
+    <string name="informe_a_senha_cadastrada">Digite sua senha</string>
+    <string name="lembrar">Lembrar</string>
+    <string name="recuperar_senha">Esqueci a senha</string>
+    <string name="acessar">ACESSAR</string>
+    <string name="seja_vip">CADASTRE-SE</string>
+    <string name="ler_politica_de_privacidade_termos_de_uso">Ler Política de Privacidade - Termos de Uso</string>
+    <string name="versao_v1_0">Versão V2.0</string>
 </resources>

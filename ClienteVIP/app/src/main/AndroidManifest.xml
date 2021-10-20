@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ClienteVIP">
 
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".CredencialAcessoActivity" />
-        <activity android:name=".RecuperarSenhaActivity" />
+        <activity android:name=".view.LoginActivity" />
+        <activity android:name=".view.MainActivity" />
+        <activity android:name=".view.CredencialAcessoActivity" />
+        <activity android:name=".view.RecuperarSenhaActivity" />
 
-        <activity android:name=".SplashActivity">
+        <activity android:name=".view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

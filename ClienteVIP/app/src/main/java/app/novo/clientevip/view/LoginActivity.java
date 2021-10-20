@@ -1,4 +1,4 @@
-package app.novo.clientevip;
+package app.novo.clientevip.view;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.shashank.sony.fancydialoglib.Animation;
 import com.shashank.sony.fancydialoglib.FancyAlertDialog;
+
+import app.novo.clientevip.R;
 
 public class LoginActivity extends AppCompatActivity {
 

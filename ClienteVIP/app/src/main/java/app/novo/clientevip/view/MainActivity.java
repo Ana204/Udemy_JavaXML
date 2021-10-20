@@ -1,4 +1,4 @@
-package app.novo.clientevip;
+package app.novo.clientevip.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 

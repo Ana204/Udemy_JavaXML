@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //btnSejaVipEvento();
 
-        //lembrarSenha();
+        lembrarSenha();
 
 
     }
@@ -179,10 +179,12 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-/*    private boolean validarDadosDoUsuario() {
+
+/*
+  private boolean validarDadosDoUsuario() {
 
         return true;
-    }
+    }*/
 
     public void lembrarSenha() {
 
@@ -192,7 +194,7 @@ public class LoginActivity extends AppCompatActivity {
                 isLembrarSenha = checkLembrar.isChecked();
             }
         });
-    }*/
+    }
 
 /*    private void salvarSharedPreferences() {
 

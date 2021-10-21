@@ -17,6 +17,8 @@ import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.novo.clientevip.R;
 import app.novo.clientevip.api.AppUtil;
+import app.novo.clientevip.model.Cliente;
+import app.novo.clientevip.model.ClientePF;
 
 
 public class PessoaFisicaActivity extends AppCompatActivity {
@@ -25,9 +27,10 @@ public class PessoaFisicaActivity extends AppCompatActivity {
     EditText edtCPF, edtNomeCompleto;
     //ClientePfController clientePfController;
 
-    //private SharedPreferences preferences;
-    //Cliente novoVip;
-   // ClientePF clientePessoaFisica;
+
+    Cliente novoVip;
+    ClientePF clientePessoaFisica;
+    private SharedPreferences preferences;
 
     boolean isFormularioPF, isPessoaFisica;
     int clienteID;
@@ -54,14 +57,14 @@ public class PessoaFisicaActivity extends AppCompatActivity {
         cancelarBtn = findViewById(R.id.cancelarBtn);
 
         isFormularioPF = false;
-        //clientePessoaFisica = new ClientePF();
-        //novoVip = new Cliente();
+        clientePessoaFisica = new ClientePF();
+        novoVip = new Cliente();
         //clientePfController = new ClientePfController(this);
 
-        //restaurarSharedPreferences();
+        restaurarSharedPreferences();
     }
 
-/*    private boolean validarFormulario() {
+    private boolean validarFormulario() {
 
         //considerar que o usuario  preencheu o formulario
         boolean retorno = true;
@@ -86,7 +89,7 @@ public class PessoaFisicaActivity extends AppCompatActivity {
         }
 
         return retorno;
-    }*/
+    }
 
     private void btnVoltarParaClienteVip() {
 
@@ -107,17 +110,14 @@ public class PessoaFisicaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(PessoaFisicaActivity.this, CredencialAcessoActivity.class);
-                startActivity(intent);
-                finish();
-/*                if (isFormularioPF = validarFormulario()) {
+                if (isFormularioPF = validarFormulario()) {
 
                     clientePessoaFisica.setCpf(edtCPF.getText().toString());
                     clientePessoaFisica.setNomeCompleto(edtNomeCompleto.getText().toString());
-                    clientePessoaFisica.setClienteID(clienteID);
+                    //clientePessoaFisica.setClienteID(clienteID);
 
-                    clientePfController.incluir(clientePessoaFisica);
-                    ultimoIDClientePessoaPf = clientePfController.getUltimo();
+                    //clientePfController.incluir(clientePessoaFisica);
+                    //ultimoIDClientePessoaPf = clientePfController.getUltimo();
 
                     salvarSharedPreferences();
 
@@ -133,7 +133,7 @@ public class PessoaFisicaActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     }
-                }*/
+                }
             }
         });
     }
@@ -157,27 +157,30 @@ public class PessoaFisicaActivity extends AppCompatActivity {
                         .onPositiveClicked(dialog -> Toast.makeText(PessoaFisicaActivity.this, "Cancelado com sucesso", Toast.LENGTH_SHORT).show())
                         .onNegativeClicked(dialog -> Toast.makeText(PessoaFisicaActivity.this, "Continue com seu cadastro", Toast.LENGTH_SHORT).show())
                         .build()
-                        .show();;
+                        .show();
+                ;
             }
         });
     }
 
-/*    private void restaurarSharedPreferences() {
-
-        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
-        isPessoaFisica = preferences.getBoolean("pessoaFisica", true) ;
-        clienteID = preferences.getInt("UltimoID", -1);
-    }*/
-
-
-/*    private void salvarSharedPreferences() {
+    private void salvarSharedPreferences() {
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
         SharedPreferences.Editor dados = preferences.edit();
 
-        dados.putString("cpf", edtCPF.getText().toString());
+       /* dados.putString("cpf", edtCPF.getText().toString());
         dados.putString("nomeCompleto", edtNomeCompleto.getText().toString());
         dados.putInt("ultimoIDClientePessoaPf", ultimoIDClientePessoaPf);
-        dados.apply();
-    }*/
+        dados.apply();*/
+    }
+
+    private void restaurarSharedPreferences() {
+
+        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
+        //isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
+       // clienteID = preferences.getInt("UltimoID", -1);
+    }
+
+
+
 
 }

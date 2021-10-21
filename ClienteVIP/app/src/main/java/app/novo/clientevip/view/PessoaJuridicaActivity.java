@@ -18,6 +18,8 @@ import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.novo.clientevip.R;
 import app.novo.clientevip.api.AppUtil;
+import app.novo.clientevip.model.Cliente;
+import app.novo.clientevip.model.ClientePJ;
 
 public class PessoaJuridicaActivity extends AppCompatActivity {
 
@@ -25,14 +27,14 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
     EditText edtcnpj, razaoSocial, edtData;
     CheckBox ckSimplesNacional, ckMei;
 
-    //private SharedPreferences preferences;
-    //Cliente novoVip;
-    //ClientePJ clientePessoaJuridica;
+    Cliente novoVip;
+    ClientePJ clientePessoaJuridica;
+    private SharedPreferences preferences;
 
     boolean isFormularioPJ, isSimplesNacional, isMei;
 
    // ClientePjController clientePjController;
-    int ultimoIDClientePessoaPf;
+    //int ultimoIDClientePessoaPf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
         initPessoaJuridica();
 
         btnVoltarParaClienteVip();
-        //btnSalvarEConcluirEvento();
+        btnSalvarEConcluirEvento();
         btnCancelar();
     }
 
@@ -58,13 +60,14 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
         ckSimplesNacional = findViewById(R.id.ckSimplesNacional);
         ckMei = findViewById(R.id.ckMei);
 
-        isFormularioPJ = false;
-       //clientePessoaJuridica = new ClientePJ();
-        //novoVip = new Cliente();
+        //isFormularioPJ = false;
+
+        novoVip = new Cliente();
+        clientePessoaJuridica = new ClientePJ();
 
         //clientePjController = new ClientePjController(this);
 
-       //restaurarSharedPreferences();
+       restaurarSharedPreferences();
 
     }
 
@@ -83,7 +86,7 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
 
     }
 
-/*    private boolean validarFormulario() {
+    private boolean validarFormulario() {
 
         //considerar que o usuario  preencheu o formulario
         boolean retorno = true;
@@ -111,22 +114,22 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
         }
 
         return retorno;
-    }*/
+    }
 
-/*    private void btnSalvarEConcluirEvento() {
+    private void btnSalvarEConcluirEvento() {
         btnSalvarEConcluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if (isFormularioPJ = validarFormulario()) {
-                    clientePessoaJuridica.setClientePfID(ultimoIDClientePessoaPf);
+                    //clientePessoaJuridica.setClientePfID(ultimoIDClientePessoaPf);
                     clientePessoaJuridica.setCnpj(edtcnpj.getText().toString());
                     clientePessoaJuridica.setRazaoSocial(razaoSocial.getText().toString());
                     clientePessoaJuridica.setDataAbertura(edtData.getText().toString());
                     clientePessoaJuridica.setSimplesNacional(isSimplesNacional);
                     clientePessoaJuridica.setMei(isMei);
 
-                    clientePjController.incluir(clientePessoaJuridica);
+                   // clientePjController.incluir(clientePessoaJuridica);
                     salvarSharedPreferences();
 
                     Intent intent = new Intent(PessoaJuridicaActivity.this, CredencialAcessoActivity.class);
@@ -136,7 +139,7 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
 
             }
         });
-    }*/
+    }
 
     private void btnCancelar() {
         cancelarBtn.setOnClickListener(new View.OnClickListener() {
@@ -172,24 +175,22 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
         isMei = ckMei.isChecked();
     }
 
-    /*    private void restaurarSharedPreferences() {
-
-        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
-        ultimoIDClientePessoaPf = preferences.getInt("ultimoIDClientePessoaPf", -1);
-    }*/
-
-/*    private void salvarSharedPreferences() {
-
+    private void salvarSharedPreferences() {
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
         SharedPreferences.Editor dados = preferences.edit();
 
-        dados.putString("cnpj", edtcnpj.getText().toString());
+/*        dados.putString("cnpj", edtcnpj.getText().toString());
         dados.putString("razaoSocial", razaoSocial.getText().toString());
         dados.putString("dataAberturaEmpresa", edtData.getText().toString());
         dados.putBoolean("simplesNacional", isSimplesNacional);
         dados.putBoolean("mei", isMei);
         dados.putInt("ultimoIDClientePessoaPf", ultimoIDClientePessoaPf);
 
-        dados.apply();
-    }*/
+        dados.apply();*/
+    }
+
+    private void restaurarSharedPreferences() {
+        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
+        //ultimoIDClientePessoaPf = preferences.getInt("ultimoIDClientePessoaPf", -1);
+    }
 }

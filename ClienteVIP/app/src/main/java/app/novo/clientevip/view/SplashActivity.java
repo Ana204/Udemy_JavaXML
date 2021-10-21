@@ -1,6 +1,7 @@
 package app.novo.clientevip.view;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -10,19 +11,19 @@ import app.novo.clientevip.api.AppUtil;
 import app.novo.clientevip.R;
 
 public class SplashActivity extends AppCompatActivity {
-/*
+
     private SharedPreferences preferences;
-    boolean LembrarSenha = false;*/
+    boolean IsLembrarSenha = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        //salvarSharedPreferences();
+        restaurarSharedPreferences();
+
         telaSplash();
-/*
-        salvarSharedPreferences();
-        restaurarSharedPreferences();*/
 
 
     }
@@ -33,16 +34,13 @@ public class SplashActivity extends AppCompatActivity {
 
             Intent intent;
 
-/*            if (LembrarSenha) {
+            if (IsLembrarSenha) {
 
                 intent = new Intent(SplashActivity.this, MainActivity.class);
 
             } else {
                 intent = new Intent(SplashActivity.this, LoginActivity.class);
-
-            }*/
-            intent = new Intent(SplashActivity.this, LoginActivity.class);
-
+            }
             startActivity(intent);
             finish();
             return;
@@ -50,18 +48,19 @@ public class SplashActivity extends AppCompatActivity {
         }, AppUtil.TIME_SPLASH);
     }
 
-/*    private void salvarSharedPreferences() {
+    private void salvarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
         SharedPreferences.Editor dados = preferences.edit();
+
+        dados.putBoolean("loginAutomatico", true);
+        dados.apply();
     }
 
     private void restaurarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
 
-        LembrarSenha = preferences.getBoolean("loginAutomatico", false);
-
-
-    }*/
+        IsLembrarSenha = preferences.getBoolean("loginAutomatico", false);
+    }
 }

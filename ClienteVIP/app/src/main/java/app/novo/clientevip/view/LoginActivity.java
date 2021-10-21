@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.shashank.sony.fancydialoglib.Animation;
 import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
+import app.novo.clientevip.Controller.ClienteController;
 import app.novo.clientevip.R;
 import app.novo.clientevip.model.Cliente;
 
@@ -157,11 +158,30 @@ public class LoginActivity extends AppCompatActivity {
         return retorno;
     }
 
+    public void lembrarSenha() {
+
+        checkLembrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isLembrarSenha = checkLembrar.isChecked();
+            }
+        });
+    }
+
     private void btnAcessarEvento() {
 
         btnAcessar.setOnClickListener(view -> {
+            if ( isFormularioLogin = validarFormulario()) {
 
-            isFormularioLogin = validarFormulario();
+                if (validarDadosDoUsuario()) {
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+            } else {
+                Toast.makeText(LoginActivity.this, "Verifique seus dados", Toast.LENGTH_LONG).show();
+            }
 
 /*            if (isFormularioLogin = validarFormulario()) {
 
@@ -179,22 +199,11 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
-/*
-  private boolean validarDadosDoUsuario() {
-
-        return true;
-    }*/
-
-    public void lembrarSenha() {
-
-        checkLembrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                isLembrarSenha = checkLembrar.isChecked();
-            }
-        });
+  public boolean validarDadosDoUsuario() {
+        return ClienteController.validarDadosDoCliente();
     }
+
+
 
 /*    private void salvarSharedPreferences() {
 

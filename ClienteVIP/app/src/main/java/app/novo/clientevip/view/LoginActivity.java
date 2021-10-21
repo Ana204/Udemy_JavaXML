@@ -1,6 +1,7 @@
 package app.novo.clientevip.view;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -18,12 +19,13 @@ import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.novo.clientevip.Controller.ClienteController;
 import app.novo.clientevip.R;
+import app.novo.clientevip.api.AppUtil;
 import app.novo.clientevip.model.Cliente;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Cliente cliente;
-    //private SharedPreferences preferences;
+    Cliente clienteTeste;
+    private SharedPreferences preferences;
 
     EditText editEmailLogin, edtSenhaLogin;
     CheckBox checkLembrar;
@@ -65,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         btnSejaVip = findViewById(R.id.btnSejaVip);
         checkLembrar = findViewById(R.id.checkLembrar);
 
-        //isFormularioLogin = false;
+        isFormularioLogin = false;
         //clienteController = new ClienteController(getApplicationContext());
 
         //cliente = new Cliente();
@@ -99,7 +101,11 @@ public class LoginActivity extends AppCompatActivity {
 
         // List<Cliente> clientes = clienteController.listar();
 
-       // restaurarSharedPreferences();
+        clienteTeste = ClienteController.getClienteTeste();
+
+         restaurarSharedPreferences();
+
+
 
     }
 
@@ -113,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-   private void lerPoliticaPrivacidade() {
+    private void lerPoliticaPrivacidade() {
 
         politicaDePrivacidade.setOnClickListener(v -> FancyAlertDialog.Builder
                 .with(LoginActivity.this)
@@ -171,9 +177,12 @@ public class LoginActivity extends AppCompatActivity {
     private void btnAcessarEvento() {
 
         btnAcessar.setOnClickListener(view -> {
-            if ( isFormularioLogin = validarFormulario()) {
+            if (isFormularioLogin = validarFormulario()) {
 
                 if (validarDadosDoUsuario()) {
+
+                    salvarSharedPreferences();
+
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
@@ -199,35 +208,9 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-  public boolean validarDadosDoUsuario() {
-        return ClienteController.validarDadosDoCliente();
+    public boolean validarDadosDoUsuario() {
+        return ClienteController.validarDadosDoCliente(clienteTeste, editEmailLogin.getText().toString(), edtSenhaLogin.getText().toString());
     }
-
-
-
-/*    private void salvarSharedPreferences() {
-
-        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
-        SharedPreferences.Editor dados = preferences.edit();
-
-        dados.putBoolean("loginAutomatico", isLembrarSenha);
-        dados.apply();
-    }*/
-
-/*    private void restaurarSharedPreferences() {
-
-        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
-
-        isLembrarSenha = preferences.getBoolean("loginAutomatico", false);
-
-        cliente.setEmail(preferences.getString("email", "null"));
-        cliente.setSenha(preferences.getString("senha", "null"));
-        cliente.setPrimeiroNome(preferences.getString("primeiroNome", "null"));
-        cliente.setSobrenome(preferences.getString("sobrenome", "null"));
-        cliente.setPessoaFisica(preferences.getBoolean("pessoaFisica", true));
-
-
-    }*/
 
 /*    private void btnSejaVipEvento() {
 
@@ -239,6 +222,31 @@ public class LoginActivity extends AppCompatActivity {
             return;
         });
     }*/
+
+    private void salvarSharedPreferences() {
+
+        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
+        SharedPreferences.Editor dados = preferences.edit();
+
+        dados.putBoolean("loginAutomatico", isLembrarSenha);
+        dados.putString("emailCliente", editEmailLogin.getText().toString());
+        dados.apply();
+    }
+
+    private void restaurarSharedPreferences() {
+
+        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
+
+        isLembrarSenha = preferences.getBoolean("loginAutomatico", false);
+
+/*        cliente.setEmail(preferences.getString("email", "null"));
+        cliente.setSenha(preferences.getString("senha", "null"));
+        cliente.setPrimeiroNome(preferences.getString("primeiroNome", "null"));
+        cliente.setSobrenome(preferences.getString("sobrenome", "null"));
+        cliente.setPessoaFisica(preferences.getBoolean("pessoaFisica", true));*/
+
+
+    }
 
 
 }

@@ -13,14 +13,14 @@ import app.novo.clientevip.R;
 public class SplashActivity extends AppCompatActivity {
 
     private SharedPreferences preferences;
-    boolean IsLembrarSenha = false;
+    boolean isLembrarSenha = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        //salvarSharedPreferences();
+        salvarSharedPreferences();
         restaurarSharedPreferences();
 
         telaSplash();
@@ -34,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
 
             Intent intent;
 
-            if (IsLembrarSenha) {
+            if (isLembrarSenha) {
 
                 intent = new Intent(SplashActivity.this, MainActivity.class);
 
@@ -53,14 +53,14 @@ public class SplashActivity extends AppCompatActivity {
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
         SharedPreferences.Editor dados = preferences.edit();
 
-        dados.putBoolean("loginAutomatico", true);
-        dados.apply();
+/*        dados.putBoolean("loginAutomatico", false);
+        dados.apply();*/
     }
 
     private void restaurarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
 
-        IsLembrarSenha = preferences.getBoolean("loginAutomatico", false);
+        isLembrarSenha = preferences.getBoolean("loginAutomatico", false);
     }
 }

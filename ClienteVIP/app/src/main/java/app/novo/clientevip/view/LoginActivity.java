@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         recuperarsenhaEvento();
         lerPoliticaPrivacidade();
 
-        //btnSejaVipEvento();
+        btnSejaVipEvento();
 
         lembrarSenha();
 
@@ -212,7 +212,7 @@ public class LoginActivity extends AppCompatActivity {
         return ClienteController.validarDadosDoCliente(clienteTeste, editEmailLogin.getText().toString(), edtSenhaLogin.getText().toString());
     }
 
-/*    private void btnSejaVipEvento() {
+    private void btnSejaVipEvento() {
 
         btnSejaVip.setOnClickListener(view -> {
 
@@ -221,7 +221,7 @@ public class LoginActivity extends AppCompatActivity {
             finish();
             return;
         });
-    }*/
+    }
 
     private void salvarSharedPreferences() {
 

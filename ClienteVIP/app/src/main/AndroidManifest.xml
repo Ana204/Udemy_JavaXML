@@ -14,6 +14,8 @@
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.CredencialAcessoActivity" />
         <activity android:name=".view.RecuperarSenhaActivity" />
+        <activity android:name=".view.PessoaFisicaActivity" />
+        <activity android:name=".view.ClienteVipActivity" />
 
         <activity android:name=".view.SplashActivity">
             <intent-filter>

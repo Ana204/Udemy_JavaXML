@@ -18,10 +18,11 @@ import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.novo.clientevip.R;
 import app.novo.clientevip.api.AppUtil;
+import app.novo.clientevip.model.Cliente;
 
 public class ClienteVipActivity extends AppCompatActivity {
 
-    //Cliente novoVip;
+    Cliente novoVip;
     //ClienteController controller;
 
     private SharedPreferences preferences;
@@ -31,7 +32,7 @@ public class ClienteVipActivity extends AppCompatActivity {
     Button btnSalvarEContinuar, btnCancelar;
 
     boolean isFormularioNovoVip, isPessoaFisica;
-    int ultimoId;
+    //int ultimoId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +40,9 @@ public class ClienteVipActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cliente_vip);
 
         initNovoVip();
-        //btnSalvarEContinuarEvento();
+        btnSalvarEContinuarEvento();
         btnCancelarEvento();
-
+        pessoaFisica();
 
 
     }
@@ -55,12 +56,12 @@ public class ClienteVipActivity extends AppCompatActivity {
         btnCancelar = findViewById(R.id.btnCancelar);
 
         isFormularioNovoVip = false;
-        //novoVip = new Cliente();
+        novoVip = new Cliente();
         //controller = new ClienteController(this);
 
-       // restaurarSharedPreferences();
+        restaurarSharedPreferences();
     }
-/*
+
     private void btnSalvarEContinuarEvento() {
 
         btnSalvarEContinuar.setOnClickListener(new View.OnClickListener() {
@@ -73,8 +74,8 @@ public class ClienteVipActivity extends AppCompatActivity {
                     novoVip.setSobrenome(edtSobrenome.getText().toString());
                     novoVip.setPessoaFisica(isPessoaFisica);
 
-                    controller.incluir(novoVip);
-                    ultimoId = controller.getUltimo();
+                    //controller.incluir(novoVip);
+                    // ultimoId = controller.getUltimo();
 
                     salvarSharedPreferences();
 
@@ -85,7 +86,7 @@ public class ClienteVipActivity extends AppCompatActivity {
                 }
             }
         });
-    }*/
+    }
 
     private void btnCancelarEvento() {
 
@@ -134,8 +135,7 @@ public class ClienteVipActivity extends AppCompatActivity {
         return retorno;
     }
 
-
-/*    public void pessoaFisica() {
+    public void pessoaFisica() {
 
         ckPessoaFisica.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,20 +143,13 @@ public class ClienteVipActivity extends AppCompatActivity {
                 isPessoaFisica = ckPessoaFisica.isChecked();
             }
         });
-    }*/
-
-    public void pessoaFisica(View view) {
-        isPessoaFisica = ckPessoaFisica.isChecked();
     }
 
-
-    /*    private void restaurarSharedPreferences() {
-
-        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
-        isPessoaFisica = preferences.getBoolean("pessoaFisica", false);
+/*    public void pessoaFisica(View view) {
+        isPessoaFisica = ckPessoaFisica.isChecked();
     }*/
 
-/*    private void salvarSharedPreferences() {
+    private void salvarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
         SharedPreferences.Editor dados = preferences.edit();
@@ -164,7 +157,15 @@ public class ClienteVipActivity extends AppCompatActivity {
         dados.putBoolean("pessoaFisica", novoVip.isPessoaFisica());
         dados.putString("primeiroNome", novoVip.getPrimeiroNome());
         dados.putString("sobrenome", novoVip.getSobrenome());
-        dados.putInt("ultimoId", ultimoId);
+        //dados.putInt("ultimoId", ultimoId);
         dados.apply();
-    }*/
+    }
+
+    private void restaurarSharedPreferences() {
+
+        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
+        //isPessoaFisica = preferences.getBoolean("pessoaFisica", false);
+    }
+
+
 }

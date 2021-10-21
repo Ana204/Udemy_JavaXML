@@ -3,6 +3,7 @@ package app.novo.clientevip.view;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,10 +17,11 @@ import com.shashank.sony.fancydialoglib.Animation;
 import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.novo.clientevip.R;
+import app.novo.clientevip.model.Cliente;
 
 public class LoginActivity extends AppCompatActivity {
 
-    //Cliente cliente;
+    Cliente cliente;
     //private SharedPreferences preferences;
 
     EditText editEmailLogin, edtSenhaLogin;
@@ -40,13 +42,15 @@ public class LoginActivity extends AppCompatActivity {
 
         initLogin();
 
-        //btnAcessarEvento();
+        btnAcessarEvento();
         recuperarsenhaEvento();
         lerPoliticaPrivacidade();
 
         //btnSejaVipEvento();
 
         //lembrarSenha();
+
+
     }
 
 
@@ -60,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         btnSejaVip = findViewById(R.id.btnSejaVip);
         checkLembrar = findViewById(R.id.checkLembrar);
 
-        isFormularioLogin = false;
+        //isFormularioLogin = false;
         //clienteController = new ClienteController(getApplicationContext());
 
         //cliente = new Cliente();
@@ -134,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-/*    private boolean validarFormulario() {
+    private boolean validarFormulario() {
 
         //considerar que o usuario preencheu o formulario
         boolean retorno = true;
@@ -151,13 +155,15 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return retorno;
-    }*/
+    }
 
-/*    private void btnAcessarEvento() {
+    private void btnAcessarEvento() {
 
         btnAcessar.setOnClickListener(view -> {
 
-            if (isFormularioLogin = validarFormulario()) {
+            isFormularioLogin = validarFormulario();
+
+/*            if (isFormularioLogin = validarFormulario()) {
 
                 if (validarDadosDoUsuario()) {
 
@@ -169,9 +175,9 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(LoginActivity.this, "Verifique seus dados", Toast.LENGTH_LONG).show();
                 }
-            }
+            }*/
         });
-    }*/
+    }
 
 /*    private boolean validarDadosDoUsuario() {
 

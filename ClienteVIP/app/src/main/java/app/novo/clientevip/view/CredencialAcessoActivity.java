@@ -1,6 +1,8 @@
 package app.novo.clientevip.view;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,7 +13,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.shashank.sony.fancydialoglib.FancyAlertDialog;
+
 import app.novo.clientevip.R;
+import app.novo.clientevip.api.AppUtil;
 
 public class CredencialAcessoActivity extends AppCompatActivity {
 
@@ -24,10 +29,10 @@ public class CredencialAcessoActivity extends AppCompatActivity {
     CheckBox checkTermos;
 
     boolean formularioTrue, isPessoaFisica;
-/*    private SharedPreferences preferences;
-    int clienteID;
-    Cliente cliente;
-    ClienteController clienteController;*/
+    private SharedPreferences preferences;
+    //int clienteID;
+    //Cliente cliente;
+    // ClienteController clienteController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +54,11 @@ public class CredencialAcessoActivity extends AppCompatActivity {
         confimarSenha = findViewById(R.id.confimarSenha);
         checkTermos = findViewById(R.id.checkTermos);
 
-       /* cliente = new Cliente();
-        clienteController = new ClienteController(this);
-        restaurarSharedPreferences();*/
+        // cliente = new Cliente();
+        //clienteController = new ClienteController(this);
+
+        formularioTrue = false;
+        restaurarSharedPreferences();
     }
 
     //Método para voltar á tela inicial
@@ -102,13 +109,13 @@ public class CredencialAcessoActivity extends AppCompatActivity {
     private void BtnCadastrar() {
         cadastrar = findViewById(R.id.cadastrar);
 
-        formularioTrue = true;
-
         cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                 if (TextUtils.isEmpty(edtEmail.getText().toString())) {
+                formularioTrue = true;
+
+                if (TextUtils.isEmpty(edtEmail.getText().toString())) {
                     edtEmail.setError("Digite seu email");
                     edtEmail.requestFocus();
                     formularioTrue = false;
@@ -130,27 +137,26 @@ public class CredencialAcessoActivity extends AppCompatActivity {
                         confimarSenha.setError(("Suas senhas não são correspondentes"));
                         edtSenha.requestFocus();
 
-                        Toast.makeText(CredencialAcessoActivity.this, "As senhas digitadas não correspodem", Toast.LENGTH_LONG).show();
-/*                        FancyAlertDialog.Builder
+                        FancyAlertDialog.Builder
                                 .with(CredencialAcessoActivity.this)
-                                .setBackgroundColor(Color.parseColor("#303F9F"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
+                                .setBackgroundColor(Color.parseColor("#FFFFFFFF"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
                                 .setTitle("ATENÇÃO !")
                                 .setMessage("As senhas digitadas não correspodem, tente novamente !!")
-                                .setPositiveBtnBackground(Color.parseColor("#FF4081"))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
+                                .setPositiveBtnBackground(getResources().getColor(R.color.green))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
                                 .setPositiveBtnText("OK")
                                 .isCancellable(true)
-                                .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
-                                .onPositiveClicked(dialog -> {})
+                                .setIcon(R.mipmap.logo, View.VISIBLE)
+                                .onPositiveClicked(dialog -> {
+                                })
                                 .build()
-                                .show();*/
-                    }
-                    else {
+                                .show();
+                    } else {
 
-/*                        cliente.setEmail(edtEmail.getText().toString());
-                        cliente.setSenha(edtSenha.getText().toString());
-                        clienteController.alterar(cliente);
+                    //  cliente.setEmail(edtEmail.getText().toString());
+                      //  cliente.setSenha(edtSenha.getText().toString());
+                       // clienteController.alterar(cliente);
 
-                        salvarSharedPreferences();*/
+                        salvarSharedPreferences();
                         Toast.makeText(CredencialAcessoActivity.this, "Usuario cadastrado com sucesso !!", Toast.LENGTH_LONG).show();
 
                         Intent intent = new Intent(CredencialAcessoActivity.this, LoginActivity.class);
@@ -165,27 +171,6 @@ public class CredencialAcessoActivity extends AppCompatActivity {
 
     }
 
-   /* private void restaurarSharedPreferences() {
-
-        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
-        isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
-        clienteID = preferences.getInt("clienteID", -1);
-        String primeiroNome = preferences.getString("primeiroNome", "null");
-        String sobrenome = preferences.getString("sobrenome", "null");
-
-        cliente.setId(clienteID);
-        cliente.setPrimeiroNome(primeiroNome);
-        cliente.setSobrenome(sobrenome);
-        cliente.setPessoaFisica(isPessoaFisica);
-
-        if (isPessoaFisica) {
-            edtNome.setText(preferences.getString("nomeCompleto", "Verifique seus dados"));
-        } else {
-            edtNome.setText(preferences.getString("razaoSocial", "Verifique seus dados"));
-        }
-
-
-    }
 
     private void salvarSharedPreferences() {
 
@@ -195,6 +180,30 @@ public class CredencialAcessoActivity extends AppCompatActivity {
         dados.putString("email", edtEmail.getText().toString());
         dados.putString("senha", edtSenha.getText().toString());
         dados.apply();
-    }*/
+    }
 
+    private void restaurarSharedPreferences() {
+
+        preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
+        isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
+        if (isPessoaFisica) {
+            edtNome.setText(preferences.getString("nomeCompleto", "Verifique seus dados"));
+        } else {
+            edtNome.setText(preferences.getString("razaoSocial", "Verifique seus dados"));
+        }
+
+
+        //isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
+        //clienteID = preferences.getInt("clienteID", -1);
+        //String primeiroNome = preferences.getString("primeiroNome", "null");
+        // String sobrenome = preferences.getString("sobrenome", "null");
+
+/*        cliente.setId(clienteID);
+        cliente.setPrimeiroNome(primeiroNome);
+        cliente.setSobrenome(sobrenome);
+        cliente.setPessoaFisica(isPessoaFisica)*/
+        ;
+
+
+    }
 }

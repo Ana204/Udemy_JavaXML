@@ -170,16 +170,16 @@ public class PessoaFisicaActivity extends AppCompatActivity {
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
         SharedPreferences.Editor dados = preferences.edit();
 
-       /* dados.putString("cpf", edtCPF.getText().toString());
+        dados.putString("cpf", edtCPF.getText().toString());
         dados.putString("nomeCompleto", edtNomeCompleto.getText().toString());
-        dados.putInt("ultimoIDClientePessoaPf", ultimoIDClientePessoaPf);
-        dados.apply();*/
+       // dados.putInt("ultimoIDClientePessoaPf", ultimoIDClientePessoaPf);
+        dados.apply();
     }
 
     private void restaurarSharedPreferences() {
 
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
-        //isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
+        isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
        // clienteID = preferences.getInt("UltimoID", -1);
     }
 

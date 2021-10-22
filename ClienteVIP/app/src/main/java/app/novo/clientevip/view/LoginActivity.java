@@ -24,7 +24,7 @@ import app.novo.clientevip.model.Cliente;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Cliente clienteTeste;
+    Cliente cliente;
     private SharedPreferences preferences;
 
     EditText editEmailLogin, edtSenhaLogin;
@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // List<Cliente> clientes = clienteController.listar();
 
-        clienteTeste = ClienteController.getClienteTeste();
+        cliente = new Cliente();
 
          restaurarSharedPreferences();
 
@@ -207,7 +207,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public boolean validarDadosDoUsuario() {
-        return ClienteController.validarDadosDoCliente(clienteTeste, editEmailLogin.getText().toString(), edtSenhaLogin.getText().toString());
+        return ClienteController.validarDadosDoCliente(cliente, editEmailLogin.getText().toString(), edtSenhaLogin.getText().toString());
     }
 
     private void btnSejaVipEvento() {
@@ -235,13 +235,17 @@ public class LoginActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
 
-        isLembrarSenha = preferences.getBoolean("loginAutomatico", false);
-
-/*        cliente.setEmail(preferences.getString("email", "null"));
+        cliente.setEmail(preferences.getString("email", "null"));
         cliente.setSenha(preferences.getString("senha", "null"));
         cliente.setPrimeiroNome(preferences.getString("primeiroNome", "null"));
         cliente.setSobrenome(preferences.getString("sobrenome", "null"));
-        cliente.setPessoaFisica(preferences.getBoolean("pessoaFisica", true));*/
+        cliente.setPessoaFisica(preferences.getBoolean("pessoaFisica", true));
+
+        isLembrarSenha = preferences.getBoolean("loginAutomatico", false);
+
+
+
+
 
 
     }

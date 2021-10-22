@@ -96,15 +96,15 @@ public class ClienteVipActivity extends AppCompatActivity {
 
                 FancyAlertDialog.Builder
                         .with(ClienteVipActivity.this)
-                        .setBackgroundColor(Color.parseColor("#303F9F"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
+                        .setBackgroundColor(Color.parseColor("#FFFFFFFF"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
                         .setMessage("Deseja realmente cancelar ?")
                         .setNegativeBtnText("NÃO")
-                        .setPositiveBtnBackground(Color.parseColor("#FF4081"))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
+                        .setNegativeBtnBackground(getResources().getColor(R.color.red))  // for @ColorRes use setNegativeBtnBackgroundRes(R.color.colorvalue)
+                        .setPositiveBtnBackground(getResources().getColor(R.color.green))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
                         .setPositiveBtnText("SIM")
-                        .setNegativeBtnBackground(Color.parseColor("#FFA9A7A8"))  // for @ColorRes use setNegativeBtnBackgroundRes(R.color.colorvalue)
                         .setAnimation(Animation.POP)
                         .isCancellable(true)
-                        .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
+                        .setIcon(R.mipmap.logo, View.VISIBLE)
                         .onPositiveClicked(dialog -> {
                             Toast.makeText(ClienteVipActivity.this, "Cancelado com sucesso", Toast.LENGTH_SHORT).show();
                             finish();

@@ -141,8 +141,6 @@ public class LoginActivity extends AppCompatActivity {
                 })
                 .build()
                 .show());
-
-
     }
 
     private boolean validarFormulario() {

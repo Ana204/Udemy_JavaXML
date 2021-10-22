@@ -123,21 +123,21 @@ public class LoginActivity extends AppCompatActivity {
 
         politicaDePrivacidade.setOnClickListener(v -> FancyAlertDialog.Builder
                 .with(LoginActivity.this)
-                .setTitle("Confimar Politica de Privacidade & Termos ?")
-                .setBackgroundColor(Color.parseColor("#303F9F"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
-                .setMessage("TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO TEXTO ?")
+                .setTitle(getResources().getString(R.string.Confimar_Politica))
+                .setBackgroundColor(Color.parseColor("#FFFFFFFF"))
+                .setMessage("Curabitur eleifend imperdiet metus, ut dictum lectus faucibus at. Mauris blandit iaculis diam. Donec maximus magna vel lacus elementum pretium ?")
                 .setNegativeBtnText("NÃO")
-                .setPositiveBtnBackground(Color.parseColor("#FF4081"))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
+                .setNegativeBtnBackground(getResources().getColor(R.color.red))  // for @ColorRes use setNegativeBtnBackgroundRes(R.color.colorvalue)
+                .setPositiveBtnBackground(getResources().getColor(R.color.green))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
                 .setPositiveBtnText("SIM")
-                .setNegativeBtnBackground(Color.parseColor("#FFA9A7A8"))  // for @ColorRes use setNegativeBtnBackgroundRes(R.color.colorvalue)
                 .setAnimation(Animation.POP)
                 .isCancellable(true)
-                .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
-                .onPositiveClicked(dialog -> Toast.makeText(LoginActivity.this, "SEJA BEM VINDO !", Toast.LENGTH_SHORT).show())
+                .setIcon(R.mipmap.logo, View.VISIBLE)
+                .onPositiveClicked(dialog -> {
+                    Toast.makeText(LoginActivity.this, "SEJA BEM VINDO !", Toast.LENGTH_SHORT).show();
+                })
                 .onNegativeClicked(dialog -> {
                     Toast.makeText(LoginActivity.this, "É NECESSÁRIO CONFIRMAR A POLÍTICA DE PRIVACIDADE", Toast.LENGTH_SHORT).show();
-                    finish();
-                    return;
                 })
                 .build()
                 .show());

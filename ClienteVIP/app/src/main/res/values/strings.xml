@@ -15,6 +15,7 @@
     <string name="seja_vip">CADASTRE-SE</string>
     <string name="ler_politica_de_privacidade_termos_de_uso">Ler Política de Privacidade - Termos de Uso</string>
     <string name="versao_v1_0">Versão V2.0</string>
+    <string name="Confimar_Politica">"Confimar Politica de Privacidade e Termos de Uso?"</string>
 
     <!--Tela de credenciais-->
     <string name="finalizandoCredenciais">FINALIZANDO...</string>

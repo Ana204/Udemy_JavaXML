@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
     ClientePF clientePF;
     ClientePJ clientePJ;
     private SharedPreferences preferences;
-   // List<Cliente> clientes;
-   // ClienteController clienteController;
+    List<Cliente> clientes;
+    // ClienteController clienteController;
 
     TextView txtNome;
     Button btnMeusDados, btnAtualizarMeusDados, btnExcluirConta, btnConsultarClientesVIP, btnSairApp;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       // clienteController = new ClienteController(this);
+        // clienteController = new ClienteController(this);
         //clienteController.getClienteByID(cliente);
 
         //cliente.getClientePF();
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         initTelaInical();
 
-        //buscarListaDeClientes();
+        buscarListaDeClientes();
 
         sairDoApp();
         meusDados();
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         atualizarMeusDados();
         consultarClientes();
 
-        txtNome.setText("Bem Vindo - "  + cliente.getPrimeiroNome());
+        txtNome.setText("Bem Vindo - " + cliente.getPrimeiroNome());
     }
 
     private void initTelaInical() {
@@ -79,21 +79,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void buscarListaDeClientes() {
 
-/*        clientes = new ArrayList<>();
+        clientes = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
 
             cliente = new Cliente();
-            cliente.setPrimeiroNome("Cliente nº" +i);
+            cliente.setPrimeiroNome("Cliente nº " + i);
 
             clientes.add(cliente);
         }
         //-----------------------
+        for (Cliente obj : clientes) {
 
-        for (Cliente obj: clientes){
-
-            Log.i(AppUtil.LOG_APP, "Clientes: " + obj.getPrimeiroNome() + " - " + obj.getSobrenome());
-        }*/
+            Log.i(AppUtil.LOG_APP, "OBJ: " + obj.getPrimeiroNome());
+        }
 
     }
 
@@ -111,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.i(AppUtil.LOG_APP, "CPF: " + clientePF.getCpf());
                 Log.i(AppUtil.LOG_APP, "Nome Completo: " + clientePF.getNomeCompleto());
 
-                if(!cliente.isPessoaFisica()){
+                if (!cliente.isPessoaFisica()) {
 
                     Log.i(AppUtil.LOG_APP, "CNPJ: " + clientePJ.getCnpj());
                     Log.i(AppUtil.LOG_APP, "Razão Social: " + clientePJ.getRazaoSocial());
@@ -133,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(cliente.isPessoaFisica()){
+                if (cliente.isPessoaFisica()) {
 
                     cliente.setPrimeiroNome("Ana B");
                     cliente.setSobrenome("Gomes");
@@ -142,17 +141,16 @@ public class MainActivity extends AppCompatActivity {
 
                     //salvarSharedPreferences();
 
-                    Log.i(AppUtil.LOG_APP, "** ALTERAÇÃO DADOS CLIENTE ** " );
+                    Log.i(AppUtil.LOG_APP, "** ALTERAÇÃO DADOS CLIENTE ** ");
                     Log.i(AppUtil.LOG_APP, "Primeiro Nome: " + cliente.getPrimeiroNome());
                     Log.i(AppUtil.LOG_APP, "Sobrenome: " + cliente.getSobrenome());
                     Log.i(AppUtil.LOG_APP, "Nome Completo: " + clientePF.getNomeCompleto());
 
 
-                }
-                else {
+                } else {
                     clientePJ.setRazaoSocial("GOMES B");
 
-                    Log.i(AppUtil.LOG_APP, "** ALTERAÇÃO DADOS CLIENTE PJ ** " );
+                    Log.i(AppUtil.LOG_APP, "** ALTERAÇÃO DADOS CLIENTE PJ ** ");
                     Log.i(AppUtil.LOG_APP, "Razão Social: " + clientePJ.getRazaoSocial());
 
                 }
@@ -179,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                         .isCancellable(true)
                         .setIcon(R.mipmap.logo, View.VISIBLE)
                         .onPositiveClicked(dialog -> {
-                            Toast.makeText(MainActivity.this,  "QUE PENA!! SUA CONTA FOI EXCLUIDA !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "QUE PENA!! SUA CONTA FOI EXCLUIDA !", Toast.LENGTH_SHORT).show();
 
                             cliente = new Cliente();
                             clientePF = new ClientePF();
@@ -232,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
                         .onPositiveClicked(dialog -> {
                             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                             startActivity(intent);
-                            Toast.makeText(MainActivity.this,  "VOLTE SEMPRE !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "VOLTE SEMPRE !", Toast.LENGTH_SHORT).show();
                         })
                         .onNegativeClicked(dialog -> {
                             Toast.makeText(MainActivity.this, "DIVIRTA-SE", Toast.LENGTH_SHORT).show();

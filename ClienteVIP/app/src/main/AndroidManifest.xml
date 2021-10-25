@@ -13,6 +13,7 @@
         <activity android:name=".view.LoginActivity" />
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.CredencialAcessoActivity" />
+        <activity android:name=".view.ConsultarClientesActivity" />
         <activity android:name=".view.RecuperarSenhaActivity" />
         <activity android:name=".view.PessoaFisicaActivity" />
         <activity android:name=".view.PessoaJuridicaActivity" />

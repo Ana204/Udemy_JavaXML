@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         initTelaInical();
 
-        buscarListaDeClientes();
+       // buscarListaDeClientes();
 
         sairDoApp();
         meusDados();

@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         atualizarMeusDados();
         consultarClientes();
 
-       // txtNome.setText("Bem Vindo " + " - " + cliente.getPrimeiroNome());
+        txtNome.setText("Bem Vindo - "  + cliente.getPrimeiroNome());
     }
 
     private void initTelaInical() {
@@ -129,37 +129,35 @@ public class MainActivity extends AppCompatActivity {
 
     private void atualizarMeusDados() {
 
-/*        btnAtualizarMeusDados.setOnClickListener(new View.OnClickListener() {
+        btnAtualizarMeusDados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if(cliente.isPessoaFisica()){
 
-                    cliente.setPrimeiroNome("Raissa");
-                    cliente.setSobrenome("Oliveira");
+                    cliente.setPrimeiroNome("Ana B");
+                    cliente.setSobrenome("Gomes");
 
-                    clientePF.setNomeCompleto("Raissa Oliveira");
+                    clientePF.setNomeCompleto("Ana B Gomes");
 
-                    salvarSharedPreferences();
+                    //salvarSharedPreferences();
 
-                    Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
+                    Log.i(AppUtil.LOG_APP, "** ALTERAÇÃO DADOS CLIENTE ** " );
                     Log.i(AppUtil.LOG_APP, "Primeiro Nome: " + cliente.getPrimeiroNome());
                     Log.i(AppUtil.LOG_APP, "Sobrenome: " + cliente.getSobrenome());
                     Log.i(AppUtil.LOG_APP, "Nome Completo: " + clientePF.getNomeCompleto());
-                    Log.i(AppUtil.LOG_APP, "Email: " + cliente.getEmail());
-                    Log.i(AppUtil.LOG_APP, "Senha: " + cliente.getSenha());
 
 
                 }
                 else {
+                    clientePJ.setRazaoSocial("GOMES B");
 
-                    clientePJ.setRazaoSocial("RaOLI");
-
+                    Log.i(AppUtil.LOG_APP, "** ALTERAÇÃO DADOS CLIENTE PJ ** " );
                     Log.i(AppUtil.LOG_APP, "Razão Social: " + clientePJ.getRazaoSocial());
 
                 }
             }
-        });*/
+        });
     }
 
     private void excluirMinhaConta() {

@@ -74,7 +74,6 @@ public class LoginActivity extends AppCompatActivity {
 
         //Para adicionar 10 dados
 /*        for (int i = 0; i < 10; i++) {
-
             cliente.setPrimeiroNome("Maria_" + i);
             cliente.setSobrenome("Silva_" + i);
             cliente.setEmail("teste@gmail.com_" + i);

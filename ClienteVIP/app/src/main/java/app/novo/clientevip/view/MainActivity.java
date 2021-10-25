@@ -98,8 +98,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void meusDados() {
-
-/*        btnMeusDados.setOnClickListener(new View.OnClickListener() {
+        btnMeusDados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -121,11 +120,11 @@ public class MainActivity extends AppCompatActivity {
                     Log.i(AppUtil.LOG_APP, "MEI: " + clientePJ.isMei());
                 }
 
-                salvarSharedPreferences();
+                /*salvarSharedPreferences();
                 Intent intent = new Intent(MainActivity.this, MeusDadosActivity.class);
-                startActivity(intent);
+                startActivity(intent);*/
             }
-        });*/
+        });
     }
 
     private void atualizarMeusDados() {
@@ -165,30 +164,30 @@ public class MainActivity extends AppCompatActivity {
 
     private void excluirMinhaConta() {
 
-/*        btnExcluirConta.setOnClickListener(new View.OnClickListener() {
+        btnExcluirConta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 FancyAlertDialog.Builder
                         .with(MainActivity.this)
-                        .setTitle("EXCLUIR CONTA")
-                        .setBackgroundColor(Color.parseColor("#303F9F"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
+                        .setTitle(getResources().getString(R.string.excluirMinhaConta))
+                        .setBackgroundColor(Color.parseColor("#FFFFFFFF"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
                         .setMessage("TEM CERTEZA QUE DESEJA EXCLUIR SUA CONTA ?")
-                        .setNegativeBtnText("RETORNAR")
-                        .setPositiveBtnBackground(Color.parseColor("#FF4081"))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
+                        .setNegativeBtnText("NÃO")
+                        .setNegativeBtnBackground(getResources().getColor(R.color.green))
+                        .setPositiveBtnBackground(getResources().getColor(R.color.red))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
                         .setPositiveBtnText("SIM")
-                        .setNegativeBtnBackground(Color.parseColor("#FFA9A7A8"))  // for @ColorRes use setNegativeBtnBackgroundRes(R.color.colorvalue)
                         .setAnimation(Animation.POP)
                         .isCancellable(true)
-                        .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
+                        .setIcon(R.mipmap.logo, View.VISIBLE)
                         .onPositiveClicked(dialog -> {
-                            Toast.makeText(MainActivity.this,  "CONTA EXCLUIDA COM SUCESSO !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,  "QUE PENA!! SUA CONTA FOI EXCLUIDA !", Toast.LENGTH_SHORT).show();
 
                             cliente = new Cliente();
                             clientePF = new ClientePF();
                             clientePJ = new ClientePJ();
 
-                            salvarSharedPreferences();
+                            //salvarSharedPreferences();
 
                             finish();
                             return;
@@ -200,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                         .show();
 
             }
-        });*/
+        });
     }
 
     private void consultarClientes() {
@@ -222,16 +221,16 @@ public class MainActivity extends AppCompatActivity {
 
                 FancyAlertDialog.Builder
                         .with(MainActivity.this)
-                        .setTitle("Confirmar saída")
-                        .setBackgroundColor(Color.parseColor("#303F9F"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
+                        .setTitle(getResources().getString(R.string.saida))
+                        .setBackgroundColor(Color.parseColor("#FFFFFFFF"))  // for @ColorRes use setBackgroundColorRes(R.color.colorvalue)
                         .setMessage("TEM CERTEZA QUE DESEJA SAIR ?")
                         .setNegativeBtnText("RETORNAR")
-                        .setPositiveBtnBackground(Color.parseColor("#FF4081"))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
+                        .setNegativeBtnBackground(getResources().getColor(R.color.green))
+                        .setPositiveBtnBackground(getResources().getColor(R.color.red))  // for @ColorRes use setPositiveBtnBackgroundRes(R.color.colorvalue)
                         .setPositiveBtnText("SIM")
-                        .setNegativeBtnBackground(Color.parseColor("#FFA9A7A8"))  // for @ColorRes use setNegativeBtnBackgroundRes(R.color.colorvalue)
                         .setAnimation(Animation.POP)
                         .isCancellable(true)
-                        .setIcon(R.drawable.ic_star_border_black_24dp, View.VISIBLE)
+                        .setIcon(R.mipmap.logo, View.VISIBLE)
                         .onPositiveClicked(dialog -> {
                             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                             startActivity(intent);

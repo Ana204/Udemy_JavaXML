@@ -188,20 +188,6 @@ public class LoginActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(LoginActivity.this, "Verifique seus dados", Toast.LENGTH_LONG).show();
             }
-
-/*            if (isFormularioLogin = validarFormulario()) {
-
-                if (validarDadosDoUsuario()) {
-
-                    salvarSharedPreferences();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                    return;
-                } else {
-                    Toast.makeText(LoginActivity.this, "Verifique seus dados", Toast.LENGTH_LONG).show();
-                }
-            }*/
         });
     }
 
@@ -226,7 +212,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences.Editor dados = preferences.edit();
 
         dados.putBoolean("loginAutomatico", isLembrarSenha);
-        dados.putString("emailCliente", editEmailLogin.getText().toString());
+        //dados.putString("emailCliente", editEmailLogin.getText().toString());
         dados.apply();
     }
 

@@ -48,11 +48,12 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
 
         Cliente objDaLinha = aClientes.get(position);
 
-        Button primeiroNome = holder.rvPessoa;
-        primeiroNome.setText(objDaLinha.getPrimeiroNome());
-
-        TextView pessoa = holder.rvPrimeiroNome;
+        Button pessoa = holder.rvPessoa;
         pessoa.setText(objDaLinha.isPessoaFisica() ? "CPF" : "CNPJ");
+
+
+        TextView primeiroNome = holder.rvPrimeiroNome;
+        primeiroNome.setText(objDaLinha.getPrimeiroNome());
 
     }
 

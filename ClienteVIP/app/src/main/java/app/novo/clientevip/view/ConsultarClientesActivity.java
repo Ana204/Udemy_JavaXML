@@ -45,7 +45,7 @@ public class ConsultarClientesActivity extends Activity {
 
         adapter = new ClienteAdapter(clientes, getApplicationContext());
 
-        //vClientes.setAdapter(adapter);
+        rvClientes.setAdapter(adapter);
 
         rvClientes.setLayoutManager(new LinearLayoutManager(this));
     }

@@ -200,13 +200,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void consultarClientes() {
 
-/*        btnConsultarClientesVIP.setOnClickListener(new View.OnClickListener() {
+        btnConsultarClientesVIP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ConsultarClientesActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 
     private void sairDoApp() {

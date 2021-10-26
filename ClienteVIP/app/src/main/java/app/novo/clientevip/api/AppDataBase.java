@@ -3,8 +3,12 @@ package app.novo.clientevip.api;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import app.novo.clientevip.datamodel.ClienteDataModel;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -24,15 +28,17 @@ public class AppDataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-/*        try {
-            db.execSQL(ClienteDataModel.Tabela());
-            Log.i(AppUtil.LOG_APP, "TABELA CLIENTE: "+ ClienteDataModel.Tabela());
+
+
+       try {
+           db.execSQL(ClienteDataModel.TabelaCliente());
+           Log.i(AppUtil.LOG_APP, "TABELA CLIENTE: " + ClienteDataModel.TabelaCliente());
         }
         catch (SQLException e){
             Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA CLIENTE: "+ e.getMessage());
         }
 
-
+       /*
         try {
             db.execSQL(ClientePfDataModel.TabelaPessoaFisica());
             Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA FISICA: "+ ClientePfDataModel.TabelaPessoaFisica());

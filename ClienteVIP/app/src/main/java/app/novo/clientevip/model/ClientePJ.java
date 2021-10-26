@@ -2,6 +2,7 @@ package app.novo.clientevip.model;
 
 public class ClientePJ extends ClientePF{
 
+    private int fk;
     private String cnpj;
     private String razaoSocial;
     private String dataAbertura;

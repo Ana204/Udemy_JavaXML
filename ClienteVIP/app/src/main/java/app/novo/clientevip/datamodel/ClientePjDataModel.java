@@ -11,6 +11,7 @@ public class ClientePjDataModel {
      */
 
     public static final String TABELA = "pessoaJuridica";
+
     public static final String ID = "id";
     public static final String FK = "clientePfID";
     public static final String CNPJ = "cnpj";
@@ -26,16 +27,16 @@ public class ClientePjDataModel {
 
     public static String TabelaPessoaJuridica() {
 
-        query = "CREATE TABLE " + TABELA + " ( ";
-        query += ID + "  INTEGER PRIMARY KEY AUTOINCREMENT, ";
-        query += FK + " INTEGER, ";
-        query += CNPJ + " TEXT, ";
-        query += RAZAOSOCIAL + " TEXT, ";
-        query += DATA_ABERTURA + " TEXT, ";
-        query += SIMPLESNACIONAL + " INTEGER, ";
-        query += MEI + " INTEGER, ";
-        query += DATA_INCLUSAO + " datetime default current_timestamp, ";
-        query += DATA_ALTERACAO + " datetime default current_timestamp, ";
+        query = "CREATE TABLE " + TABELA + " (\n ";
+        query += ID + "  INTEGER PRIMARY KEY AUTOINCREMENT,\n ";
+        query += FK + " INTEGER,\n ";
+        query += CNPJ + " TEXT,\n ";
+        query += RAZAOSOCIAL + " TEXT,\n ";
+        query += DATA_ABERTURA + " TEXT,\n ";
+        query += SIMPLESNACIONAL + " INTEGER,\n ";
+        query += MEI + " INTEGER,\n ";
+        query += DATA_INCLUSAO + " datetime default current_timestamp,\n ";
+        query += DATA_ALTERACAO + " datetime default current_timestamp,\n ";
         query += "FOREIGN KEY("+FK+") REFERENCES pessoaFisica(id)";
         query += ")";
 

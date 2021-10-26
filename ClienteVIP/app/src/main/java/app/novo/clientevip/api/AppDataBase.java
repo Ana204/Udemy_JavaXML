@@ -10,6 +10,7 @@ import android.util.Log;
 
 import app.novo.clientevip.datamodel.ClienteDataModel;
 import app.novo.clientevip.datamodel.ClientePfDataModel;
+import app.novo.clientevip.datamodel.ClientePjDataModel;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -49,14 +50,13 @@ public class AppDataBase extends SQLiteOpenHelper {
         }
 
 
-         /*
        try {
             db.execSQL(ClientePjDataModel.TabelaPessoaJuridica());
             Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA JURIDICA: "+ ClientePjDataModel.TabelaPessoaJuridica());
 
         }catch (SQLException e){
             Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA DE PESSOA JURIDICA: "+ e.getMessage());
-        }*/
+        }
 
 
 /*        db.execSQL(ClientePjDataModel.TabelaPessoaJuridica());

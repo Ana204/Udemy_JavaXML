@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import app.novo.clientevip.datamodel.ClienteDataModel;
+import app.novo.clientevip.datamodel.ClientePfDataModel;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -38,7 +39,7 @@ public class AppDataBase extends SQLiteOpenHelper {
             Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA CLIENTE: "+ e.getMessage());
         }
 
-       /*
+
         try {
             db.execSQL(ClientePfDataModel.TabelaPessoaFisica());
             Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA FISICA: "+ ClientePfDataModel.TabelaPessoaFisica());
@@ -48,6 +49,7 @@ public class AppDataBase extends SQLiteOpenHelper {
         }
 
 
+         /*
        try {
             db.execSQL(ClientePjDataModel.TabelaPessoaJuridica());
             Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA JURIDICA: "+ ClientePjDataModel.TabelaPessoaJuridica());

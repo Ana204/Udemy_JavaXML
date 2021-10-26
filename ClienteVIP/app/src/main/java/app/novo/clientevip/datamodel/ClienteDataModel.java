@@ -45,7 +45,7 @@ public class ClienteDataModel {
         query += SENHA+ " TEXT,\n ";
         query += PESSOA_FISICA+ " INTEGER,\n ";
         query += DATA_INCLUSAO+ " datetime default current_timestamp,\n ";
-        query += DATA_ALTERACAO+ " datetime default current_timestamp\n ";
+        query += DATA_ALTERACAO+ " datetime default current_timestamp ";
         query += ")";
 
         // datetime default current_timestamp

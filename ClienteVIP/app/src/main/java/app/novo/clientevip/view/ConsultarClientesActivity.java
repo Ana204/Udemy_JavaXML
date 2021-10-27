@@ -29,8 +29,6 @@ public class ConsultarClientesActivity extends Activity {
 
         rvClientes = findViewById(R.id.rvClientes);
         clienteController = new ClienteController(getApplicationContext());
-        //clientes = clienteController.listar();
-
         clientes = clienteController.listar();
 
         //para listar na tela de consultar clientes

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.novo.clientevip.Controller.ClienteController;
 import app.novo.clientevip.R;
 import app.novo.clientevip.api.ClienteAdapter;
 import app.novo.clientevip.model.Cliente;
@@ -17,9 +18,8 @@ public class ConsultarClientesActivity extends Activity {
 
     List<Cliente> clientes;
     ClienteAdapter adapter;
-    //ClienteController clienteController;
+    ClienteController clienteController;
 
-    Cliente obj;
     RecyclerView rvClientes;
 
     @Override
@@ -28,12 +28,13 @@ public class ConsultarClientesActivity extends Activity {
         setContentView(R.layout.activity_consultar_clientes);
 
         rvClientes = findViewById(R.id.rvClientes);
-        //clienteController = new ClienteController(getApplicationContext());
+        clienteController = new ClienteController(getApplicationContext());
         //clientes = clienteController.listar();
 
-        clientes = new ArrayList<>();
+        clientes = clienteController.listar();
+
         //para listar na tela de consultar clientes
-        for (int i = 0; i < 20; i++) {
+       /* for (int i = 0; i < 20; i++) {
 
             obj = new Cliente();
 
@@ -41,7 +42,7 @@ public class ConsultarClientesActivity extends Activity {
             obj.setPessoaFisica(i % 2 == 0);
 
             clientes.add(obj);
-        }
+        }*/
 
         adapter = new ClienteAdapter(clientes, getApplicationContext());
 

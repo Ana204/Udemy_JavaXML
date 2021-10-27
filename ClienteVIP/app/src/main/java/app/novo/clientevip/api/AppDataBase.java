@@ -242,10 +242,10 @@ public class AppDataBase extends SQLiteOpenHelper {
         return list;
     }*/
 
-/*    public int getPk(String tabela){
+    public int getLastPk(String tabela){
 
         //SELECT seq FROM sqlite_sequence WHERE name="tabela"
-        String sql = "SELECT seq FROM sqlite_sequence WHERE name = " + tabela;
+        String sql = "SELECT seq FROM sqlite_sequence WHERE name = '" + tabela + "'";
 
         try {
             Log.i(AppUtil.LOG_APP, "SQL RAW:" + sql);
@@ -265,7 +265,7 @@ public class AppDataBase extends SQLiteOpenHelper {
             Log.e(AppUtil.LOG_APP, "ERRO recuperando último PK"+ tabela + " " +e.getMessage());
         }
         return -1;
-    }*/
+    }
 
 /*    public Cliente getClienteByID(String tabela, Cliente obj){
 

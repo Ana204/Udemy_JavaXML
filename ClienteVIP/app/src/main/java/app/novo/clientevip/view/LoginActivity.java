@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
     boolean isFormularioLogin, isLembrarSenha;
 
-    //ClienteController clienteController;
+    ClienteController clienteController;
 
 
     @Override
@@ -42,18 +42,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         initLogin();
 
         btnAcessarEvento();
         recuperarsenhaEvento();
         lerPoliticaPrivacidade();
-
         btnSejaVipEvento();
-
         lembrarSenha();
-
-
     }
 
 
@@ -68,16 +63,16 @@ public class LoginActivity extends AppCompatActivity {
         checkLembrar = findViewById(R.id.checkLembrar);
 
         isFormularioLogin = false;
-        //clienteController = new ClienteController(getApplicationContext());
+        clienteController = new ClienteController(getApplicationContext());
 
-        //cliente = new Cliente();
+        cliente = new Cliente();
 
         //Para adicionar 10 dados
 /*        for (int i = 0; i < 10; i++) {
             cliente.setPrimeiroNome("Maria_" + i);
             cliente.setSobrenome("Silva_" + i);
             cliente.setEmail("teste@gmail.com_" + i);
-            cliente.setSenha("1234_" + i);
+            cliente.setSenha("123" + i);
             cliente.setPessoaFisica(true);
 
             clienteController.incluir(cliente);
@@ -94,18 +89,13 @@ public class LoginActivity extends AppCompatActivity {
         clienteController.alterar(cliente);*/
 
         //Para deletar dados usando ID
-        //cliente.setId(1);
-
-        //clienteController.deletar(cliente);
+        cliente.setId(1);
+        clienteController.deletar(cliente);
 
         // List<Cliente> clientes = clienteController.listar();
 
-        cliente = new Cliente();
 
-         restaurarSharedPreferences();
-
-
-
+        restaurarSharedPreferences();
     }
 
     private void recuperarsenhaEvento() {
@@ -192,7 +182,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public boolean validarDadosDoUsuario() {
-        return ClienteController.validarDadosDoCliente(cliente, editEmailLogin.getText().toString(), edtSenhaLogin.getText().toString());
+       // return ClienteController.validarDadosDoCliente(cliente, editEmailLogin.getText().toString(), edtSenhaLogin.getText().toString());
+
+        return true;
     }
 
     private void btnSejaVipEvento() {

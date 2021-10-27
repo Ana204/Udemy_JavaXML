@@ -7,7 +7,6 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import app.novo.clientevip.api.AppDataBase;
 import app.novo.clientevip.api.AppUtil;
 import app.novo.clientevip.R;
 
@@ -16,7 +15,6 @@ public class SplashActivity extends AppCompatActivity {
     private SharedPreferences preferences;
     boolean isLembrarSenha = false;
 
-    AppDataBase dataBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         salvarSharedPreferences();
         restaurarSharedPreferences();
 
-        dataBase = new AppDataBase(getApplicationContext());
-
         telaSplash();
-
 
     }
 

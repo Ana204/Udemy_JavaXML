@@ -1,6 +1,7 @@
 package app.novo.clientevip.api;
 
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -8,9 +9,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import app.novo.clientevip.datamodel.ClienteDataModel;
 import app.novo.clientevip.datamodel.ClientePfDataModel;
 import app.novo.clientevip.datamodel.ClientePjDataModel;
+import app.novo.clientevip.model.Cliente;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -30,32 +35,29 @@ public class AppDataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-
-
-       try {
-           db.execSQL(ClienteDataModel.TabelaCliente());
-           Log.i(AppUtil.LOG_APP, "TABELA CLIENTE: " + ClienteDataModel.TabelaCliente());
-        }
-        catch (SQLException e){
-            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA CLIENTE: "+ e.getMessage());
+        try {
+            db.execSQL(ClienteDataModel.TabelaCliente());
+            Log.i(AppUtil.LOG_APP, "TABELA CLIENTE: " + ClienteDataModel.TabelaCliente());
+        } catch (SQLException e) {
+            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA CLIENTE: " + e.getMessage());
         }
 
 
         try {
             db.execSQL(ClientePfDataModel.TabelaPessoaFisica());
-            Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA FISICA: "+ ClientePfDataModel.TabelaPessoaFisica());
+            Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA FISICA: " + ClientePfDataModel.TabelaPessoaFisica());
 
-        }catch (SQLException e){
-            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA DE PESSOA FISICA: "+ e.getMessage());
+        } catch (SQLException e) {
+            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA DE PESSOA FISICA: " + e.getMessage());
         }
 
 
-       try {
+        try {
             db.execSQL(ClientePjDataModel.TabelaPessoaJuridica());
-            Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA JURIDICA: "+ ClientePjDataModel.TabelaPessoaJuridica());
+            Log.i(AppUtil.LOG_APP, "TABELA CLIENTE PESSOA JURIDICA: " + ClientePjDataModel.TabelaPessoaJuridica());
 
-        }catch (SQLException e){
-            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA DE PESSOA JURIDICA: "+ e.getMessage());
+        } catch (SQLException e) {
+            Log.e(AppUtil.LOG_APP, "ERROR AO CRIAR TABELA DE PESSOA JURIDICA: " + e.getMessage());
         }
 
 
@@ -64,90 +66,90 @@ public class AppDataBase extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    }
 
 
     /**
      * Inserir dados
+     *
      * @return
      */
-/*    public boolean insert(String tabela, ContentValues dados){
+    public boolean insert(String tabela, ContentValues dados) {
 
         boolean success = true;
 
-        try{
+        try {
             success = db.insert(tabela, null, dados) > 0;
-            Log.i(AppUtil.LOG_APP, tabela+ "Dados inseridos com sucesso");
-        }
-        catch (SQLException e){
+            Log.i(AppUtil.LOG_APP, tabela + " - " + "DADOS INSERIDOS COM SUCESSO");
+        } catch (SQLException e) {
 
-            Log.e(AppUtil.LOG_APP, tabela+ "Falha em inserir dados"+e.getMessage());
+            Log.e(AppUtil.LOG_APP, tabela + "FALHA EM INSERIR DADOS " + e.getMessage());
         }
 
         return success;
-    }*/
+    }
 
 
     /**
      * Atualizar dados
+     *
      * @return
      */
-/*    public boolean update(String tabela, ContentValues dados){
+    public boolean update(String tabela, ContentValues dados) {
 
         boolean success = true;
 
-
-        try{
+        try {
             int id = dados.getAsInteger("id");
+            success = db.update(tabela, dados, "id=?", new String[]{Integer.toString(id)}) > 0;
+            Log.i(AppUtil.LOG_APP, tabela + " - " + "DADOS ATUALIZADO COM SUCESSO");
 
+        } catch (SQLException e) {
 
-            success =  db.update(tabela, dados,"id=?", new String[]{Integer.toString(id)}) > 0;
-
-        }catch (SQLException e){
-
-            Log.i(AppUtil.LOG_APP, tabela+ "Falha ao atualizar dados"+e.getMessage());
+            Log.i(AppUtil.LOG_APP, tabela + " - " + "FALHA AO ATUALIZAR DADOS" + e.getMessage());
         }
 
         return success;
-    }*/
+    }
 
 
     /**
      * Deletar dados
+     *
      * @return
      */
-/*    public boolean delete(String tabela, int id){
+    public boolean delete(String tabela, int id) {
 
         boolean success = true;
 
-        try{
+        try {
 
             success = db.delete(tabela, "id=?", new String[]{Integer.toString(id)}) > 0;
-            Log.i(AppUtil.LOG_APP, tabela+ "Dados deletado com sucesso");
-        }
-        catch (SQLException e){
+            Log.i(AppUtil.LOG_APP, tabela + " - " + "DADOS DELETADO COM SUCESSO");
+        } catch (SQLException e) {
 
-            Log.e(AppUtil.LOG_APP, tabela+ "Falha ao deletar dados"+e.getMessage());
+            Log.e(AppUtil.LOG_APP, tabela + " - " + "FALHA AO DELETAR DADOS" + e.getMessage());
         }
 
         return success;
-    }*/
+    }
 
 
     /**
      * Listar dados
+     *
      * @return
      */
-/*    public List<Cliente> listClientes(String tabela){
+    public List<Cliente> listClientes(String tabela) {
 
         List<Cliente> list = new ArrayList<>();
         Cliente cliente;
 
         String sql = "SELECT * FROM " + tabela;
 
-        cursor = db.rawQuery(sql, null);
-
         try {
+            cursor = db.rawQuery(sql, null);
 
             if (cursor.moveToFirst()) {
 
@@ -163,13 +165,13 @@ public class AppDataBase extends SQLiteOpenHelper {
                 }
                 while (cursor.moveToNext());
 
-                Log.i(AppUtil.LOG_APP, "Lista gerada com sucesso !!");
+                Log.i(AppUtil.LOG_APP, "LISTA GERADA COM SUCESSO !!");
             }
-        }catch (SQLException e){
-            Log.e(AppUtil.LOG_APP, "Falha ao listar"+ tabela + " " +e.getMessage());
+        } catch (SQLException e) {
+            Log.e(AppUtil.LOG_APP, "FALHA AO LISTAR" + tabela + " " + e.getMessage());
         }
         return list;
-    }*/
+    }
 
 /*
     public List<ClientePF> listClientesPessoaFisica(String tabela){

@@ -1,26 +1,75 @@
 package app.novo.clientevip.Controller;
 
+import android.content.ContentValues;
+import android.content.Context;
+
+import java.util.List;
+
+import app.novo.clientevip.api.AppDataBase;
+import app.novo.clientevip.datamodel.ClienteDataModel;
 import app.novo.clientevip.model.Cliente;
 
-public class ClienteController {
+public class ClienteController extends AppDataBase {
 
-    public  static  boolean validarDadosDoCliente(Cliente cliente, String email, String senha){
+    private static final String TABELA = ClienteDataModel.TABELA;
+    private ContentValues dados;
 
-        boolean retorno = ((cliente.getEmail().equals(email)) && (cliente.getSenha().equals(senha)));
-
-        return  retorno;
+    public ClienteController(Context context) {
+        super(context);
     }
 
-    public static Cliente getClienteTeste(){
 
-        Cliente teste = new Cliente();
+    public boolean incluir(Cliente obj){
 
-        teste.setPrimeiroNome("Ana");
-        teste.setSobrenome("Gomes");
-        teste.setEmail("ana@teste.com");
-        teste.setSenha("1234");
-        teste.setPessoaFisica(true);
+        dados = new ContentValues();
 
-        return teste;
+        dados.put(ClienteDataModel.PRIMEIRO_NOME, obj.getPrimeiroNome());
+        dados.put(ClienteDataModel.SOBRENOME, obj.getSobrenome());
+        dados.put(ClienteDataModel.EMAIL, obj.getEmail());
+        dados.put(ClienteDataModel.SENHA, obj.getSenha());
+        dados.put(ClienteDataModel.PESSOA_FISICA, obj.isPessoaFisica());
+
+        return insert(TABELA, dados);
     }
+
+    public boolean alterar(Cliente obj){
+
+        dados = new ContentValues();
+
+        dados.put(ClienteDataModel.ID, obj.getId());
+        dados.put(ClienteDataModel.PRIMEIRO_NOME, obj.getPrimeiroNome());
+        dados.put(ClienteDataModel.SOBRENOME, obj.getSobrenome());
+        dados.put(ClienteDataModel.EMAIL, obj.getEmail());
+        dados.put(ClienteDataModel.SENHA, obj.getSenha());
+        dados.put(ClienteDataModel.PESSOA_FISICA, obj.isPessoaFisica());
+
+        return update(TABELA, dados);
+
+    }
+
+    public boolean deletar(Cliente obj){
+
+        dados = new ContentValues();
+
+        //dados.put(ClienteDataModel.ID, obj.getId());
+
+        return delete(TABELA, obj.getId());
+    }
+
+
+   public List<Cliente> listar(){
+
+       return listClientes(TABELA);
+    }
+
+/*    public int getUltimo(){
+
+        return getPk(TABELA);
+    }
+
+    public Cliente getClienteByID(Cliente obj){
+
+        return getClienteByID(ClienteDataModel.TABELA, obj);
+
+    }*/
 }

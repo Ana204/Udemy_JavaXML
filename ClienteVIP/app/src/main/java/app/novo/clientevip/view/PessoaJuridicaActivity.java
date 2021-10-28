@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.shashank.sony.fancydialoglib.Animation;
 import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
+import app.novo.clientevip.Controller.ClientePjController;
 import app.novo.clientevip.R;
 import app.novo.clientevip.api.AppUtil;
 import app.novo.clientevip.model.Cliente;
@@ -33,8 +34,9 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
 
     boolean isFormularioPJ, isSimplesNacional, isMei;
 
-   // ClientePjController clientePjController;
-    //int ultimoIDClientePessoaPf;
+    ClientePjController clientePjController;
+    int ultimoIDClientePessoaPf;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +67,7 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
         novoVip = new Cliente();
         clientePessoaJuridica = new ClientePJ();
 
-        //clientePjController = new ClientePjController(this);
+        clientePjController = new ClientePjController(this);
 
        restaurarSharedPreferences();
 
@@ -122,14 +124,14 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (isFormularioPJ = validarFormulario()) {
-                    //clientePessoaJuridica.setClientePfID(ultimoIDClientePessoaPf);
+                    clientePessoaJuridica.setClientePfID(ultimoIDClientePessoaPf);
                     clientePessoaJuridica.setCnpj(edtcnpj.getText().toString());
                     clientePessoaJuridica.setRazaoSocial(razaoSocial.getText().toString());
                     clientePessoaJuridica.setDataAbertura(edtData.getText().toString());
                     clientePessoaJuridica.setSimplesNacional(isSimplesNacional);
                     clientePessoaJuridica.setMei(isMei);
 
-                   // clientePjController.incluir(clientePessoaJuridica);
+                    clientePjController.incluir(clientePessoaJuridica);
                     salvarSharedPreferences();
 
                     Intent intent = new Intent(PessoaJuridicaActivity.this, CredencialAcessoActivity.class);
@@ -187,13 +189,13 @@ public class PessoaJuridicaActivity extends AppCompatActivity {
         dados.putString("dataAberturaEmpresa", edtData.getText().toString());
         dados.putBoolean("simplesNacional", isSimplesNacional);
         dados.putBoolean("mei", isMei);
-        //dados.putInt("ultimoIDClientePessoaPf", ultimoIDClientePessoaPf);
+        dados.putInt("ultimoIDClientePessoaPf", ultimoIDClientePessoaPf);
 
         dados.apply();
     }
 
     private void restaurarSharedPreferences() {
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
-        //ultimoIDClientePessoaPf = preferences.getInt("ultimoIDClientePessoaPf", -1);
+        ultimoIDClientePessoaPf = preferences.getInt("ultimoIDClientePessoaPf", -1);
     }
 }

@@ -5,18 +5,22 @@ import android.content.Context;
 
 import androidx.annotation.Nullable;
 
+import java.util.List;
+
 import app.novo.clientevip.api.AppDataBase;
+import app.novo.clientevip.datamodel.ClientePjDataModel;
+import app.novo.clientevip.model.ClientePJ;
 
-public class ClientePjController {
+public class ClientePjController extends AppDataBase {
 
-   /* private static final String TABELA = ClientePjDataModel.TABELA;
+    private static final String TABELA = ClientePjDataModel.TABELA;
     private ContentValues dados;
 
-    public ClientePjController(@Nullable  Context context) {
+    public ClientePjController(@Nullable Context context) {
         super(context);
     }
 
-    public boolean incluir(ClientePJ obj){
+    public boolean incluir(ClientePJ obj) {
 
         dados = new ContentValues();
 
@@ -30,12 +34,11 @@ public class ClientePjController {
         return insert(TABELA, dados);
     }
 
-    public boolean alterar(ClientePJ obj){
-
+    public boolean alterar(ClientePJ obj) {
 
         dados = new ContentValues();
 
-        dados.put(ClientePjDataModel.FK, obj.getClienteID());
+        //dados.put(ClientePjDataModel.FK, obj.getClienteID());
         dados.put(ClientePjDataModel.ID, obj.getId());
         dados.put(ClientePjDataModel.CNPJ, obj.getCnpj());
         dados.put(ClientePjDataModel.RAZAOSOCIAL, obj.getRazaoSocial());
@@ -46,7 +49,7 @@ public class ClientePjController {
         return update(TABELA, dados);
     }
 
-    public boolean deletar(ClientePJ obj){
+    public boolean deletar(ClientePJ obj) {
 
         dados = new ContentValues();
 
@@ -55,13 +58,13 @@ public class ClientePjController {
         return delete(TABELA, obj.getId());
     }
 
-    public List<ClientePJ> listar(){
+    public List<ClientePJ> listar() {
 
         return listClientesPessoaJuridica(TABELA);
     }
 
-    public int getLastPK(){
+    public int getUltimoID() {
 
-        return getPk(TABELA);
-    }*/
+        return getLastPk(TABELA);
+    }
 }

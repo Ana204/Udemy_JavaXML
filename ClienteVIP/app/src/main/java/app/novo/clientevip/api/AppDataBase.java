@@ -17,6 +17,7 @@ import app.novo.clientevip.datamodel.ClientePfDataModel;
 import app.novo.clientevip.datamodel.ClientePjDataModel;
 import app.novo.clientevip.model.Cliente;
 import app.novo.clientevip.model.ClientePF;
+import app.novo.clientevip.model.ClientePJ;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -209,21 +210,21 @@ public class AppDataBase extends SQLiteOpenHelper {
     }
 
 
-/*    public List<ClientePJ> listClientesPessoaJuridica(String tabela){
+    public List<ClientePJ> listClientesPessoaJuridica(String tabela){
 
         List<ClientePJ> list = new ArrayList<>();
         ClientePJ clientePJ;
 
         String sql = "SELECT * FROM " + tabela;
 
-        cursor = db.rawQuery(sql, null);
-
         try {
+            cursor = db.rawQuery(sql, null);
 
             if (cursor.moveToFirst()) {
 
                 do {
                     clientePJ = new ClientePJ();
+
                     clientePJ.setId(cursor.getInt(cursor.getColumnIndex(ClientePjDataModel.ID)));
                     clientePJ.setClientePfID(cursor.getInt(cursor.getColumnIndex(ClientePjDataModel.FK)));
                     clientePJ.setCnpj(cursor.getString(cursor.getColumnIndex(ClientePjDataModel.CNPJ)));
@@ -236,13 +237,13 @@ public class AppDataBase extends SQLiteOpenHelper {
                 }
                 while (cursor.moveToNext());
 
-                Log.i(AppUtil.LOG_APP, "Lista gerada com sucesso !!");
+                Log.i(AppUtil.LOG_APP, "LISTA DE PESSOA JURIDICA GERADA COM SUCESSO !!");
             }
         }catch (SQLException e){
-            Log.e(AppUtil.LOG_APP, "Falha ao listar"+ tabela + " " +e.getMessage());
+            Log.e(AppUtil.LOG_APP, "FALHA AO LISTAR PJ"+ tabela + " " +e.getMessage());
         }
         return list;
-    }*/
+    }
 
     public int getLastPk(String tabela){
 

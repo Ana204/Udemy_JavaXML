@@ -15,8 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
+import app.novo.clientevip.Controller.ClienteController;
 import app.novo.clientevip.R;
 import app.novo.clientevip.api.AppUtil;
+import app.novo.clientevip.model.Cliente;
 
 public class CredencialAcessoActivity extends AppCompatActivity {
 
@@ -30,9 +32,9 @@ public class CredencialAcessoActivity extends AppCompatActivity {
 
     boolean formularioTrue, isPessoaFisica;
     private SharedPreferences preferences;
-    //int clienteID;
-    //Cliente cliente;
-    // ClienteController clienteController;
+    int clienteID;
+    Cliente cliente;
+    ClienteController clienteController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,10 +56,11 @@ public class CredencialAcessoActivity extends AppCompatActivity {
         confimarSenha = findViewById(R.id.confimarSenha);
         checkTermos = findViewById(R.id.checkTermos);
 
-        // cliente = new Cliente();
-        //clienteController = new ClienteController(this);
-
         formularioTrue = false;
+        cliente = new Cliente();
+        clienteController = new ClienteController(this);
+
+
         restaurarSharedPreferences();
     }
 
@@ -152,9 +155,10 @@ public class CredencialAcessoActivity extends AppCompatActivity {
                                 .show();
                     } else {
 
-                    //  cliente.setEmail(edtEmail.getText().toString());
-                      //  cliente.setSenha(edtSenha.getText().toString());
-                       // clienteController.alterar(cliente);
+                        cliente.setEmail(edtEmail.getText().toString());
+                        cliente.setSenha(edtSenha.getText().toString());
+
+                        clienteController.alterar(cliente);
 
                         salvarSharedPreferences();
                         Toast.makeText(CredencialAcessoActivity.this, "Usuario cadastrado com sucesso !!", Toast.LENGTH_LONG).show();
@@ -186,24 +190,19 @@ public class CredencialAcessoActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);
         isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
+        clienteID = preferences.getInt("ultimoId", -1);
+        String primeiroNome = preferences.getString("primeiroNome", "null");
+        String sobrenome = preferences.getString("sobrenome", "null");
+
+        cliente.setId(clienteID);
+        cliente.setPrimeiroNome(primeiroNome);
+        cliente.setSobrenome(sobrenome);
+        cliente.setPessoaFisica(isPessoaFisica);
+
         if (isPessoaFisica) {
             edtNome.setText(preferences.getString("nomeCompleto", "Verifique seus dados"));
         } else {
             edtNome.setText(preferences.getString("razaoSocial", "Verifique seus dados"));
         }
-
-
-        //isPessoaFisica = preferences.getBoolean("pessoaFisica", true);
-        //clienteID = preferences.getInt("clienteID", -1);
-        //String primeiroNome = preferences.getString("primeiroNome", "null");
-        // String sobrenome = preferences.getString("sobrenome", "null");
-
-/*        cliente.setId(clienteID);
-        cliente.setPrimeiroNome(primeiroNome);
-        cliente.setSobrenome(sobrenome);
-        cliente.setPessoaFisica(isPessoaFisica)*/
-        ;
-
-
     }
 }

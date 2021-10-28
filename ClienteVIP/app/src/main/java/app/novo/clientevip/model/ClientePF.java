@@ -3,7 +3,7 @@ package app.novo.clientevip.model;
 public class ClientePF extends Cliente{
 
     private int id;
-    private int fk;
+    private int clienteID;
     private String cpf;
     private String nomeCompleto;
 
@@ -31,5 +31,13 @@ public class ClientePF extends Cliente{
     @Override
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getClienteID() {
+        return clienteID;
+    }
+
+    public void setClienteID(int clienteID) {
+        this.clienteID = clienteID;
     }
 }

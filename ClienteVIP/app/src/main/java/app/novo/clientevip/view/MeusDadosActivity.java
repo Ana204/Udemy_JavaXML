@@ -69,9 +69,11 @@ public class MeusDadosActivity extends AppCompatActivity {
         voltarBtn = findViewById(R.id.voltarBtn);
 
         cliente = new Cliente();
+        cliente.setId(clienteID);
+
         clienteController = new ClienteController(this);
 
-        //cliente.setId(clienteID);
+
 
 
     }
@@ -96,11 +98,16 @@ public class MeusDadosActivity extends AppCompatActivity {
 
     private void popularFormulario() {
 
-        if (clienteID == -1){
+        if (clienteID >= 1){
+
+            cliente = clienteController.getClienteByID(cliente);
+            edtPrimeiroNome.setText(cliente.getPrimeiroNome());
+            edtSobrenome.setText(cliente.getSobrenome());
+            edtEmail.setText(cliente.getEmail());
+            edtSenha.setText(cliente.getSenha());
 
             Log.i(AppUtil.LOG_APP, "PASSEIIIII POORRR AQUIIII: " + clienteID);
 
-            //cliente = clienteController.getClienteByID(cliente);
 
         }else{
             FancyAlertDialog.Builder

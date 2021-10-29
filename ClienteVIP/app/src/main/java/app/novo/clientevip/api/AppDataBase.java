@@ -176,7 +176,7 @@ public class AppDataBase extends SQLiteOpenHelper {
     }
 
 
-    public List<ClientePF> listClientesPessoaFisica(String tabela){
+    public List<ClientePF> listClientesPessoaFisica(String tabela) {
 
         List<ClientePF> list = new ArrayList<>();
         ClientePF clientePF;
@@ -203,14 +203,14 @@ public class AppDataBase extends SQLiteOpenHelper {
 
                 Log.i(AppUtil.LOG_APP, "LISTA DE PESSOA FISICA GERADA COM SUCESSO !!");
             }
-        }catch (SQLException e){
-            Log.e(AppUtil.LOG_APP, "FALHA AO LISTAR "+ " - " + tabela + " " +e.getMessage());
+        } catch (SQLException e) {
+            Log.e(AppUtil.LOG_APP, "FALHA AO LISTAR " + " - " + tabela + " " + e.getMessage());
         }
         return list;
     }
 
 
-    public List<ClientePJ> listClientesPessoaJuridica(String tabela){
+    public List<ClientePJ> listClientesPessoaJuridica(String tabela) {
 
         List<ClientePJ> list = new ArrayList<>();
         ClientePJ clientePJ;
@@ -239,13 +239,13 @@ public class AppDataBase extends SQLiteOpenHelper {
 
                 Log.i(AppUtil.LOG_APP, "LISTA DE PESSOA JURIDICA GERADA COM SUCESSO !!");
             }
-        }catch (SQLException e){
-            Log.e(AppUtil.LOG_APP, "FALHA AO LISTAR PJ"+ tabela + " " +e.getMessage());
+        } catch (SQLException e) {
+            Log.e(AppUtil.LOG_APP, "FALHA AO LISTAR PJ" + tabela + " " + e.getMessage());
         }
         return list;
     }
 
-    public int getLastPk(String tabela){
+    public int getLastPk(String tabela) {
 
         //SELECT seq FROM sqlite_sequence WHERE name="tabela"
         String sql = "SELECT seq FROM sqlite_sequence WHERE name = '" + tabela + "'";
@@ -258,31 +258,30 @@ public class AppDataBase extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
 
                 do {
-                  return cursor.getInt(cursor.getColumnIndex("seq"));
+                    return cursor.getInt(cursor.getColumnIndex("seq"));
 
                 }
                 while (cursor.moveToNext());
 
             }
-        }catch (SQLException e){
-            Log.e(AppUtil.LOG_APP, "ERRO recuperando último PK"+ tabela + " " +e.getMessage());
+        } catch (SQLException e) {
+            Log.e(AppUtil.LOG_APP, "ERRO recuperando último PK" + tabela + " " + e.getMessage());
         }
         return -1;
     }
 
-   /* public Cliente getClienteByID(String tabela, Cliente obj){
+    public Cliente getClienteByID(String tabela, Cliente obj) {
 
         Cliente cliente = new Cliente();
 
-        String sql = "SELECT * FROM" + tabela + "WHERE id = "+obj.getId();
+        String sql = "SELECT * FROM "+tabela+" WHERE id = "+obj.getId();
 
-        try{
-
+        try {
             cursor = db.rawQuery(sql, null);
 
-            if (cursor.moveToNext()){
+            if (cursor.moveToNext()) {
 
-                cliente.setId(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.ID)));
+                //cliente.setId(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.ID)));
                 cliente.setPrimeiroNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.PRIMEIRO_NOME)));
                 cliente.setSobrenome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.SOBRENOME)));
                 cliente.setEmail(cursor.getString(cursor.getColumnIndex(ClienteDataModel.EMAIL)));
@@ -290,15 +289,11 @@ public class AppDataBase extends SQLiteOpenHelper {
                 cliente.setPessoaFisica(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.PESSOA_FISICA)) == 1);
             }
 
-        }catch (SQLException e){
-            Log.e(AppUtil.LOG_APP, "ERROR GetClienteByID"+obj.getId() + " - " +e.getMessage());
+        } catch (SQLException e) {
+            Log.e(AppUtil.LOG_APP, "ERROR GetClienteByID" + " - " + obj.getId() + " - " + e.getMessage());
         }
 
         return cliente;
-    }*/
-
-    public void getClienteByID(String tabela, Cliente obj){
-
     }
 
 }

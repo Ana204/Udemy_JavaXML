@@ -19,7 +19,7 @@ public class ClienteController extends AppDataBase {
     }
 
 
-    public boolean incluir(Cliente obj){
+    public boolean incluir(Cliente obj) {
 
         dados = new ContentValues();
 
@@ -32,7 +32,7 @@ public class ClienteController extends AppDataBase {
         return insert(TABELA, dados);
     }
 
-    public boolean alterar(Cliente obj){
+    public boolean alterar(Cliente obj) {
 
         dados = new ContentValues();
 
@@ -47,7 +47,7 @@ public class ClienteController extends AppDataBase {
 
     }
 
-    public boolean deletar(Cliente obj){
+    public boolean deletar(Cliente obj) {
 
         dados = new ContentValues();
 
@@ -57,26 +57,19 @@ public class ClienteController extends AppDataBase {
     }
 
 
-   public List<Cliente> listar(){
+    public List<Cliente> listar() {
 
-       return listClientes(TABELA);
+        return listClientes(TABELA);
     }
 
-    public int getUltimo(){
+    public int getUltimo() {
 
-       return getLastPk(TABELA);
+        return getLastPk(TABELA);
     }
 
 
-/*    public Cliente getClienteByID(Cliente obj){
+    public Cliente getClienteByID(Cliente obj) {
 
         return getClienteByID(ClienteDataModel.TABELA, obj);
-
-    }*/
-
-    public void getClienteByID(Cliente obj){
-
-        getClienteByID(ClienteDataModel.TABELA, obj);
-
     }
 }

@@ -79,7 +79,6 @@
                         android:layout_marginEnd="13dp"
                         android:gravity="center"
                         android:enabled="false"
-                        android:hint="@string/informe_seu_nome"
                         android:inputType="textPersonName"
                         app:backgroundTint="@color/tint"
                         app:layout_constraintBottom_toBottomOf="parent"

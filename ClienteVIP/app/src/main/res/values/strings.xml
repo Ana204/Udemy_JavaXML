@@ -9,6 +9,7 @@
     <string name="consultarClientes">CONSULTAR CLIENTES VIP</string>
     <string name="sair">SAIR</string>
     <string name="saida">CONFIRMAR SAÍDA ?</string>
+    <string name="atencao">ATENÇÃO !!</string>
 
     <!--Tela de Login-->
     <string name="clientes">Clientes</string>

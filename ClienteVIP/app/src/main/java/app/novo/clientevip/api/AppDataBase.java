@@ -270,7 +270,7 @@ public class AppDataBase extends SQLiteOpenHelper {
         return -1;
     }
 
-/*    public Cliente getClienteByID(String tabela, Cliente obj){
+   /* public Cliente getClienteByID(String tabela, Cliente obj){
 
         Cliente cliente = new Cliente();
 
@@ -282,6 +282,7 @@ public class AppDataBase extends SQLiteOpenHelper {
 
             if (cursor.moveToNext()){
 
+                cliente.setId(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.ID)));
                 cliente.setPrimeiroNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.PRIMEIRO_NOME)));
                 cliente.setSobrenome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.SOBRENOME)));
                 cliente.setEmail(cursor.getString(cursor.getColumnIndex(ClienteDataModel.EMAIL)));
@@ -296,5 +297,8 @@ public class AppDataBase extends SQLiteOpenHelper {
         return cliente;
     }*/
 
+    public void getClienteByID(String tabela, Cliente obj){
+
+    }
 
 }

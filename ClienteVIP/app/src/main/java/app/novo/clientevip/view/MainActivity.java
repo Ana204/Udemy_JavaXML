@@ -18,6 +18,7 @@ import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.novo.clientevip.Controller.ClienteController;
 import app.novo.clientevip.R;
 import app.novo.clientevip.api.AppUtil;
 import app.novo.clientevip.model.Cliente;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     ClientePJ clientePJ;
     private SharedPreferences preferences;
     List<Cliente> clientes;
-    // ClienteController clienteController;
+    ClienteController clienteController;
 
     TextView txtNome;
     Button btnMeusDados, btnAtualizarMeusDados, btnExcluirConta, btnConsultarClientesVIP, btnSairApp;
@@ -41,11 +42,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // clienteController = new ClienteController(this);
-        //clienteController.getClienteByID(cliente);
+        cliente = new Cliente();
+        clienteController = new ClienteController(this);
 
-        //cliente.getClientePF();
-
+        clienteController.getClienteByID(cliente);
+        cliente.getClientePF();
+        cliente.getClientePJ();
 
         initTelaInical();
 
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         cliente = new Cliente();
         clientePF = new ClientePF();
         clientePJ = new ClientePJ();
-
+        clienteController = new ClienteController(this);
 
         restaurarSharedPreferences();
     }
@@ -101,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
+/*                Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
                 Log.i(AppUtil.LOG_APP, "Primeiro Nome: " + cliente.getPrimeiroNome());
                 Log.i(AppUtil.LOG_APP, "Sobrenome: " + cliente.getSobrenome());
                 Log.i(AppUtil.LOG_APP, "Email: " + cliente.getEmail());
@@ -117,11 +119,11 @@ public class MainActivity extends AppCompatActivity {
                     Log.i(AppUtil.LOG_APP, "Data Abertura: " + clientePJ.getDataAbertura());
                     Log.i(AppUtil.LOG_APP, "Simples Nacional: " + clientePJ.isSimplesNacional());
                     Log.i(AppUtil.LOG_APP, "MEI: " + clientePJ.isMei());
-                }
+                }*/
 
-                /*salvarSharedPreferences();
+                //salvarSharedPreferences();
                 Intent intent = new Intent(MainActivity.this, MeusDadosActivity.class);
-                startActivity(intent);*/
+                startActivity(intent);
             }
         });
     }

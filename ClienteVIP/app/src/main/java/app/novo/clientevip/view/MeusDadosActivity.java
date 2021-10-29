@@ -117,10 +117,8 @@ public class MeusDadosActivity extends AppCompatActivity {
                         Intent intent = new Intent(MeusDadosActivity.this, MainActivity.class);
                         startActivity(intent);
                     })
-                    .build();
-
-
-
+                    .build()
+                    .show();
         }
     }
 }

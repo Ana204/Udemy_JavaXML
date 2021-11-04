@@ -105,8 +105,7 @@ public class MeusDadosActivity extends AppCompatActivity {
             edtSobrenome.setText(cliente.getSobrenome());
             edtEmail.setText(cliente.getEmail());
             edtSenha.setText(cliente.getSenha());
-
-            Log.i(AppUtil.LOG_APP, "PASSEIIIII POORRR AQUIIII: " + clienteID);
+            ckPessoaFisica.setChecked(cliente.isPessoaFisica());
 
 
         }else{

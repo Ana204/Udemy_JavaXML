@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,11 +16,10 @@ import com.shashank.sony.fancydialoglib.Animation;
 import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.novo.clientevip.Controller.ClienteController;
+import app.novo.clientevip.Controller.ClientePfController;
 import app.novo.clientevip.R;
 import app.novo.clientevip.api.AppUtil;
 import app.novo.clientevip.model.Cliente;
-import app.novo.clientevip.model.ClientePF;
-import app.novo.clientevip.model.ClientePJ;
 
 
 public class MeusDadosActivity extends AppCompatActivity {
@@ -34,6 +32,7 @@ public class MeusDadosActivity extends AppCompatActivity {
     Button voltarBtn;
 
     ClienteController clienteController;
+    ClientePfController clientePfController;
     Cliente cliente;
 
     SharedPreferences preferences;
@@ -72,6 +71,7 @@ public class MeusDadosActivity extends AppCompatActivity {
         cliente.setId(clienteID);
 
         clienteController = new ClienteController(this);
+        clientePfController = new ClientePfController(this);
 
 
 
@@ -101,12 +101,25 @@ public class MeusDadosActivity extends AppCompatActivity {
         if (clienteID >= 1){
 
             cliente = clienteController.getClienteByID(cliente);
+            cliente.setClientePF(clientePfController.getClientePFByFK(cliente.getId()));
+
+            Log.i(AppUtil.LOG_APP, "AAAAAAAAAA"+ cliente.getId() );
+
+
+            //Dados dos obj Cliente
             edtPrimeiroNome.setText(cliente.getPrimeiroNome());
             edtSobrenome.setText(cliente.getSobrenome());
             edtEmail.setText(cliente.getEmail());
             edtSenha.setText(cliente.getSenha());
             ckPessoaFisica.setChecked(cliente.isPessoaFisica());
 
+            //Dados Pessoa Fisica
+            edtCPF.setText(cliente.getClientePF().getCpf());
+            edtNomeCompleto.setText(cliente.getClientePF().getNomeCompleto());
+
+            Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
+            Log.i(AppUtil.LOG_APP, "CPF: " + cliente.getClientePF().getCpf());
+            Log.i(AppUtil.LOG_APP, "Nome Completo: " + cliente.getClientePF().getNomeCompleto());
 
         }else{
             FancyAlertDialog.Builder

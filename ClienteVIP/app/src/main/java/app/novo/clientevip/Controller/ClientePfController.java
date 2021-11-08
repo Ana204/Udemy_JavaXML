@@ -16,11 +16,11 @@ public class ClientePfController extends AppDataBase {
     private static final String TABELA = ClientePfDataModel.TABELA;
     private ContentValues dados;
 
-    public ClientePfController(@Nullable  Context context) {
+    public ClientePfController(@Nullable Context context) {
         super(context);
     }
 
-    public boolean incluir(ClientePF obj){
+    public boolean incluir(ClientePF obj) {
 
         dados = new ContentValues();
 
@@ -32,7 +32,7 @@ public class ClientePfController extends AppDataBase {
         return insert(TABELA, dados);
     }
 
-    public boolean alterar(ClientePF obj){
+    public boolean alterar(ClientePF obj) {
 
         dados = new ContentValues();
 
@@ -43,7 +43,7 @@ public class ClientePfController extends AppDataBase {
         return update(TABELA, dados);
     }
 
-    public boolean deletar(ClientePF obj){
+    public boolean deletar(ClientePF obj) {
 
         dados = new ContentValues();
 
@@ -52,13 +52,19 @@ public class ClientePfController extends AppDataBase {
         return delete(TABELA, obj.getId());
     }
 
-    public List<ClientePF> listar(){
+    public List<ClientePF> listar() {
 
         return listClientesPessoaFisica(TABELA);
     }
 
-    public int getUltimo(){
+    public int getUltimo() {
 
         return getLastPk(TABELA);
+    }
+
+    //idFK vindo como 0
+    public ClientePF getClientePFByFK(int idFK) {
+
+        return getClientePFByFK(ClientePfDataModel.TABELA, idFK);
     }
 }

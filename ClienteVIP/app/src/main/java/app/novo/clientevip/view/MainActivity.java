@@ -103,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
+                Log.i(AppUtil.LOG_APP, "CPF: " + clientePF.getCpf());
+                Log.i(AppUtil.LOG_APP, "Nome Completo: " + clientePF.getNomeCompleto());
 /*                Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
                 Log.i(AppUtil.LOG_APP, "Primeiro Nome: " + cliente.getPrimeiroNome());
                 Log.i(AppUtil.LOG_APP, "Sobrenome: " + cliente.getSobrenome());

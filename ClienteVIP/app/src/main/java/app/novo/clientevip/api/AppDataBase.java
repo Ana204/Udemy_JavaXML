@@ -322,7 +322,6 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         String sql = "SELECT * FROM "+tabela+" WHERE clienteID = "+ idFK;
 
-        Log.i(AppUtil.LOG_APP, "AQUIIIIIIII" + sql + " - " + idFK);
         try {
             cursor = db.rawQuery(sql, null);
 

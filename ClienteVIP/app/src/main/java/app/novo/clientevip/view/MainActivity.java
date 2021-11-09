@@ -102,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
         btnMeusDados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 /*                Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
                 Log.i(AppUtil.LOG_APP, "Primeiro Nome: " + cliente.getPrimeiroNome());
                 Log.i(AppUtil.LOG_APP, "Sobrenome: " + cliente.getSobrenome());
@@ -120,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
                     Log.i(AppUtil.LOG_APP, "Simples Nacional: " + clientePJ.isSimplesNacional());
                     Log.i(AppUtil.LOG_APP, "MEI: " + clientePJ.isMei());
                 }*/
-
                 //salvarSharedPreferences();
                 Intent intent = new Intent(MainActivity.this, MeusDadosActivity.class);
                 startActivity(intent);
@@ -132,8 +130,7 @@ public class MainActivity extends AppCompatActivity {
         btnAtualizarMeusDados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (cliente.isPessoaFisica()) {
+/*                if (cliente.isPessoaFisica()) {
 
                     cliente.setPrimeiroNome("Ana B");
                     cliente.setSobrenome("Gomes");
@@ -154,7 +151,9 @@ public class MainActivity extends AppCompatActivity {
                     Log.i(AppUtil.LOG_APP, "** ALTERAÇÃO DADOS CLIENTE PJ ** ");
                     Log.i(AppUtil.LOG_APP, "Razão Social: " + clientePJ.getRazaoSocial());
 
-                }
+                }*/
+                Intent intent = new Intent(MainActivity.this, AtualizarMeusDadosActivity.class);
+                startActivity(intent);
             }
         });
     }

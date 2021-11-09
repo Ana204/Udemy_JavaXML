@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         clienteController.getClienteByID(cliente);
         cliente.getClientePF();
-        //cliente.getClientePJ();
+        cliente.getClientePJ();
 
         initTelaInical();
 
@@ -129,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void atualizarMeusDados() {
-
         btnAtualizarMeusDados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void excluirMinhaConta() {
-
         btnExcluirConta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -201,7 +199,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void consultarClientes() {
-
         btnConsultarClientesVIP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -212,7 +209,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sairDoApp() {
-
         btnSairApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

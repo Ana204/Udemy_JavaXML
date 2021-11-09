@@ -17,8 +17,10 @@ import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 
 import app.novo.clientevip.Controller.ClienteController;
 import app.novo.clientevip.Controller.ClientePfController;
+import app.novo.clientevip.Controller.ClientePjController;
 import app.novo.clientevip.R;
 import app.novo.clientevip.api.AppUtil;
+import app.novo.clientevip.datamodel.ClientePjDataModel;
 import app.novo.clientevip.model.Cliente;
 
 
@@ -33,6 +35,8 @@ public class MeusDadosActivity extends AppCompatActivity {
 
     ClienteController clienteController;
     ClientePfController clientePfController;
+    ClientePjController clientePjController;
+
     Cliente cliente;
 
     SharedPreferences preferences;
@@ -72,8 +76,7 @@ public class MeusDadosActivity extends AppCompatActivity {
 
         clienteController = new ClienteController(this);
         clientePfController = new ClientePfController(this);
-
-
+        clientePjController = new ClientePjController(this);
 
 
     }
@@ -103,8 +106,9 @@ public class MeusDadosActivity extends AppCompatActivity {
             cliente = clienteController.getClienteByID(cliente);
             cliente.setClientePF(clientePfController.getClientePFByFK(cliente.getId()));
 
-            Log.i(AppUtil.LOG_APP, "AAAAAAAAAA"+ cliente.getId() );
-
+            if (!cliente.isPessoaFisica()){
+                cliente.setClientePJ(clientePjController.getClientePJByFK(cliente.getClientePF().getId()));
+            }
 
             //Dados dos obj Cliente
             edtPrimeiroNome.setText(cliente.getPrimeiroNome());
@@ -117,9 +121,15 @@ public class MeusDadosActivity extends AppCompatActivity {
             edtCPF.setText(cliente.getClientePF().getCpf());
             edtNomeCompleto.setText(cliente.getClientePF().getNomeCompleto());
 
-            Log.i(AppUtil.LOG_APP, "ID: " + cliente.getId());
-            Log.i(AppUtil.LOG_APP, "CPF: " + cliente.getClientePF().getCpf());
-            Log.i(AppUtil.LOG_APP, "Nome Completo: " + cliente.getClientePF().getNomeCompleto());
+            //Dados Pessoa Juridica
+            if(!cliente.isPessoaFisica()){
+
+                edtcnpj.setText(cliente.getClientePJ().getCnpj());
+                edtData.setText(cliente.getClientePJ().getDataAbertura());
+                razaoSocial.setText(cliente.getClientePJ().getRazaoSocial());
+                ckSimplesNacional.setChecked(cliente.getClientePJ().isSimplesNacional());
+                ckMei.setChecked(cliente.getClientePJ().isMei());
+            }
 
         }else{
             FancyAlertDialog.Builder

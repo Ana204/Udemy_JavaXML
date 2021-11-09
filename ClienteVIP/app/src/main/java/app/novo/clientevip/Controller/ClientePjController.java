@@ -8,7 +8,9 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 import app.novo.clientevip.api.AppDataBase;
+import app.novo.clientevip.datamodel.ClientePfDataModel;
 import app.novo.clientevip.datamodel.ClientePjDataModel;
+import app.novo.clientevip.model.ClientePF;
 import app.novo.clientevip.model.ClientePJ;
 
 public class ClientePjController extends AppDataBase {
@@ -66,5 +68,10 @@ public class ClientePjController extends AppDataBase {
     public int getUltimoID() {
 
         return getLastPk(TABELA);
+    }
+
+    public ClientePJ getClientePJByFK(int idFK) {
+
+        return getClientePJByFK(ClientePjDataModel.TABELA, idFK);
     }
 }

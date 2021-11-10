@@ -78,4 +78,8 @@
     <string name="simplesNacional">Simples Nacional</string>
     <string name="mei">MEI</string>
 
+    <!--Tela atualizar dados-->
+    <string name="editar">EDITAR</string>
+    <string name="salvar">SALVAR</string>
+
 </resources>

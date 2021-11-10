@@ -129,6 +129,7 @@ public class MeusDadosActivity extends AppCompatActivity {
                 razaoSocial.setText(cliente.getClientePJ().getRazaoSocial());
                 ckSimplesNacional.setChecked(cliente.getClientePJ().isSimplesNacional());
                 ckMei.setChecked(cliente.getClientePJ().isMei());
+                ckPessoaFisica.setVisibility(View.GONE);
             }
 
         }else{

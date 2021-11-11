@@ -176,8 +176,6 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
                     return;
                 }
-            } else {
-                Toast.makeText(LoginActivity.this, "Verifique seus dados", Toast.LENGTH_LONG).show();
             }
         });
     }

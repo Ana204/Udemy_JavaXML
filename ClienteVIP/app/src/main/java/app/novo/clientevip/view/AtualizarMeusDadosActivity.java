@@ -147,6 +147,7 @@ public class AtualizarMeusDadosActivity extends AppCompatActivity {
 
         //considerar que o usuario  preencheu o formulario
         boolean retorno = true;
+        String cpf = edtCPF.getText().toString();
 
         if (TextUtils.isEmpty(edtPrimeiroNome.getText().toString())) {
             edtPrimeiroNome.setError("Preencha o campo com seu primeiro nome");
@@ -156,16 +157,10 @@ public class AtualizarMeusDadosActivity extends AppCompatActivity {
             edtSobrenome.setError("Preencha o campo com seu sobrenome");
             retorno = false;
         }
-
-        return retorno;
-    }
-
-    private boolean validarFormularioPF() {
-
-        //considerar que o usuario  preencheu o formulario
-        boolean retorno = true;
-        String cpf = edtCPF.getText().toString();
-
+        if (TextUtils.isEmpty(edtNomeCompleto.getText().toString())) {
+            edtNomeCompleto.setError("Preencha o campo com seu nome completo");
+            retorno = false;
+        }
         if (TextUtils.isEmpty(cpf)) {
             edtCPF.setError("Preencha o campo com seu CPF");
             retorno = false;
@@ -173,14 +168,11 @@ public class AtualizarMeusDadosActivity extends AppCompatActivity {
         if (!AppUtil.isCPF(cpf)){
             edtCPF.setError("CPF inválido, tente novamente");
             retorno = false;
-
-            //Toast.makeText(this, "CPF inválido, tente novamente !!", Toast.LENGTH_LONG).show();
         }else {
             edtCPF.setText(AppUtil.mascaraCPF(edtCPF.getText().toString()));
         }
-
-        if (TextUtils.isEmpty(edtNomeCompleto.getText().toString())) {
-            edtNomeCompleto.setError("Preencha o campo com seu nome completo");
+        if (TextUtils.isEmpty(edtEmail.getText().toString())) {
+            edtEmail.setError("Preencha o campo com seu primeiro nome");
             retorno = false;
         }
 

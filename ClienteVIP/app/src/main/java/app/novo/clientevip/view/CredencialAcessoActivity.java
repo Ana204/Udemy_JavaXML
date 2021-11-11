@@ -156,7 +156,7 @@ public class CredencialAcessoActivity extends AppCompatActivity {
                     } else {
 
                         cliente.setEmail(edtEmail.getText().toString());
-                        cliente.setSenha(edtSenha.getText().toString());
+                        cliente.setSenha(AppUtil.gerarMD5Hash(edtSenha.getText().toString()));
 
                         clienteController.alterar(cliente);
 
@@ -182,7 +182,7 @@ public class CredencialAcessoActivity extends AppCompatActivity {
         SharedPreferences.Editor dados = preferences.edit();
 
         dados.putString("email", edtEmail.getText().toString());
-        dados.putString("senha", edtSenha.getText().toString());
+        dados.putString("senha", AppUtil.gerarMD5Hash(edtSenha.getText().toString()));
         dados.apply();
     }
 

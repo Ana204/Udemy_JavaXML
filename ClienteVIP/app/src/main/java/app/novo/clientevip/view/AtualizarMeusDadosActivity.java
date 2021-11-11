@@ -134,9 +134,14 @@ public class AtualizarMeusDadosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(validarFormulario()){
+                if(isPessoaFisica){
                     //alterar os dados salvando no banco
                     //controller
+                    validarFormulario();
+                    validarCPF();
+                }else {
+                    validarFormulario();
+                    validarFormularioPJ();
                 }
 
             }
@@ -145,9 +150,10 @@ public class AtualizarMeusDadosActivity extends AppCompatActivity {
 
     private boolean validarFormulario() {
 
+        //TODO: verificar se a senha é para validar aqui
+
         //considerar que o usuario  preencheu o formulario
         boolean retorno = true;
-        String cpf = edtCPF.getText().toString();
 
         if (TextUtils.isEmpty(edtPrimeiroNome.getText().toString())) {
             edtPrimeiroNome.setError("Preencha o campo com seu primeiro nome");
@@ -161,6 +167,18 @@ public class AtualizarMeusDadosActivity extends AppCompatActivity {
             edtNomeCompleto.setError("Preencha o campo com seu nome completo");
             retorno = false;
         }
+        if (TextUtils.isEmpty(edtEmail.getText().toString())) {
+            edtEmail.setError("Preencha o campo com seu primeiro nome");
+            retorno = false;
+        }
+
+        return retorno;
+    }
+
+    private boolean validarCPF(){
+        boolean retorno = true;
+        String cpf = edtCPF.getText().toString();
+
         if (TextUtils.isEmpty(cpf)) {
             edtCPF.setError("Preencha o campo com seu CPF");
             retorno = false;
@@ -171,11 +189,6 @@ public class AtualizarMeusDadosActivity extends AppCompatActivity {
         }else {
             edtCPF.setText(AppUtil.mascaraCPF(edtCPF.getText().toString()));
         }
-        if (TextUtils.isEmpty(edtEmail.getText().toString())) {
-            edtEmail.setError("Preencha o campo com seu primeiro nome");
-            retorno = false;
-        }
-
         return retorno;
     }
 

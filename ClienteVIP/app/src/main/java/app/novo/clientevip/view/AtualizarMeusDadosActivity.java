@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.shashank.sony.fancydialoglib.Animation;
 import com.shashank.sony.fancydialoglib.FancyAlertDialog;
@@ -96,8 +98,32 @@ public class AtualizarMeusDadosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                btnSalvar.setEnabled(true);
                 btn_editar.setEnabled(false);
+                btnSalvar.setEnabled(true);
+
+                if (!isPessoaFisica){
+                    edtcnpj.setEnabled(true);
+                    razaoSocial.setEnabled(true);
+                    edtData.setEnabled(true);
+                    ckMei.setEnabled(true);
+                    ckSimplesNacional.setEnabled(true);
+                    edtPrimeiroNome.setEnabled(true);
+                    edtSobrenome.setEnabled(true);
+                    edtNomeCompleto.setEnabled(true);
+                    edtEmail.setEnabled(true);
+                    edtSenha.setEnabled(true);
+                    edtCPF.setEnabled(true);
+                }
+                else {
+                    edtPrimeiroNome.setEnabled(true);
+                    edtSobrenome.setEnabled(true);
+                    edtNomeCompleto.setEnabled(true);
+                    edtCPF.setEnabled(true);
+                    edtEmail.setEnabled(true);
+                    edtSenha.setEnabled(true);
+                }
+
+
 
             }
         });
@@ -108,10 +134,88 @@ public class AtualizarMeusDadosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(validarFormulario()){
+                    //alterar os dados salvando no banco
+                    //controller
+                }
+
             }
         });
     }
 
+    private boolean validarFormulario() {
+
+        //considerar que o usuario  preencheu o formulario
+        boolean retorno = true;
+
+        if (TextUtils.isEmpty(edtPrimeiroNome.getText().toString())) {
+            edtPrimeiroNome.setError("Preencha o campo com seu primeiro nome");
+            retorno = false;
+        }
+        if (TextUtils.isEmpty(edtSobrenome.getText().toString())) {
+            edtSobrenome.setError("Preencha o campo com seu sobrenome");
+            retorno = false;
+        }
+
+        return retorno;
+    }
+
+    private boolean validarFormularioPF() {
+
+        //considerar que o usuario  preencheu o formulario
+        boolean retorno = true;
+        String cpf = edtCPF.getText().toString();
+
+        if (TextUtils.isEmpty(cpf)) {
+            edtCPF.setError("Preencha o campo com seu CPF");
+            retorno = false;
+        }
+        if (!AppUtil.isCPF(cpf)){
+            edtCPF.setError("CPF inválido, tente novamente");
+            retorno = false;
+
+            //Toast.makeText(this, "CPF inválido, tente novamente !!", Toast.LENGTH_LONG).show();
+        }else {
+            edtCPF.setText(AppUtil.mascaraCPF(edtCPF.getText().toString()));
+        }
+
+        if (TextUtils.isEmpty(edtNomeCompleto.getText().toString())) {
+            edtNomeCompleto.setError("Preencha o campo com seu nome completo");
+            retorno = false;
+        }
+
+        return retorno;
+    }
+
+    private boolean validarFormularioPJ() {
+
+        //considerar que o usuario  preencheu o formulario
+        boolean retorno = true;
+
+        String cnpj = edtcnpj.getText().toString();
+        if (TextUtils.isEmpty(cnpj)) {
+            edtcnpj.setError("Preencha o campo com seu CNPJ");
+            retorno = false;
+        }
+        if (!AppUtil.isCNPJ(cnpj)){
+            edtcnpj.setError("*");
+            retorno = false;
+
+            Toast.makeText(this, "CNPJ inválido, tente novamente", Toast.LENGTH_LONG).show();
+        }else {
+            edtcnpj.setText(AppUtil.mascaraCNPJ(edtcnpj.getText().toString()));
+        }
+
+        if (TextUtils.isEmpty(razaoSocial.getText().toString())) {
+            razaoSocial.setError("Preencha o campo com sua razão social");
+            retorno = false;
+        }
+        if (TextUtils.isEmpty(edtData.getText().toString())){
+            edtData.setError("Preencha o campo com a data");
+        }
+
+        return retorno;
+    }
 
     private void restaurarSharedPreferences() {
         preferences = getSharedPreferences(AppUtil.APP_PREFERENCIA, MODE_PRIVATE);

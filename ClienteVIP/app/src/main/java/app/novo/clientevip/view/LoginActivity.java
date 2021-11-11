@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -182,9 +183,23 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public boolean validarDadosDoUsuario() {
-       // return ClienteController.validarDadosDoCliente(cliente, editEmailLogin.getText().toString(), edtSenhaLogin.getText().toString());
 
-        return true;
+        boolean retorno = false;
+
+        String emailDigitado = editEmailLogin.getText().toString();
+        String emailSalvo = cliente.getEmail();
+
+        String senhaDigitada = edtSenhaLogin.getText().toString();
+        String senhaMD5 = cliente.getSenha();
+
+        if (senhaMD5.equals(AppUtil.gerarMD5Hash(senhaDigitada)) && emailDigitado.equals(emailSalvo)){
+            retorno = true;
+        }
+        else {
+            Toast.makeText(LoginActivity.this, "VERIFIQUE SEUS DADOS !!", Toast.LENGTH_LONG).show();
+        }
+
+        return retorno;
     }
 
     private void btnSejaVipEvento() {
@@ -219,11 +234,6 @@ public class LoginActivity extends AppCompatActivity {
         cliente.setPessoaFisica(preferences.getBoolean("pessoaFisica", true));
 
         isLembrarSenha = preferences.getBoolean("loginAutomatico", false);
-
-
-
-
-
 
     }
 

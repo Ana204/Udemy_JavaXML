@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.novo.clientevip.Controller.ClienteController;
+import app.novo.clientevip.Controller.ClientePfController;
 import app.novo.clientevip.R;
 import app.novo.clientevip.api.AppUtil;
 import app.novo.clientevip.model.Cliente;
@@ -28,11 +29,10 @@ import app.novo.clientevip.model.ClientePJ;
 public class MainActivity extends AppCompatActivity {
 
     Cliente cliente;
-    ClientePF clientePF;
-    ClientePJ clientePJ;
     private SharedPreferences preferences;
     List<Cliente> clientes;
     ClienteController clienteController;
+    ClientePfController clientePfController;
 
     TextView txtNome;
     Button btnMeusDados, btnAtualizarMeusDados, btnExcluirConta, btnConsultarClientesVIP, btnSairApp;
@@ -42,12 +42,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        cliente = new Cliente();
-        clienteController = new ClienteController(this);
 
-        clienteController.getClienteByID(cliente);
+       /* clienteController.getClienteByID(cliente);
         cliente.getClientePF();
-        cliente.getClientePJ();
+        cliente.getClientePJ();*/
 
         initTelaInical();
 
@@ -59,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         atualizarMeusDados();
         consultarClientes();
 
-        txtNome.setText("Bem Vindo - " + cliente.getPrimeiroNome());
     }
 
     private void initTelaInical() {
@@ -72,11 +69,12 @@ public class MainActivity extends AppCompatActivity {
         btnSairApp = findViewById(R.id.btnSairApp);
 
         cliente = new Cliente();
-        clientePF = new ClientePF();
-        clientePJ = new ClientePJ();
         clienteController = new ClienteController(this);
+        clientePfController = new ClientePfController(this);
 
         restaurarSharedPreferences();
+
+        txtNome.setText("Bem Vindo - " + cliente.getPrimeiroNome());
     }
 
     private void buscarListaDeClientes() {
@@ -176,16 +174,16 @@ public class MainActivity extends AppCompatActivity {
                         .isCancellable(true)
                         .setIcon(R.mipmap.logo, View.VISIBLE)
                         .onPositiveClicked(dialog -> {
-                            Toast.makeText(MainActivity.this, "QUE PENA!! SUA CONTA FOI EXCLUIDA !", Toast.LENGTH_SHORT).show();
 
-                            cliente = new Cliente();
-                            clientePF = new ClientePF();
-                            clientePJ = new ClientePJ();
+                            cliente.setClientePF(clientePfController.getClientePFByFK(cliente.getId()));
+
+                            clientePfController.deletar(cliente.getClientePF());
+                            clienteController.deletar(cliente);
+                            //cliente.setClientePJ();
+
+                            Toast.makeText(MainActivity.this, cliente.getPrimeiroNome() + " " + "QUE PENA!! SUA CONTA FOI EXCLUIDA !", Toast.LENGTH_SHORT).show();
 
                             //salvarSharedPreferences();
-
-                            finish();
-                            return;
                         })
                         .onNegativeClicked(dialog -> {
                             Toast.makeText(MainActivity.this, "DIVIRTA-SE", Toast.LENGTH_SHORT).show();
@@ -254,15 +252,16 @@ public class MainActivity extends AppCompatActivity {
         cliente.setEmail(preferences.getString("email", "null"));
         cliente.setSenha(preferences.getString("senha", "null"));
         cliente.setPessoaFisica(preferences.getBoolean("pessoaFisica", true));
+        cliente.setId(preferences.getInt("ultimoId", -1));
 
-        clientePF.setCpf(preferences.getString("cpf", "null"));
+        /*clientePF.setCpf(preferences.getString("cpf", "null"));
         clientePF.setNomeCompleto(preferences.getString("nomeCompleto", "null"));
 
         clientePJ.setCnpj(preferences.getString("cnpj", "null"));
         clientePJ.setRazaoSocial(preferences.getString("razaoSocial", "null"));
         clientePJ.setSimplesNacional(preferences.getBoolean("simplesNacional", false));
         clientePJ.setMei(preferences.getBoolean("mei", false));
-        clientePJ.setDataAbertura(preferences.getString("dataAberturaEmpresa", "null"));
+        clientePJ.setDataAbertura(preferences.getString("dataAberturaEmpresa", "null"));*/
 
 
     }

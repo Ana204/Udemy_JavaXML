@@ -293,29 +293,6 @@ public class AppDataBase extends SQLiteOpenHelper {
         return cliente;
     }
 
-    /*public ClientePF getClientePFByFK(String tabela, int idFK) {
-
-        ClientePF clientePF = new ClientePF();
-
-        String sql = "SELECT * FROM "+tabela+" WHERE clienteID = "+7;
-
-        try {
-            cursor = db.rawQuery(sql, null);
-
-            if (cursor.moveToNext()) {
-
-                clientePF.setId(cursor.getInt(cursor.getColumnIndex(ClientePfDataModel.ID)));
-                clientePF.setNomeCompleto(cursor.getString(cursor.getColumnIndex(ClientePfDataModel.NOME_COMPLETO)));
-                clientePF.setCpf(cursor.getString(cursor.getColumnIndex(ClientePfDataModel.CPF)));
-            }
-
-        } catch (SQLException e) {
-            Log.e(AppUtil.LOG_APP, "ERROR GetClienteByFK" + " - " + idFK + " - " + e.getMessage());
-        }
-
-        return clientePF;
-    }*/
-
     public ClientePF getClientePFByFK(String tabela, int idFK) {
 
         ClientePF clientePF = new ClientePF();

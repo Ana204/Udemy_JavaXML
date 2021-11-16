@@ -20,6 +20,7 @@ import java.util.List;
 
 import app.novo.clientevip.Controller.ClienteController;
 import app.novo.clientevip.Controller.ClientePfController;
+import app.novo.clientevip.Controller.ClientePjController;
 import app.novo.clientevip.R;
 import app.novo.clientevip.api.AppUtil;
 import app.novo.clientevip.model.Cliente;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     List<Cliente> clientes;
     ClienteController clienteController;
     ClientePfController clientePfController;
+    ClientePjController clientePjController;
 
     TextView txtNome;
     Button btnMeusDados, btnAtualizarMeusDados, btnExcluirConta, btnConsultarClientesVIP, btnSairApp;
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         cliente = new Cliente();
         clienteController = new ClienteController(this);
         clientePfController = new ClientePfController(this);
+        clientePjController = new ClientePjController(this);
 
         restaurarSharedPreferences();
 
@@ -177,11 +180,20 @@ public class MainActivity extends AppCompatActivity {
 
                             cliente.setClientePF(clientePfController.getClientePFByFK(cliente.getId()));
 
+                            if (!cliente.isPessoaFisica()){
+
+                                cliente.setClientePJ(clientePjController.getClientePJByFK(cliente.getClientePF().getId()));
+                                clientePjController.deletar(cliente.getClientePJ());
+                            }
+
                             clientePfController.deletar(cliente.getClientePF());
                             clienteController.deletar(cliente);
                             //cliente.setClientePJ();
 
-                            Toast.makeText(MainActivity.this, cliente.getPrimeiroNome() + " " + "QUE PENA!! SUA CONTA FOI EXCLUIDA !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, cliente.getPrimeiroNome() + ", " + "QUE PENA!! SUA CONTA FOI EXCLUIDA !", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            return;
 
                             //salvarSharedPreferences();
                         })

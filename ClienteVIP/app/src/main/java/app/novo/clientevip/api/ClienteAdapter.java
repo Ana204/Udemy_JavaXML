@@ -49,11 +49,19 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
         Cliente objDaLinha = aClientes.get(position);
 
         Button pessoa = holder.rvPessoa;
-        pessoa.setText(objDaLinha.isPessoaFisica() ? "CPF" : "CNPJ");
+
+        try{
+            pessoa.setText(objDaLinha.isPessoaFisica() ? "CPF: "+objDaLinha.getClientePF().getCpf() : "CNPJ: " +objDaLinha.getClientePJ().getCnpj());
+        }catch (Exception e){
+            pessoa.setText(objDaLinha.isPessoaFisica() ? "CPF " : "CNPJ ");
+        }
 
 
         TextView primeiroNome = holder.rvPrimeiroNome;
         primeiroNome.setText(objDaLinha.getPrimeiroNome());
+
+        TextView rvEmail = holder.rvEmail;
+        rvEmail.setText(objDaLinha.getEmail());
 
     }
 
@@ -67,6 +75,7 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
 
         public Button rvPessoa;
         public TextView rvPrimeiroNome;
+        public TextView rvEmail;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -74,6 +83,7 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
 
             rvPessoa = itemView.findViewById(R.id.rvPessoa);
             rvPrimeiroNome = itemView.findViewById(R.id.rvPrimeiroNome);
+            rvEmail = itemView.findViewById(R.id.rvEmail);
 
             itemView.setOnClickListener(this);
         }
@@ -87,9 +97,9 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
 
             if (position != RecyclerView.NO_POSITION){
 
-                Log.i(AppUtil.LOG_APP, "Cliente ID" + position + "Primeiro Nome: " +clienteSelecionado.getPrimeiroNome());
+                Log.i(AppUtil.LOG_APP, "Cliente ID" +  ": " + position + ", " +  "Primeiro Nome: " +clienteSelecionado.getPrimeiroNome());
 
-                Toast.makeText(aContext, "Cliente ID" + position + "Primeiro Nome: " +clienteSelecionado.getPrimeiroNome(), Toast.LENGTH_LONG).show();
+                Toast.makeText(aContext, "Cliente ID" + ": " + position + ", " + "Primeiro Nome: " +clienteSelecionado.getPrimeiroNome(), Toast.LENGTH_LONG).show();
             }
 
         }

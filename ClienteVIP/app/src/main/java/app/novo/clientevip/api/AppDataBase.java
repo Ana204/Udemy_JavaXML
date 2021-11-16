@@ -12,6 +12,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.novo.clientevip.Controller.ClientePfController;
+import app.novo.clientevip.Controller.ClientePjController;
 import app.novo.clientevip.datamodel.ClienteDataModel;
 import app.novo.clientevip.datamodel.ClientePfDataModel;
 import app.novo.clientevip.datamodel.ClientePjDataModel;
@@ -28,9 +30,12 @@ public class AppDataBase extends SQLiteOpenHelper {
 
     SQLiteDatabase db;
 
+    Context context;
+
     public AppDataBase(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
 
+        this.context = context;
         db = getWritableDatabase();
     }
 
@@ -145,6 +150,9 @@ public class AppDataBase extends SQLiteOpenHelper {
         List<Cliente> list = new ArrayList<>();
         Cliente cliente;
 
+        ClientePfController clientePfController = new ClientePfController(context);
+        ClientePjController clientePjController = new ClientePjController(context);
+
         String sql = "SELECT * FROM " + tabela;
 
         try {
@@ -159,6 +167,13 @@ public class AppDataBase extends SQLiteOpenHelper {
                     cliente.setSobrenome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.SOBRENOME)));
                     cliente.setEmail(cursor.getString(cursor.getColumnIndex(ClienteDataModel.EMAIL)));
                     cliente.setPessoaFisica(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.PESSOA_FISICA)) == 1);
+
+
+                    cliente.setClientePF(clientePfController.getClientePFByFK(cliente.getId()));
+
+                    if (!cliente.isPessoaFisica()) {
+                        cliente.setClientePJ(clientePjController.getClientePJByFK(cliente.getClientePF().getId()));
+                    }
 
                     list.add(cliente);
                 }

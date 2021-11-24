@@ -6,10 +6,10 @@
  */
 
 // Cuidados Rede Wifi, Hospedagem, Endereço IP, DNS
-$servername = "informe_o_endereco_ip_url_do_servidor_sgbd";
-$dbname 	= "informe_o_nome_do_banco_de_dados";
-$username 	= "informe_o_nome_do_usuario_do_banco_de_dados";
-$password 	= "informe_a_senha_do_usuario_do_banco";
+$servername = ""; //informe_o_endereco_ip_url_do_servidor_sgbd
+$dbname 	= ""; //informe_o_nome_do_banco_de_dados
+$username 	= ""; //informe_o_nome_do_usuario_do_banco_de_dados
+$password 	= ""; //informe_a_senha_do_usuario_do_banco
 
 try {
 	// Conexão com SGDB MySQL
@@ -20,6 +20,7 @@ try {
 		array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
 	);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	//echo "Banco conectado com sucesso: " .$servername;
 } catch (PDOException $e) {
 	// Cuidado para não expor dados de acesso
 	echo "<pre>" . $e . "</pre>";

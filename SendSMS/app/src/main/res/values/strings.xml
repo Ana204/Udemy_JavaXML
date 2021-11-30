@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">SendSMS</string>
+    <string name="app_name">Enviar SMS</string>
+    <string name="envie_sua_mensagem">ENVIE SUA MENSAGEM</string>
+    <string name="para">PARA:</string>
+    <string name="mensagem">MENSAGEM:</string>
+    <string name="enviar">ENVIAR</string>
 </resources>

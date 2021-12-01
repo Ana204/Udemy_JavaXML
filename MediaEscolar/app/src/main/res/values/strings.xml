@@ -11,4 +11,9 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="media_escolar">MÉDIA ESCOLAR</string>
     <string name="bimestre">1º BIMESTRE</string>
+    <string name="materia">MATÉRIA:</string>
+    <string name="nota_do_trabalho">NOTA DO TRABALHO:</string>
+    <string name="nota_da_prova">NOTA DA PROVA:</string>
+    <string name="media">MÉDIA</string>
+    <string name="situacao">SITUAÇÃO</string>
 </resources>

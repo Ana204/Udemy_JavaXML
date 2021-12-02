@@ -82,12 +82,14 @@ public class SecondFragment extends Fragment {
 
                         if (dMedia >= 6) {
                             situacao.setText("APROVADO");
+                            media.setTextColor(getResources().getColor(R.color.green_500));
+                            situacao.setTextColor(getResources().getColor(R.color.green_500));
                         } else {
                             situacao.setText("REPROVADO");
+                            situacao.setTextColor(getResources().getColor(R.color.red_500));
+                            media.setTextColor(getResources().getColor(R.color.red_500));
                         }
                     }
-
-                    //Toast.makeText(getContext(), "BUTTON CALCULAR CLICADO", Toast.LENGTH_LONG).show();
                 }catch (Exception e){
                     Toast.makeText(getContext(), "INFORME AS NOTAS !", Toast.LENGTH_LONG).show();
                 }

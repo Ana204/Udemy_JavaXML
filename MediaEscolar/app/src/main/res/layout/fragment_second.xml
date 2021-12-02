@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white_400"
     tools:context=".SecondFragment">
 
 
@@ -13,6 +14,8 @@
         android:layout_height="wrap_content"
         android:text="@string/media_escolar"
         android:textSize="25sp"
+        android:textColor="@color/teal_900"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.397"
@@ -26,6 +29,7 @@
         android:layout_height="wrap_content"
         android:text="@string/bimestre"
         android:textSize="20sp"
+        android:textColor="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.426"
@@ -40,6 +44,7 @@
         android:layout_marginStart="36dp"
         android:text="@string/materia"
         android:textSize="18sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -50,6 +55,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.536"
@@ -58,11 +64,11 @@
         app:layout_constraintVertical_bias="0.252" />
 
 
-
     <EditText
         android:id="@+id/edtNotaTrabalho"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.285"
@@ -76,6 +82,7 @@
         android:layout_height="wrap_content"
         android:text="@string/nota_do_trabalho"
         android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.141"
@@ -87,6 +94,7 @@
         android:id="@+id/edtNotaProva"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.433"
@@ -100,6 +108,7 @@
         android:layout_height="wrap_content"
         android:text="@string/nota_da_prova"
         android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.125"
@@ -113,6 +122,7 @@
         android:layout_width="106dp"
         android:layout_height="31dp"
         android:text="@string/media"
+        android:textColor="@color/teal_700"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -140,6 +150,7 @@
         android:layout_height="31dp"
         android:text="@string/situacao"
         android:textSize="20sp"
+        android:textColor="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.118"

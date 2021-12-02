@@ -24,7 +24,7 @@ public class SecondFragment extends Fragment {
     Button calcular;
 
     double notaProva,notaTrabalho, dMedia;
-    String resultado;
+    boolean dadosValidados = true;
 
     @Override
     public View onCreateView(
@@ -52,19 +52,45 @@ public class SecondFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                notaProva = Double.parseDouble(edtNotaProva.getText().toString());
-                notaTrabalho = Double.parseDouble(edtNotaTrabalho.getText().toString());
+                try {
 
-                dMedia = (notaProva + notaTrabalho)/2;
-                media.setText(String.valueOf(dMedia));
+                    if(edtNotaProva.getText().toString().length()>0){
+                        notaProva = Double.parseDouble(edtNotaProva.getText().toString());
+                    }else {
+                        edtNotaProva.setError("Preencha o campo com sua nota");
+                        edtNotaProva.requestFocus();
+                        dadosValidados = false;
+                    }
 
-                if (dMedia >= 6) {
-                    situacao.setText("APROVADO");
-                } else {
-                    situacao.setText("REPROVADO");
+                    if(edtNotaTrabalho.getText().toString().length()>0){
+                        notaTrabalho = Double.parseDouble(edtNotaTrabalho.getText().toString());
+                    }else {
+                        edtNotaTrabalho.setError("Preencha o campo com sua nota");
+                        edtNotaTrabalho.requestFocus();
+                        dadosValidados = false;
+                    }
+
+                    if (edtMateria.getText().toString().length()==0){
+                        edtMateria.setError("Preencha o campo com o nome da matéria");
+                        edtMateria.requestFocus();
+                        dadosValidados = false;
+                    }
+
+                    if (dadosValidados) {
+                        dMedia = (notaProva + notaTrabalho) / 2;
+                        media.setText(String.valueOf(dMedia));
+
+                        if (dMedia >= 6) {
+                            situacao.setText("APROVADO");
+                        } else {
+                            situacao.setText("REPROVADO");
+                        }
+                    }
+
+                    //Toast.makeText(getContext(), "BUTTON CALCULAR CLICADO", Toast.LENGTH_LONG).show();
+                }catch (Exception e){
+                    Toast.makeText(getContext(), "INFORME AS NOTAS !", Toast.LENGTH_LONG).show();
                 }
-
-                Toast.makeText(getContext(), "BUTTON CALCULAR CLICADO", Toast.LENGTH_LONG).show();
             }
         });
     }

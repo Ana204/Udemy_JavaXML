@@ -3,4 +3,7 @@
     <string name="envio_de_email">ENVIO DE EMAIL</string>
     <string name="para">PARA:</string>
     <string name="adicionar_um_assunto">Adicionar um assunto</string>
+    <string name="mensagem">MENSAGEM:</string>
+    <string name="cc_cco">Cc Cco</string>
+    <string name="enviar">ENVIAR</string>
 </resources>

@@ -38,12 +38,6 @@ public class MainActivity extends AppCompatActivity {
         addAssunto = findViewById(R.id.addAssunto);
         addMensagem = findViewById(R.id.addMensagem);
         btnEnviar = findViewById(R.id.btnEnviar);
-
-        intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailDestinatario});
-        intent.putExtra(Intent.EXTRA_SUBJECT, assunto);
-        intent.putExtra(Intent.EXTRA_TEXT, mensagem);
-        intent.setType("message/rfc822");
     }
 
     private void buttonEnviar() {
@@ -53,6 +47,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 
                 ProcessarFormulario();
+
+                intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailDestinatario});
+                intent.putExtra(Intent.EXTRA_SUBJECT, assunto);
+                intent.putExtra(Intent.EXTRA_TEXT, mensagem);
+                intent.setType("message/rfc822");
+
+                startActivity(Intent.createChooser(intent, "Selecione um aplicativo"));
+
                 Toast.makeText(MainActivity.this, "Mensagem enviada com sucesso", Toast.LENGTH_LONG).show();
                 edtEnviarPara.setText("");
                 addAssunto.setText("");

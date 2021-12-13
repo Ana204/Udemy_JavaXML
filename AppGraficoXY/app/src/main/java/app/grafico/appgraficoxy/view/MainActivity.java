@@ -1,4 +1,4 @@
-package app.grafico.appgraficoxy;
+package app.grafico.appgraficoxy.view;
 
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
@@ -18,6 +18,9 @@ import java.text.Format;
 import java.text.ParsePosition;
 import java.util.Arrays;
 
+import app.grafico.appgraficoxy.R;
+import app.grafico.appgraficoxy.model.Vendas;
+
 public class MainActivity extends AppCompatActivity {
 
     private XYPlot plot;
@@ -29,17 +32,12 @@ public class MainActivity extends AppCompatActivity {
 
         plot = findViewById(R.id.plot);
 
-        //arrays of y- values to plot
-        final Number[] domainLabels = {1, 2, 3, 6, 7, 8, 9, 10, 13, 14};
-        Number[] series1Numbers = {1, 4, 2, 8, 4, 16, 8, 32, 16, 64};
-        Number[] series2Numbers = {5, 2, 10, 5, 20, 10, 40, 20, 80, 40};
-
         XYSeries series1 = new SimpleXYSeries(
-                Arrays.asList(series1Numbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series1");
+                Arrays.asList(Vendas.series1Numbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series1");
 
 
         XYSeries series2 = new SimpleXYSeries(
-                Arrays.asList(series2Numbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series2");
+                Arrays.asList(Vendas.series2Numbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series2");
 
 
         LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.RED, Color.GREEN, Color.WHITE, null);
@@ -61,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {
                 int i = Math.round(((Number) obj).floatValue());
-                return toAppendTo.append(domainLabels[i]);
+                return toAppendTo.append(Vendas.domainLabels[i]);
             }
             @Override
             public Object parseObject(String source, ParsePosition pos) {

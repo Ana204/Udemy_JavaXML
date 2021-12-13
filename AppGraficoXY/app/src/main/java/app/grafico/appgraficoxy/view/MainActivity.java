@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
         plot = findViewById(R.id.plot);
 
         XYSeries series1 = new SimpleXYSeries(
-                Arrays.asList(Vendas.series1Numbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series1");
+                Arrays.asList(Vendas.pedidos), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series1");
 
 
         XYSeries series2 = new SimpleXYSeries(
-                Arrays.asList(Vendas.series2Numbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series2");
+                Arrays.asList(Vendas.entregas), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series2");
 
 
         LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.RED, Color.GREEN, Color.WHITE, null);
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {
                 int i = Math.round(((Number) obj).floatValue());
-                return toAppendTo.append(Vendas.domainLabels[i]);
+                return toAppendTo.append(Vendas.quantidadePedidos[i]);
             }
             @Override
             public Object parseObject(String source, ParsePosition pos) {

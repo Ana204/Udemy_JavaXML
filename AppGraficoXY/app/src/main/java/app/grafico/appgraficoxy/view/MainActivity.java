@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
         plot = findViewById(R.id.plot);
 
         XYSeries series1 = new SimpleXYSeries(
-                Arrays.asList(Vendas.pedidos), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series1");
+                Arrays.asList(Vendas.pedidos), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, getString(R.string.serieA));
 
 
         XYSeries series2 = new SimpleXYSeries(
-                Arrays.asList(Vendas.entregas), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series2");
+                Arrays.asList(Vendas.entregas), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, getString(R.string.SerieB));
 
 
         LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.RED, Color.GREEN, Color.WHITE, null);

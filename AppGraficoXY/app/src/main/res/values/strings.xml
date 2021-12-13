@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">App GraficoXY</string>
+    <string name="serieA">Pedidos</string>
+    <string name="SerieB">Entregas</string>
 </resources>

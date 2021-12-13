@@ -24,6 +24,11 @@ import app.grafico.appgraficoxy.model.Vendas;
 public class MainActivity extends AppCompatActivity {
 
     private XYPlot plot;
+    XYSeries dados_seriesA;
+    XYSeries dados_seriesB;
+
+    LineAndPointFormatter Format_SerieA;
+    LineAndPointFormatter Format_SerieB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,27 +37,27 @@ public class MainActivity extends AppCompatActivity {
 
         plot = findViewById(R.id.plot);
 
-        XYSeries series1 = new SimpleXYSeries(
+         dados_seriesA = new SimpleXYSeries(
                 Arrays.asList(Vendas.pedidos), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, getString(R.string.serieA));
 
 
-        XYSeries series2 = new SimpleXYSeries(
+         dados_seriesB = new SimpleXYSeries(
                 Arrays.asList(Vendas.entregas), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, getString(R.string.SerieB));
 
 
-        LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.RED, Color.GREEN, Color.WHITE, null);
+        Format_SerieA = new LineAndPointFormatter(Color.RED, Color.GREEN, Color.WHITE, null);
 
-        LineAndPointFormatter series2Format = new LineAndPointFormatter(Color.YELLOW, Color.GRAY, Color.BLUE, null);
+        Format_SerieB = new LineAndPointFormatter(Color.YELLOW, Color.GRAY, Color.BLUE, null);
 
-        series2Format.getLinePaint().setPathEffect(new DashPathEffect(new float[]{
+        Format_SerieB.getLinePaint().setPathEffect(new DashPathEffect(new float[]{
                 PixelUtils.dpToPix(20),
                 PixelUtils.dpToPix(15)}, 0));
 
-        series1Format.setInterpolationParams(new CatmullRomInterpolator.Params(10, CatmullRomInterpolator.Type.Centripetal));
-        series2Format.setInterpolationParams(new CatmullRomInterpolator.Params(10, CatmullRomInterpolator.Type.Centripetal));
+        Format_SerieA.setInterpolationParams(new CatmullRomInterpolator.Params(10, CatmullRomInterpolator.Type.Centripetal));
+        Format_SerieB.setInterpolationParams(new CatmullRomInterpolator.Params(10, CatmullRomInterpolator.Type.Centripetal));
 
-        plot.addSeries(series1, series1Format);
-        plot.addSeries(series2, series2Format);
+        plot.addSeries(dados_seriesA, Format_SerieA);
+        plot.addSeries(dados_seriesB, Format_SerieB);
 
 
         plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.BOTTOM).setFormat(new Format() {

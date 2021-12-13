@@ -6,13 +6,20 @@
     android:layout_height="match_parent"
     tools:context="app.grafico.appgraficoxy.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <com.androidplot.xy.XYPlot
+        android:id="@+id/plot"
+        style="@style/APDefacto.Dark"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        app:domainTitle="DOMAIN"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lineLabelRotationBottom="-45"
+        app:lineLabels="left|bottom"
+        app:rangeTitle="RANGE"
+        app:title="MY PLOT" />
 
 </android.support.constraint.ConstraintLayout>

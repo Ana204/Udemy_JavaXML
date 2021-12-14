@@ -77,4 +77,13 @@ public class DataSource extends SQLiteOpenHelper {
         return sucesso;
     }
 
+    public void deletarTabela(String tabela){
+
+        try{
+            db.execSQL("DROP TABLE IF EXISTS" + tabela);
+        }catch (Exception e){
+
+        }
+    }
+
 }

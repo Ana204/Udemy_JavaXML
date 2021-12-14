@@ -1,5 +1,7 @@
 package app.grafico.appgraficoxy.controller;
 
+import android.util.Log;
+
 public class VendasController {
 
 
@@ -22,5 +24,19 @@ public class VendasController {
         Number[] dadosEntregas = {5, 2, 10, 5, 20, 10, 40, 20, 80, 40};
 
         return dadosEntregas;
+    }
+
+    public void salvarDados(Number[] dadosQuantidadesPedidos, Number[] dadosPedidos, Number[] dadosEntregas) {
+
+        int registros = dadosQuantidadesPedidos.length;
+
+        for (int i = 0; i < registros; i++) {
+
+            Number quantidade = dadosQuantidadesPedidos[i];
+            Number pedidos = dadosPedidos[i];
+            Number entregas = dadosEntregas[i];
+
+            Log.v("DADOS", "QUANTIDADES: " + quantidade + "- PEDIDOS: " + pedidos+ "- ENTREGAS: " + entregas);
+        }
     }
 }

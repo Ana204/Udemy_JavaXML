@@ -20,6 +20,7 @@ import java.util.Arrays;
 
 import app.grafico.appgraficoxy.R;
 import app.grafico.appgraficoxy.controller.VendasController;
+import app.grafico.appgraficoxy.dataSource.DataSource;
 import app.grafico.appgraficoxy.model.Vendas;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,8 +40,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DataSource ds = new DataSource(getBaseContext());
+
         vendas = new Vendas();
         vendasController = new VendasController();
+
+        Number[] dadosQuantidadesPedidos =  {1, 2, 3, 6, 7, 8, 9, 10, 13, 14};
+        Number[] dadosPedidos = {1, 4, 2, 8, 4, 16, 8, 32, 16, 64};
+        Number[] dadosEntregas = {5, 2, 10, 5, 20, 10, 40, 20, 80, 40};
+
+        vendasController.salvarDados(dadosQuantidadesPedidos, dadosPedidos, dadosEntregas );
 
         //Popular dados
         vendas.setQuantidadePedidos(vendasController.popularQuantidadePedidos());

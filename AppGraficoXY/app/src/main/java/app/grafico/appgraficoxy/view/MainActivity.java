@@ -19,6 +19,7 @@ import java.text.ParsePosition;
 import java.util.Arrays;
 
 import app.grafico.appgraficoxy.R;
+import app.grafico.appgraficoxy.controller.VendasController;
 import app.grafico.appgraficoxy.model.Vendas;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,19 +31,30 @@ public class MainActivity extends AppCompatActivity {
     LineAndPointFormatter Format_SerieA;
     LineAndPointFormatter Format_SerieB;
 
+    Vendas vendas;
+    VendasController vendasController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        vendas = new Vendas();
+        vendasController = new VendasController();
+
+        //Popular dados
+        vendas.setQuantidadePedidos(vendasController.popularQuantidadePedidos());
+        vendas.setPedidos(vendasController.popularPedidos());
+        vendas.setEntregas(vendasController.popularEntregas());
+
         plot = findViewById(R.id.plot);
 
          dados_seriesA = new SimpleXYSeries(
-                Arrays.asList(Vendas.pedidos), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, getString(R.string.serieA));
+                Arrays.asList(vendas.getPedidos()), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, getString(R.string.serieA));
 
 
          dados_seriesB = new SimpleXYSeries(
-                Arrays.asList(Vendas.entregas), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, getString(R.string.SerieB));
+                Arrays.asList(vendas.getEntregas()), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, getString(R.string.SerieB));
 
 
         Format_SerieA = new LineAndPointFormatter(Color.RED, Color.GREEN, Color.WHITE, null);
@@ -64,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {
                 int i = Math.round(((Number) obj).floatValue());
-                return toAppendTo.append(Vendas.quantidadePedidos[i]);
+                return toAppendTo.append(vendas.getQuantidadePedidos()[i]);
             }
             @Override
             public Object parseObject(String source, ParsePosition pos) {

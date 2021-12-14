@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         DataSource ds = new DataSource(getBaseContext());
 
         vendas = new Vendas();
-        vendasController = new VendasController();
+        vendasController = new VendasController(getBaseContext());
 
         Number[] dadosQuantidadesPedidos =  {1, 2, 3, 6, 7, 8, 9, 10, 13, 14};
         Number[] dadosPedidos = {1, 4, 2, 8, 4, 16, 8, 32, 16, 64};

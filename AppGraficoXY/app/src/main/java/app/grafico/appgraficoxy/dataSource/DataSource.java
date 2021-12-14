@@ -1,5 +1,6 @@
 package app.grafico.appgraficoxy.dataSource;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -32,7 +33,7 @@ public class DataSource extends SQLiteOpenHelper {
 
             db.execSQL(VendasDataModel.criarTabela());
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.e("VENDAS", "DB ---> ERRO: " + e.getMessage());
             Log.e("QUERY", "DB ---> ERRO: " + VendasDataModel.criarTabela());
         }
@@ -44,14 +45,14 @@ public class DataSource extends SQLiteOpenHelper {
 
     }
 
-    public boolean insert(String tabela, ContentValues dados){
+    public boolean insert(String tabela, ContentValues dados) {
         boolean sucesso = true;
 
         try {
 
             sucesso = db.insert(tabela, null, dados) > 0;
 
-        } catch (Exception e){
+        } catch (Exception e) {
 
             sucesso = false;
         }
@@ -59,7 +60,7 @@ public class DataSource extends SQLiteOpenHelper {
         return sucesso;
     }
 
-    public boolean deletar(String tabela, int id){
+    public boolean deletar(String tabela, int id) {
         boolean sucesso = true;
 
         sucesso = db.delete(tabela, "id=?", new String[]{Integer.toString(id)}) > 0;
@@ -67,7 +68,7 @@ public class DataSource extends SQLiteOpenHelper {
         return sucesso;
     }
 
-    public boolean alterar(String tabela, ContentValues dados){
+    public boolean alterar(String tabela, ContentValues dados) {
         boolean sucesso = true;
 
         int id = dados.getAsInteger("id");
@@ -77,13 +78,46 @@ public class DataSource extends SQLiteOpenHelper {
         return sucesso;
     }
 
-    public void deletarTabela(String tabela){
+    public void deletarTabela(String tabela) {
 
-        try{
+        try {
             db.execSQL("DROP TABLE IF EXISTS" + tabela);
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
+    }
+
+    @SuppressLint("Range")
+    public Number[] getDados(String coluna) {
+
+        String sql = "SELECT * FROM " + VendasDataModel.getTABELA() + " ORDER BY id asc";
+
+        cursor = db.rawQuery(sql, null);
+        int dado;
+        Number[] retorno = new Number[cursor.getCount()];
+
+        int i = 0;
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                if (coluna.equalsIgnoreCase("quantidades")) {
+                    dado = cursor.getInt(cursor.getColumnIndex(VendasDataModel.getQuantidade_pedidos()));
+                } else if (coluna.equalsIgnoreCase("pedidos")) {
+                    dado = cursor.getInt(cursor.getColumnIndex(VendasDataModel.getPedidos()));
+                } else if (coluna.equalsIgnoreCase("entregas")) {
+                    dado = cursor.getInt(cursor.getColumnIndex(VendasDataModel.getEntregas()));
+                } else {
+                    dado = 0;
+                }
+
+                retorno[i++] = dado;
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+
+        return retorno;
     }
 
 }

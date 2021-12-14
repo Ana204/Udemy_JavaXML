@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.androidplot.util.PixelUtils;
 import com.androidplot.xy.CatmullRomInterpolator;
@@ -49,12 +50,18 @@ public class MainActivity extends AppCompatActivity {
         Number[] dadosPedidos = {1, 4, 2, 8, 4, 16, 8, 32, 16, 64};
         Number[] dadosEntregas = {5, 2, 10, 5, 20, 10, 40, 20, 80, 40};
 
+        //vendasController.deletarTabela("vendas");
         vendasController.salvarDados(dadosQuantidadesPedidos, dadosPedidos, dadosEntregas );
 
+        //Recuperar dados do banco de dados
+        Number[] retornoQuantidadesPedidos = vendasController.buscarDados("quantidades");
+        Number[] retornoPedidos = vendasController.buscarDados("pedidos");
+        Number[] retornoEntregas = vendasController.buscarDados("entregas");
+
         //Popular dados
-        vendas.setQuantidadePedidos(vendasController.popularQuantidadePedidos());
-        vendas.setPedidos(vendasController.popularPedidos());
-        vendas.setEntregas(vendasController.popularEntregas());
+        vendas.setQuantidadePedidos(retornoQuantidadesPedidos);
+        vendas.setPedidos(retornoPedidos);
+        vendas.setEntregas(retornoEntregas);
 
         plot = findViewById(R.id.plot);
 

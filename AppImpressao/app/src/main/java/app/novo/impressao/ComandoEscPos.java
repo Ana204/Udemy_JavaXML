@@ -1,8 +1,6 @@
 package app.novo.impressao;
 
-/**
- * Created by marcomaddo on 02/12/2018.
- */
+
 
 public class ComandoEscPos {
 

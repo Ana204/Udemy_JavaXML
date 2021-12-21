@@ -17,9 +17,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.UUID;
 
-/**
- * Created by maddo on 02/12/2018
- */
+
 public class ApiBluetooth {
 
     private static final String TAG = "ApiBluetooth";

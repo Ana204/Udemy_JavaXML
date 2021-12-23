@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1058216281102",
+    "project_id": "notificacao-udemy",
+    "storage_bucket": "notificacao-udemy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058216281102:android:ed513050bdc8752529e85f",
+        "android_client_info": {
+          "package_name": "app.novo.notification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058216281102-pht3569qrfft0mi0kid2qk6jhp2k7eb4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3zqNA1O8Omejvtfl-kg-3IHqLEn3klcU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058216281102-pht3569qrfft0mi0kid2qk6jhp2k7eb4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

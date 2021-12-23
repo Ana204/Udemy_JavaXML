@@ -1,4 +1,7 @@
 package app.novo.notification.push;
 
-public class PushFireBaseMessagingService {
+import com.google.firebase.messaging.FirebaseMessagingService;
+
+public class PushFireBaseMessagingService extends FirebaseMessagingService {
+
 }

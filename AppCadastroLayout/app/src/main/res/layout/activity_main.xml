@@ -40,7 +40,9 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:hint="@string/nome_completo" />
+                android:hint="@string/nome_completo"
+                android:inputType="textPersonName"
+                tools:ignore="Autofill" />
 
             <EditText
                 android:id="@+id/edtEmail"
@@ -49,7 +51,9 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:hint="@string/email" />
+                android:hint="@string/email"
+                android:inputType="textWebEmailAddress"
+                tools:ignore="Autofill" />
 
             <EditText
                 android:id="@+id/edtInformeSuaCidade"
@@ -58,7 +62,9 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:hint="@string/informe_sua_cidade" />
+                android:hint="@string/informe_sua_cidade"
+                android:inputType="text"
+                tools:ignore="Autofill" />
 
             <Button
                 android:id="@+id/buttonSalvar"

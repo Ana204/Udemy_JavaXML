@@ -8,20 +8,41 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
+
+    SharedPreferences sharedPreferences;
+    String tokenAPP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sharedPreferences = getSharedPreferences("Push", MODE_PRIVATE);
+
         String mensagem = "50% de desconto";
         String titulo = "MEGA PROMOÇÃO";
 
         notificarUsuario(mensagem, titulo);
+
+        getTokenFCM();
+    }
+
+    private void getTokenFCM() {
+
+        tokenAPP = "teste";
+
+        salvarTokenFCM();
+    }
+
+    private void salvarTokenFCM() {
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putString("tokenAPP", tokenAPP);
+        edit.apply();
     }
 
     private void notificarUsuario(String mensagem, String titulo) {

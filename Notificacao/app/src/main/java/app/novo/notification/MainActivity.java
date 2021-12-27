@@ -1,8 +1,5 @@
 package app.novo.notification;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -11,6 +8,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,21 +34,31 @@ public class MainActivity extends AppCompatActivity {
         String mensagem = "50% de desconto";
         String titulo = "MEGA PROMOÇÃO";
 
-        notificarUsuario(mensagem, titulo);
+        //notificarUsuario(mensagem, titulo);
 
         getTokenFCM();
     }
 
     private void getTokenFCM() {
 
-        tokenAPP = "teste";
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnSuccessListener(MainActivity.this,
+                        new OnSuccessListener<InstanceIdResult>() {
+                            @Override
+                            public void onSuccess(InstanceIdResult instanceIdResult) {
 
-        salvarTokenFCM();
+                                tokenAPP = instanceIdResult.getToken();
+
+                                salvarTokenFCM();
+
+                            }
+                        });
     }
 
     private void salvarTokenFCM() {
         SharedPreferences.Editor edit = sharedPreferences.edit();
         edit.putString("tokenAPP", tokenAPP);
+        Log.i("App_Push",tokenAPP);
         edit.apply();
     }
 

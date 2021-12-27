@@ -1,40 +1,35 @@
-plugins {
-    id 'com.android.application'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdk 31
-
+    compileSdkVersion 31
     defaultConfig {
         applicationId "app.novo.notification"
-        minSdk 21
-        targetSdk 31
+        minSdkVersion 19
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
-
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
-
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
     implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    // Adicionado FCM
+    implementation 'com.google.firebase:firebase-core:17.4.3'
 
-    implementation 'com.google.firebase:firebase-core:20.0.2'
-    implementation 'com.google.firebase:firebase-messaging:23.0.0'
+    // Adicionar firebase-messaging
+    implementation 'com.google.firebase:firebase-messaging:20.2.0'
 
 }
-apply plugin: 'com.google.gms.google-services'
+// Adicionado Google Services
+

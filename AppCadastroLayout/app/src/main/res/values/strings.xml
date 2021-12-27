@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">cadastro</string>
+    <string name="cadastro_modelo">CADASTRO MODELO</string>
+    <string name="nome_completo">Nome completo</string>
+    <string name="email">Email</string>
+    <string name="informe_sua_cidade">Informe sua cidade</string>
+    <string name="salvar">SALVAR</string>
+    <string name="cancelar">CANCELAR</string>
 </resources>

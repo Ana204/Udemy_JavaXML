@@ -10,4 +10,7 @@ public class FabricaDeObjetos {
         return FACTORY;
     }
 
+    public Modelo modelo(String nome, String email){
+        return new Modelo(nome, email);
+    }
 }

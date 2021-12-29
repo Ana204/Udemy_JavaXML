@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">kotlin</string>
     <string name="clique">ClIQUE</string>
+    <string name="tela_splash">TELA SPLASH</string>
 </resources>

@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.374" />
 
     <ImageView
-        android:id="@+id/IconJava"
+        android:id="@+id/imageLogo"
         android:layout_width="240dp"
         android:layout_height="240dp"
         android:src="@drawable/java_logo"
